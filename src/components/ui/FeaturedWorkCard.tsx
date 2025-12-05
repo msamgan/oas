@@ -1,0 +1,22 @@
+import type { HTMLAttributes } from 'react'
+import Card from './Card'
+
+type FeaturedWorkCardProps = HTMLAttributes<HTMLElement> & {
+    title: string
+    author: string
+    animationDelay?: number
+}
+
+function FeaturedWorkCard({ title, author, animationDelay, ...rest }: FeaturedWorkCardProps) {
+    return (
+        <Card variant="default" className="card" animationDelay={animationDelay} role="listitem" {...rest}>
+            <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0b0b0d] to-[#1a1a1c] after:absolute after:inset-0 after:bg-gradient-to-br after:from-[rgba(255,122,24,0.1)] after:to-[rgba(255,183,3,0.05)] after:opacity-0 after:transition-opacity after:duration-[400ms] after:ease-out after:content-[''] hover:after:opacity-100" />
+            <div className="px-3.5 py-3 pb-4 transition-[background] duration-300 ease-out hover:bg-[rgba(255,122,24,0.05)]">
+                <div className="font-extrabold transition-colors duration-300 ease-out group-hover:text-[var(--color-accent)]">{title}</div>
+                <div className="text-sm text-[var(--color-muted)]">{author}</div>
+            </div>
+        </Card>
+    )
+}
+
+export default FeaturedWorkCard
