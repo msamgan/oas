@@ -7,7 +7,7 @@ import Heading from '../components/ui/Heading'
 import Section from '../components/ui/Section'
 import { artists } from '../data/artists'
 import { works } from '../data/works'
-import { normalizeForSlug, parseArtSlug } from '../lib/slug'
+import { artSlug, normalizeForSlug, parseArtSlug } from '../lib/slug'
 
 function ArtDetailsPage() {
     const { slug = '' } = useParams()
@@ -126,7 +126,7 @@ function ArtDetailsPage() {
                         </div>
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                             {artistWorks.slice(0, 4).map((w) => (
-                                <Link key={w.title} to="#" className="group rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] p-4 transition-colors hover:border-[rgba(255,122,24,0.4)]">
+                                <Link key={w.title} to={`/art/${artSlug(artist.name)}`} className="group rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] p-4 transition-colors hover:border-[rgba(255,122,24,0.4)]">
                                     <div className="mb-2 h-36 w-full rounded-[calc(var(--radius)-6px)] bg-gradient-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10]" />
                                     <div className="flex items-center justify-between">
                                         <span className="font-medium">{w.title}</span>
