@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import AboutPage from './pages/AboutPage'
 import ArtistsPage from './pages/ArtistsPage'
+import ArtistDetailsPage from './pages/ArtistDetailsPage'
 import Home from './pages/Home'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/artists" element={<ArtistsPage />} />
+                <Route path="/artists/:slug" element={<ArtistDetailsPage />} />
             </Routes>
             <Footer />
         </BrowserRouter>

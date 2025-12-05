@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ArtistCard from '../components/ui/ArtistCard'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
@@ -6,94 +7,10 @@ import Container from '../components/ui/Container'
 import FilterButton from '../components/ui/FilterButton'
 import Heading from '../components/ui/Heading'
 import Section from '../components/ui/Section'
+import { artists as allArtists, type Artist } from '../data/artists'
+import { artistSlug } from '../lib/slug'
 
-type Artist = {
-    name: string
-    genre: string
-    bio: string
-    works: number
-    category: string
-    featured?: boolean
-    location?: string
-}
-
-const defaultArtists: Artist[] = [
-    {
-        name: 'Aya Kim',
-        genre: 'Abstract, Mixed Media',
-        bio: 'Known for vibrant color palettes and emotional depth',
-        works: 24,
-        category: 'Abstract',
-        featured: true,
-        location: 'Seoul, South Korea',
-    },
-    {
-        name: 'Leo Martinez',
-        genre: 'Contemporary, Acrylic',
-        bio: 'Creates bold contemporary pieces with striking contrasts',
-        works: 18,
-        category: 'Contemporary',
-        location: 'Mexico City, Mexico',
-    },
-    {
-        name: 'Mara Chen',
-        genre: 'Urban, Digital',
-        bio: 'Digital artist exploring modern urban landscapes',
-        works: 32,
-        category: 'Digital',
-        location: 'Hong Kong',
-    },
-    {
-        name: 'Yusuf Rahman',
-        genre: 'Geometric, Oil',
-        bio: 'Precise geometric compositions with rich oil textures',
-        works: 15,
-        category: 'Geometric',
-        featured: true,
-        location: 'Dubai, UAE',
-    },
-    {
-        name: 'Nora Singh',
-        genre: 'Minimal, Sculpture',
-        bio: 'Minimalist sculptor working with natural materials',
-        works: 12,
-        category: 'Sculpture',
-        location: 'Mumbai, India',
-    },
-    {
-        name: 'Iris Park',
-        genre: 'Textural, Pastel',
-        bio: 'Delicate pastel works with intricate textural details',
-        works: 28,
-        category: 'Contemporary',
-        location: 'Paris, France',
-    },
-    {
-        name: 'Diego Silva',
-        genre: 'Street Art, Spray',
-        bio: 'Street artist bringing gallery-quality urban expressions',
-        works: 41,
-        category: 'Urban',
-        location: 'São Paulo, Brazil',
-    },
-    {
-        name: 'Amara Johnson',
-        genre: 'Portrait, Oil',
-        bio: 'Capturing human emotion through classical oil techniques',
-        works: 19,
-        category: 'Portrait',
-        featured: true,
-        location: 'New York, USA',
-    },
-    {
-        name: 'Kai Tanaka',
-        genre: 'Abstract, Ink',
-        bio: 'Traditional ink techniques meeting modern abstraction',
-        works: 26,
-        category: 'Abstract',
-        location: 'Tokyo, Japan',
-    },
-]
+const defaultArtists: Artist[] = allArtists
 
 const categories = ['All', 'Abstract', 'Contemporary', 'Digital', 'Geometric', 'Sculpture', 'Urban', 'Portrait']
 
@@ -168,7 +85,8 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                         </div>
                         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" ref={featuredRef}>
                             {featuredArtists.map((artist, index) => (
-                                <article
+                                <Link
+                                    to={`/artists/${artistSlug(artist.name, artist.location)}`}
                                     key={artist.name}
                                     className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.3)]"
                                     style={{ animationDelay: `${index * 0.15}s` }}
@@ -219,7 +137,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                             )}
                                         </div>
                                     </div>
-                                </article>
+                                </Link>
                             ))}
                         </div>
                     </Container>
@@ -252,14 +170,19 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                     {/* Artists Grid */}
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list" ref={gridRef}>
                         {filteredArtists.map((artist, index) => (
-                            <ArtistCard
+                            <Link
                                 key={`${artist.name}-${index}`}
-                                name={artist.name}
-                                genre={artist.genre}
-                                bio={artist.bio}
-                                works={artist.works}
-                                animationDelay={index * 0.08}
-                            />
+                                to={`/artists/${artistSlug(artist.name, artist.location)}`}
+                                className="block"
+                            >
+                                <ArtistCard
+                                    name={artist.name}
+                                    genre={artist.genre}
+                                    bio={artist.bio}
+                                    works={artist.works}
+                                    animationDelay={index * 0.08}
+                                />
+                            </Link>
                         ))}
                     </div>
 
