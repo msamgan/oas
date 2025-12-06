@@ -39,9 +39,9 @@ function Header() {
                     <RouterLink to="/about" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         About
                     </RouterLink>
-                    <Link href="#contact" onClick={() => setIsMenuOpen(false)} variant="underline">
+                    <RouterLink to="/contact" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         Contact
-                    </Link>
+                    </RouterLink>
                 </nav>
             </Container>
         </header>
