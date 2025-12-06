@@ -91,13 +91,21 @@ function ContactPage() {
                                     <label htmlFor="name" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                         Name <span className="text-[var(--color-accent)]">*</span>
                                     </label>
-                                    <Input id="name" required name="name" placeholder="Your full name" autoComplete="name" />
+                                    <Input id="name" required name="name" placeholder="Your full name" autoComplete="name" className={'w-full'} />
                                 </div>
                                 <div className="group/input">
                                     <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                         Email <span className="text-[var(--color-accent)]">*</span>
                                     </label>
-                                    <Input id="email" required type="email" name="email" placeholder="your@email.com" autoComplete="email" />
+                                    <Input
+                                        id="email"
+                                        required
+                                        type="email"
+                                        name="email"
+                                        placeholder="your@email.com"
+                                        autoComplete="email"
+                                        className={'w-full'}
+                                    />
                                 </div>
                             </div>
 
@@ -105,7 +113,7 @@ function ContactPage() {
                                 <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                     Subject
                                 </label>
-                                <Input id="subject" name="subject" placeholder="What's this about?" />
+                                <Input id="subject" name="subject" placeholder="What's this about?" className={'w-full'} />
                             </div>
 
                             <div className="group/input">
