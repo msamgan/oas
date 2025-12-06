@@ -2,11 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import AboutPage from './pages/AboutPage'
-import ArtistsPage from './pages/ArtistsPage'
-import ArtistDetailsPage from './pages/ArtistDetailsPage'
 import ArtDetailsPage from './pages/ArtDetailsPage'
-import Home from './pages/Home'
+import ArtistDetailsPage from './pages/ArtistDetailsPage'
+import ArtistsPage from './pages/ArtistsPage'
 import ContactPage from './pages/ContactPage'
+import Home from './pages/Home'
 
 function App() {
     return (

@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
+import FeaturedWorkCard from '../components/ui/FeaturedWorkCard'
 import Heading from '../components/ui/Heading'
 import Section from '../components/ui/Section'
-import FeaturedWorkCard from '../components/ui/FeaturedWorkCard'
 import { artists } from '../data/artists'
 import { works } from '../data/works'
 import { artistSlug, normalizeForSlug, parseArtSlug } from '../lib/slug'
@@ -31,9 +31,7 @@ function ArtDetailsPage() {
         if (!artist) return []
         // Find works by artists in the same category
         const relatedArtists = artists.filter((a) => a.name !== artist.name && a.category === artist.category).slice(0, 3)
-        return relatedArtists.flatMap((a) =>
-            works.filter((w) => w.author === a.name).slice(0, 1)
-        )
+        return relatedArtists.flatMap((a) => works.filter((w) => w.author === a.name).slice(0, 1))
     }, [artist])
 
     useEffect(() => {
@@ -49,10 +47,10 @@ function ArtDetailsPage() {
                         <Heading as="h1" variant="h3" className="mb-3">
                             Artwork Not Found
                         </Heading>
-                        <p className="mb-6 text-[var(--color-muted)]">
-                            We couldn't resolve this artwork. The link may be invalid or expired.
-                        </p>
-                        <Button asLink to="/artists">Browse Artists</Button>
+                        <p className="mb-6 text-[var(--color-muted)]">We couldn't resolve this artwork. The link may be invalid or expired.</p>
+                        <Button asLink to="/artists">
+                            Browse Artists
+                        </Button>
                     </Container>
                 </Section>
             </main>
@@ -69,14 +67,17 @@ function ArtDetailsPage() {
                 <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
 
                 {/* Decorative Floating Orbs */}
-                <div className="absolute -right-20 -top-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,122,24,0.15)] to-transparent opacity-30 blur-3xl" />
-                <div className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,183,3,0.12)] to-transparent opacity-20 blur-3xl" style={{ animationDelay: '1s' }} />
+                <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,122,24,0.15)] to-transparent opacity-30 blur-3xl" />
+                <div
+                    className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,183,3,0.12)] to-transparent opacity-20 blur-3xl"
+                    style={{ animationDelay: '1s' }}
+                />
 
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-4xl text-center">
                         <Badge
                             withDot
-                            className={`mb-5 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
+                            className={`mb-5 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
                         >
                             Artwork Details
                         </Badge>
@@ -84,18 +85,18 @@ function ArtDetailsPage() {
                         <Heading
                             as="h1"
                             variant="hero"
-                            className={`mb-3 bg-gradient-to-r from-[var(--color-text)] via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                            className={`mb-3 bg-gradient-to-r from-[var(--color-text)] via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                             style={{
                                 backgroundSize: '200% auto',
                                 animation: 'gradient-shift 4s ease-in-out infinite',
-                                transitionDelay: '0.2s'
+                                transitionDelay: '0.2s',
                             }}
                         >
                             {primaryWork ? primaryWork.title : `Artwork by ${artist.name}`}
                         </Heading>
 
                         <div
-                            className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                            className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                             style={{ transitionDelay: '0.3s' }}
                         >
                             <p className="mb-2 text-lg">
@@ -108,8 +109,18 @@ function ArtDetailsPage() {
                                         <span>•</span>
                                         <span className="flex items-center gap-1">
                                             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                                />
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                                />
                                             </svg>
                                             {artist.location}
                                         </span>
@@ -120,7 +131,7 @@ function ArtDetailsPage() {
                         </div>
 
                         <div
-                            className={`mt-8 flex flex-wrap items-center justify-center gap-3.5 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                            className={`mt-8 flex flex-wrap items-center justify-center gap-3.5 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                             style={{ transitionDelay: '0.4s' }}
                         >
                             <Button>Inquire About Piece</Button>
@@ -138,7 +149,7 @@ function ArtDetailsPage() {
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                         {/* Artwork Display */}
                         <div
-                            className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                            className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                             style={{ transitionDelay: '0.5s' }}
                         >
                             <div className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-[var(--shadow-2)] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
@@ -151,7 +162,12 @@ function ArtDetailsPage() {
                                 {/* Placeholder Icon */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-20">
                                     <svg className="h-24 w-24 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                        />
                                     </svg>
                                 </div>
                             </div>
@@ -159,7 +175,7 @@ function ArtDetailsPage() {
 
                         {/* Details Panel */}
                         <div
-                            className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                            className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                             style={{ transitionDelay: '0.6s' }}
                         >
                             <Heading as="h2" variant="h3" className="mb-4">
@@ -177,7 +193,7 @@ function ArtDetailsPage() {
                                     { label: 'Artist', value: artist.name },
                                     { label: 'Category', value: artist.category },
                                     { label: 'Location', value: artist.location ?? '—' },
-                                    { label: 'ID', value: code ?? '—' }
+                                    { label: 'ID', value: code ?? '—' },
                                 ].map((stat, i) => (
                                     <div
                                         key={i}
@@ -187,8 +203,12 @@ function ArtDetailsPage() {
                                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-500 group-hover:translate-x-full" />
 
                                         <div className="relative">
-                                            <span className="block text-xs font-bold uppercase tracking-wider text-[var(--color-muted)] mb-1">{stat.label}</span>
-                                            <span className="block font-semibold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">{stat.value}</span>
+                                            <span className="mb-1 block text-xs font-bold tracking-wider text-[var(--color-muted)] uppercase">
+                                                {stat.label}
+                                            </span>
+                                            <span className="block font-semibold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+                                                {stat.value}
+                                            </span>
                                         </div>
                                     </div>
                                 ))}
@@ -197,7 +217,9 @@ function ArtDetailsPage() {
                             {/* Action Buttons */}
                             <div className="flex flex-wrap gap-3">
                                 <Button className="flex-1 sm:flex-none">Add to Favorites</Button>
-                                <Button variant="secondary" className="flex-1 sm:flex-none">Share</Button>
+                                <Button variant="secondary" className="flex-1 sm:flex-none">
+                                    Share
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -209,21 +231,13 @@ function ArtDetailsPage() {
                 <Section padding="lg" className="bg-gradient-to-b from-transparent to-white/[0.02]">
                     <Container>
                         <div className="mb-10 text-center">
-                            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] animate-[fade-in-up_0.8s_ease-out]">
+                            <span className="mb-3 inline-block animate-[fade-in-up_0.8s_ease-out] text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
                                 Portfolio
                             </span>
-                            <Heading
-                                as="h2"
-                                variant="h2"
-                                className="mb-3 animate-[fade-in-up_0.8s_ease-out]"
-                                style={{ animationDelay: '0.1s' }}
-                            >
+                            <Heading as="h2" variant="h2" className="mb-3 animate-[fade-in-up_0.8s_ease-out]" style={{ animationDelay: '0.1s' }}>
                                 More from {artist.name}
                             </Heading>
-                            <p
-                                className="text-[var(--color-muted)] animate-[fade-in-up_0.8s_ease-out]"
-                                style={{ animationDelay: '0.2s' }}
-                            >
+                            <p className="animate-[fade-in-up_0.8s_ease-out] text-[var(--color-muted)]" style={{ animationDelay: '0.2s' }}>
                                 Explore more works by this artist
                             </p>
                         </div>
@@ -253,15 +267,10 @@ function ArtDetailsPage() {
                 <Section padding="lg" className="border-t border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
                     <Container>
                         <div className="mb-10 text-center">
-                            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] animate-[fade-in-up_0.8s_ease-out]">
+                            <span className="mb-3 inline-block animate-[fade-in-up_0.8s_ease-out] text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
                                 Discover More
                             </span>
-                            <Heading
-                                as="h2"
-                                variant="h2"
-                                className="animate-[fade-in-up_0.8s_ease-out]"
-                                style={{ animationDelay: '0.1s' }}
-                            >
+                            <Heading as="h2" variant="h2" className="animate-[fade-in-up_0.8s_ease-out]" style={{ animationDelay: '0.1s' }}>
                                 Similar Artworks
                             </Heading>
                         </div>
@@ -275,7 +284,7 @@ function ArtDetailsPage() {
                                     <Link
                                         key={`${work.title}-${i}`}
                                         to={`/artists/${artistSlug(workArtist.name, workArtist.location)}`}
-                                        className="group relative overflow-hidden rounded-[var(--radius)] border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 transition-all duration-500 hover:border-[var(--color-accent)]/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)] hover:-translate-y-1 animate-[fade-in-up_0.8s_ease-out]"
+                                        className="group relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
                                         style={{ animationDelay: `${0.2 + i * 0.1}s` }}
                                     >
                                         {/* Hover Overlay */}
@@ -285,8 +294,18 @@ function ArtDetailsPage() {
                                             {/* Artwork Placeholder */}
                                             <div className="mb-4 aspect-square overflow-hidden rounded-[var(--radius-sm)] bg-gradient-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] transition-transform duration-500 group-hover:scale-105">
                                                 <div className="flex h-full items-center justify-center opacity-20">
-                                                    <svg className="h-12 w-12 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                    <svg
+                                                        className="h-12 w-12 text-[var(--color-accent)]"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={1.5}
+                                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                                        />
                                                     </svg>
                                                 </div>
                                             </div>
@@ -298,7 +317,7 @@ function ArtDetailsPage() {
                                             <p className="text-sm text-[var(--color-muted)]">by {work.author}</p>
 
                                             {/* Arrow Icon */}
-                                            <div className="absolute right-6 top-6 text-[var(--color-accent)] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                            <div className="absolute top-6 right-6 text-[var(--color-accent)] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                                                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>
@@ -310,7 +329,7 @@ function ArtDetailsPage() {
                         </div>
 
                         {/* View All Button */}
-                        <div className="mt-10 text-center animate-[fade-in-up_0.8s_ease-out]" style={{ animationDelay: '0.5s' }}>
+                        <div className="mt-10 animate-[fade-in-up_0.8s_ease-out] text-center" style={{ animationDelay: '0.5s' }}>
                             <Button variant="secondary" asLink to="/artists">
                                 Explore All Artists
                             </Button>
@@ -324,7 +343,7 @@ function ArtDetailsPage() {
                 <Container>
                     <div className="relative overflow-hidden rounded-[var(--radius)] border border-white/[0.08] bg-gradient-to-br from-[rgba(255,122,24,0.12)] via-[rgba(255,183,3,0.08)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
                         {/* Decorative Elements */}
-                        <div className="absolute -right-10 -top-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-20 blur-2xl" />
+                        <div className="absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-gradient-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />
 
                         <div className="relative z-10">
@@ -332,13 +351,13 @@ function ArtDetailsPage() {
                                 Interested in This Artwork?
                             </Heading>
                             <p
-                                className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)] animate-[fade-in-up_0.8s_ease-out]"
+                                className="mx-auto mb-8 max-w-2xl animate-[fade-in-up_0.8s_ease-out] text-lg leading-relaxed text-[var(--color-muted)]"
                                 style={{ animationDelay: '0.1s' }}
                             >
                                 Get in touch to discuss pricing, availability, or commissioning similar pieces from {artist.name}.
                             </p>
                             <div
-                                className="flex flex-wrap items-center justify-center gap-3.5 animate-[fade-in-up_0.8s_ease-out]"
+                                className="flex animate-[fade-in-up_0.8s_ease-out] flex-wrap items-center justify-center gap-3.5"
                                 style={{ animationDelay: '0.2s' }}
                             >
                                 <Button>Contact Artist</Button>

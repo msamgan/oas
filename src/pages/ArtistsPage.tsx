@@ -170,11 +170,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                     {/* Artists Grid */}
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list" ref={gridRef}>
                         {filteredArtists.map((artist, index) => (
-                            <Link
-                                key={`${artist.name}-${index}`}
-                                to={`/artists/${artistSlug(artist.name, artist.location)}`}
-                                className="block"
-                            >
+                            <Link key={`${artist.name}-${index}`} to={`/artists/${artistSlug(artist.name, artist.location)}`} className="block">
                                 <ArtistCard
                                     name={artist.name}
                                     genre={artist.genre}

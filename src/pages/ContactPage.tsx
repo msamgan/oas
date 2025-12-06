@@ -57,18 +57,15 @@ function ContactPage() {
                         <Badge withDot className="mb-6 animate-[scale-in_0.5s_ease-out]">
                             Get in Touch
                         </Badge>
-                        <Heading
-                            as="h1"
-                            variant="hero"
-                            className="mb-5 animate-[fade-in-up_0.8s_ease-out_0.2s_both]"
-                        >
+                        <Heading as="h1" variant="hero" className="mb-5 animate-[fade-in-up_0.8s_ease-out_0.2s_both]">
                             Let's Start a{' '}
                             <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Conversation
                             </span>
                         </Heading>
                         <p className="mb-8 animate-[fade-in-up_0.8s_ease-out_0.3s_both] text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
-                            Have a question, collaboration idea, or feedback? We'd love to hear from you. Our team is here to help and typically responds within 1–2 business days.
+                            Have a question, collaboration idea, or feedback? We'd love to hear from you. Our team is here to help and typically
+                            responds within 1–2 business days.
                         </p>
                     </div>
                 </Container>
@@ -94,26 +91,13 @@ function ContactPage() {
                                     <label htmlFor="name" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                         Name <span className="text-[var(--color-accent)]">*</span>
                                     </label>
-                                    <Input
-                                        id="name"
-                                        required
-                                        name="name"
-                                        placeholder="Your full name"
-                                        autoComplete="name"
-                                    />
+                                    <Input id="name" required name="name" placeholder="Your full name" autoComplete="name" />
                                 </div>
                                 <div className="group/input">
                                     <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                         Email <span className="text-[var(--color-accent)]">*</span>
                                     </label>
-                                    <Input
-                                        id="email"
-                                        required
-                                        type="email"
-                                        name="email"
-                                        placeholder="your@email.com"
-                                        autoComplete="email"
-                                    />
+                                    <Input id="email" required type="email" name="email" placeholder="your@email.com" autoComplete="email" />
                                 </div>
                             </div>
 
@@ -121,11 +105,7 @@ function ContactPage() {
                                 <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
                                     Subject
                                 </label>
-                                <Input
-                                    id="subject"
-                                    name="subject"
-                                    placeholder="What's this about?"
-                                />
+                                <Input id="subject" name="subject" placeholder="What's this about?" />
                             </div>
 
                             <div className="group/input">
@@ -138,16 +118,12 @@ function ContactPage() {
                                     name="message"
                                     placeholder="Tell us more about your inquiry..."
                                     rows={6}
-                                    className="w-full resize-y rounded-[var(--radius)] border border-white/10 bg-white/[0.06] p-4 text-base text-[var(--color-text)] outline-none transition-all duration-300 ease-out placeholder:text-[#9a9a9a] focus:border-[var(--color-accent)] focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(255,122,24,0.1)]"
+                                    className="w-full resize-y rounded-[var(--radius)] border border-white/10 bg-white/[0.06] p-4 text-base text-[var(--color-text)] transition-all duration-300 ease-out outline-none placeholder:text-[#9a9a9a] focus:border-[var(--color-accent)] focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(255,122,24,0.1)]"
                                 />
                             </div>
 
                             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                                <Button
-                                    type="submit"
-                                    disabled={status === 'sending' || status === 'sent'}
-                                    className="group relative overflow-hidden"
-                                >
+                                <Button type="submit" disabled={status === 'sending' || status === 'sent'} className="group relative overflow-hidden">
                                     {status === 'sending' && (
                                         <span className="flex items-center gap-2">
                                             <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -180,7 +156,12 @@ function ContactPage() {
                                 <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius-sm)] border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
                                     <p className="flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-2)]">
                                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
                                         </svg>
                                         Thank you! We've received your message and will respond shortly.
                                     </p>
@@ -189,37 +170,57 @@ function ContactPage() {
                         </form>
 
                         {/* Contact Information Sidebar */}
-                        <aside
-                            ref={contactInfoRef}
-                            className="contact-info space-y-6 animate-[fade-in-up_0.7s_ease-out_0.6s_both] opacity-0"
-                        >
+                        <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
                             <div className="group rounded-[var(--radius)] border border-white/10 bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.15)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
                                     </svg>
                                     Contact Details
                                 </h3>
                                 <ul className="space-y-4 text-sm text-[var(--color-muted)]">
                                     <li className="flex items-start gap-3">
-                                        <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <svg
+                                            className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
                                         </svg>
                                         <div>
-                                            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)]">Email</p>
-                                            <a href="mailto:hello@orangeart.studio" className="oas-link text-base font-semibold hover:text-[var(--color-accent)]">
+                                            <p className="mb-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase">Email</p>
+                                            <a
+                                                href="mailto:hello@orangeart.studio"
+                                                className="oas-link text-base font-semibold hover:text-[var(--color-accent)]"
+                                            >
                                                 hello@orangeart.studio
                                             </a>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
-                                        <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <svg
+                                            className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                        >
                                             <circle cx="12" cy="12" r="10" strokeWidth="2" />
                                             <path d="M12 6v6l4 2" strokeWidth="2" strokeLinecap="round" />
                                         </svg>
                                         <div>
-                                            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)]">Hours</p>
+                                            <p className="mb-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase">Hours</p>
                                             <p className="text-base">Monday – Friday</p>
                                             <p className="text-sm">9:00 AM – 6:00 PM EST</p>
                                         </div>
@@ -232,7 +233,12 @@ function ContactPage() {
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3m.08 4h.01" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path
+                                            d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3m.08 4h.01"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
                                     </svg>
                                     Quick Links
                                 </h3>
@@ -261,8 +267,18 @@ function ContactPage() {
                             {/* Privacy Note */}
                             <div className="rounded-[var(--radius-sm)] border border-white/[0.06] bg-white/[0.03] p-4">
                                 <p className="flex items-start gap-2 text-xs leading-relaxed text-white/60">
-                                    <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <svg
+                                        className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
                                     </svg>
                                     <span>
                                         Your information is secure. We use it solely to respond to your inquiry and never share it with third parties.
@@ -283,7 +299,8 @@ function ContactPage() {
                                 Interested in Submitting Your Work?
                             </h2>
                             <p className="mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6] text-[var(--color-muted)]">
-                                We're always looking for talented artists to feature. Submit your portfolio and join our growing community of creators.
+                                We're always looking for talented artists to feature. Submit your portfolio and join our growing community of
+                                creators.
                             </p>
                             <div className="flex flex-wrap justify-center gap-4 max-sm:flex-col max-sm:items-stretch">
                                 <Button className="max-sm:w-full">Submit Portfolio</Button>
