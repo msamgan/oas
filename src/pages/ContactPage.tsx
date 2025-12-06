@@ -5,6 +5,7 @@ import Container from '../components/ui/Container'
 import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
+import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
 
 function ContactPage() {
@@ -90,13 +91,13 @@ function ContactPage() {
                             <div className="grid gap-5 md:grid-cols-2">
                                 <div className="group/input">
                                     <Label htmlFor="name">
-                                        Name <span className="text-[var(--color-accent)]">*</span>
+                                        Name <Required />
                                     </Label>
                                     <Input id="name" required name="name" placeholder="Your full name" autoComplete="name" className={'w-full'} />
                                 </div>
                                 <div className="group/input">
                                     <Label htmlFor="email">
-                                        Email <span className="text-[var(--color-accent)]">*</span>
+                                        Email <Required />
                                     </Label>
                                     <Input
                                         id="email"
@@ -117,7 +118,7 @@ function ContactPage() {
 
                             <div className="group/input">
                                 <Label htmlFor="message">
-                                    Message <span className="text-[var(--color-accent)]">*</span>
+                                    Message <Required />
                                 </Label>
                                 <textarea
                                     id="message"
