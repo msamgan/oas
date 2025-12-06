@@ -4,6 +4,7 @@ import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
 import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
+import Label from '../components/ui/Label'
 import Section from '../components/ui/Section'
 
 function ContactPage() {
@@ -88,15 +89,15 @@ function ContactPage() {
 
                             <div className="grid gap-5 md:grid-cols-2">
                                 <div className="group/input">
-                                    <label htmlFor="name" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
+                                    <Label htmlFor="name">
                                         Name <span className="text-[var(--color-accent)]">*</span>
-                                    </label>
+                                    </Label>
                                     <Input id="name" required name="name" placeholder="Your full name" autoComplete="name" className={'w-full'} />
                                 </div>
                                 <div className="group/input">
-                                    <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
+                                    <Label htmlFor="email">
                                         Email <span className="text-[var(--color-accent)]">*</span>
-                                    </label>
+                                    </Label>
                                     <Input
                                         id="email"
                                         required
@@ -110,16 +111,14 @@ function ContactPage() {
                             </div>
 
                             <div className="group/input">
-                                <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
-                                    Subject
-                                </label>
+                                <Label htmlFor="subject">Subject</Label>
                                 <Input id="subject" name="subject" placeholder="What's this about?" className={'w-full'} />
                             </div>
 
                             <div className="group/input">
-                                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-[var(--color-text)]">
+                                <Label htmlFor="message">
                                     Message <span className="text-[var(--color-accent)]">*</span>
-                                </label>
+                                </Label>
                                 <textarea
                                     id="message"
                                     required
