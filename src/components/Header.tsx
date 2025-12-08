@@ -8,17 +8,17 @@ function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <header className="animate-fade-in-down sticky top-0 z-10 border-b border-black/6 bg-linear-to-b from-[rgba(255,255,255,0.9)] to-[rgba(255,255,255,0.7)] backdrop-blur-md">
+        <header className="sticky top-0 z-10 animate-[fade-in-down_0.6s_ease-out] border-b border-black/6 bg-gradient-to-b from-[rgba(255,255,255,0.95)] to-[rgba(255,255,255,0.8)] shadow-sm backdrop-blur-md transition-all duration-300">
             <Container className="flex items-center justify-between py-4">
                 <RouterLink
-                    className="group text-text flex items-center gap-3 no-underline transition-transform duration-300 ease-out hover:scale-105"
+                    className="group flex items-center gap-3 text-[var(--color-text)] no-underline transition-transform duration-300 ease-out hover:scale-105"
                     to="/"
                 >
                     <Logo />
                     <span className="font-extrabold tracking-[0.2px]">Orange Art Studio</span>
                 </RouterLink>
                 <button
-                    className="text-text hidden cursor-pointer border-none bg-transparent p-2 max-md:block"
+                    className="hidden cursor-pointer border-none bg-transparent p-2 text-[var(--color-text)] transition-transform hover:scale-110 max-md:block"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Toggle menu"
                     aria-expanded={isMenuOpen}
@@ -26,7 +26,7 @@ function Header() {
                     <Icon name={isMenuOpen ? 'close' : 'menu'} />
                 </button>
                 <nav
-                    className={`flex gap-[18px] max-md:absolute max-md:top-full max-md:right-0 max-md:left-0 max-md:flex-col max-md:gap-3 max-md:border-b max-md:border-black/6 max-md:bg-[rgba(255,255,255,0.98)] max-md:p-5 max-md:backdrop-blur-xl max-md:transition-all max-md:duration-300 max-md:ease-out ${isMenuOpen ? 'max-md:pointer-events-auto max-md:translate-y-0 max-md:opacity-100' : 'max-md:pointer-events-none max-md:-translate-y-full max-md:opacity-0'}`}
+                    className={`flex gap-[18px] max-md:absolute max-md:top-full max-md:right-0 max-md:left-0 max-md:flex-col max-md:gap-3 max-md:border-b max-md:border-black/6 max-md:bg-[rgba(255,255,255,0.98)] max-md:p-5 max-md:shadow-lg max-md:backdrop-blur-xl max-md:transition-all max-md:duration-300 max-md:ease-out ${isMenuOpen ? 'max-md:pointer-events-auto max-md:translate-y-0 max-md:opacity-100' : 'max-md:pointer-events-none max-md:-translate-y-full max-md:opacity-0'}`}
                     aria-label="Primary"
                 >
                     <RouterLink to="/artists" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">

@@ -21,33 +21,63 @@ function Newsletter() {
     }
 
     return (
-        <Section padding="md">
-            <Container className="grid animate-[fade-in-up_0.8s_ease-out] grid-cols-1 items-center gap-7 md:grid-cols-[1.2fr_0.8fr]">
-                <div>
-                    <Heading as="h2" variant="h2">
-                        Stay in the loop
-                    </Heading>
-                    <p className="text-[var(--color-muted)]">
-                        Get early access to releases, open calls, and studio updates. We send no more than two emails a month.
-                    </p>
-                </div>
-                {isSubmitted ? (
-                    <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius)] border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.1)] p-5 text-center font-semibold text-[#16a34a]">
-                        ✓ Thank you for subscribing!
+        <Section padding="md" className="relative">
+            <Container>
+                <div className="relative overflow-hidden rounded-[var(--radius-sm)] border border-black/10 bg-gradient-to-br from-white via-[var(--color-surface)] to-white p-8 shadow-[var(--shadow-2)] md:p-12">
+                    {/* Decorative background elements */}
+                    <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-br from-[var(--color-accent)]/10 to-[var(--color-accent-2)]/5 blur-3xl" />
+                    <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-gradient-to-tr from-[var(--color-accent-2)]/10 to-[var(--color-accent)]/5 blur-3xl" />
+
+                    <div className="relative grid animate-[fade-in-up_0.8s_ease-out] grid-cols-1 items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
+                        <div>
+                            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5 px-3 py-1 text-xs font-bold text-[var(--color-accent)]">
+                                📬 NEWSLETTER
+                            </div>
+                            <Heading as="h2" variant="h2" className="mb-3">
+                                Stay in the loop
+                            </Heading>
+                            <p className="text-[var(--color-muted)]">
+                                Get early access to releases, open calls, and studio updates. We send no more than two emails a month.
+                            </p>
+                            <div className="mt-4 flex items-center gap-4 text-sm text-[var(--color-muted)]">
+                                <span className="flex items-center gap-1.5">
+                                    <svg className="h-4 w-4 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    No spam
+                                </span>
+                                <span className="flex items-center gap-1.5">
+                                    <svg className="h-4 w-4 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Unsubscribe anytime
+                                </span>
+                            </div>
+                        </div>
+                        {isSubmitted ? (
+                            <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius)] border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.1)] p-6 text-center">
+                                <div className="mb-2 text-4xl">✓</div>
+                                <div className="font-semibold text-[#16a34a]">Thank you for subscribing!</div>
+                                <div className="mt-1 text-sm text-[#16a34a]/70">Check your inbox for confirmation</div>
+                            </div>
+                        ) : (
+                            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+                                <Input
+                                    type="email"
+                                    placeholder="Enter your email address"
+                                    aria-label="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    className="w-full"
+                                />
+                                <Button type="submit" className="w-full shadow-[var(--color-accent)]/20 shadow-lg">
+                                    Subscribe Now
+                                </Button>
+                            </form>
+                        )}
                     </div>
-                ) : (
-                    <form className="flex gap-2.5" onSubmit={handleSubmit}>
-                        <Input
-                            type="email"
-                            placeholder="Your email"
-                            aria-label="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                        <Button type="submit">Subscribe</Button>
-                    </form>
-                )}
+                </div>
             </Container>
         </Section>
     )

@@ -40,6 +40,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for sticky header */
 }
 
 html,
@@ -262,5 +263,47 @@ body {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce-subtle {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 122, 24, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 122, 24, 0.5);
     }
 }

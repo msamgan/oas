@@ -37,18 +37,34 @@ function FeaturedGrid({ items = defaultItems }: { items?: FeaturedItem[] }) {
     }, [items])
 
     return (
-        <Section id="featured" padding="md">
+        <Section id="featured" padding="md" className="relative">
             <Container>
-                <Heading as="h2" variant="h2" className="animate-[fade-in-up_0.8s_ease-out]">
-                    Featured works
-                </Heading>
-                <p className="animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-[var(--color-muted)]">
-                    Hand-picked pieces from artists we believe in.
-                </p>
-                <div className="mt-6 grid grid-cols-1 gap-5.5 sm:grid-cols-2 lg:grid-cols-3" role="list" ref={gridRef}>
+                <div className="mb-12 text-center">
+                    <div className="border-accent/20 bg-accent/5 text-accent mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold">
+                        🎨 Curated Collection
+                    </div>
+                    <Heading as="h2" variant="h2" className="animate-fade-in-up mx-auto max-w-3xl">
+                        Featured works
+                    </Heading>
+                    <p className="mx-auto mt-4 max-w-2xl animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-lg text-[var(--color-muted)]">
+                        Hand-picked pieces from artists we believe in. Each work tells a unique story and showcases exceptional creativity.
+                    </p>
+                </div>
+                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list" ref={gridRef}>
                     {items.map((item, index) => (
                         <FeaturedWorkCard key={item.title} title={item.title} author={item.author} animationDelay={index * 0.1} />
                     ))}
+                </div>
+
+                {/* View All Link */}
+                <div className="mt-12 text-center">
+                    <a
+                        href="/artists"
+                        className="group inline-flex items-center gap-2 text-lg font-semibold text-[var(--color-accent)] transition-all hover:gap-3"
+                    >
+                        Explore all artworks
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
                 </div>
             </Container>
         </Section>
