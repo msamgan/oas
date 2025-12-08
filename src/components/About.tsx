@@ -99,7 +99,7 @@ function About() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative overflow-hidden py-15 before:absolute before:-top-1/2 before:-right-[20%] before:h-[600px] before:w-[600px] before:animate-[float_8s_ease-in-out_infinite] before:rounded-full before:bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)] before:content-[''] after:absolute after:-bottom-[40%] after:-left-[10%] after:h-[500px] after:w-[500px] after:animate-[float_10s_ease-in-out_infinite_reverse] after:rounded-full after:bg-[radial-gradient(circle,rgba(255,183,3,0.1)_0%,transparent_70%)] after:content-[''] md:py-20 lg:py-30">
+            <section className="relative overflow-hidden py-15 before:absolute before:-top-1/2 before:-right-[20%] before:h-[600px] before:w-[600px] before:animate-[float_8s_ease-in-out_infinite] before:rounded-full before:bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)] before:content-[''] after:absolute after:-bottom-[40%] after:-left-[10%] after:h-[500px] after:w-[500px] after:animate-[float_10s_ease-in-out_infinite_reverse] after:rounded-full after:bg-[radial-gradient(circle,rgba(255,183,3,0.06)_0%,transparent_70%)] after:content-[''] md:py-20 lg:py-30">
                 <Container>
                     <div className="relative z-[1] mx-auto max-w-[900px] text-center">
                         <Badge withDot>Our Story</Badge>
@@ -120,7 +120,7 @@ function About() {
 
             {/* Mission Section */}
             <section
-                className="relative bg-[linear-gradient(180deg,transparent_0%,rgba(255,122,24,0.03)_50%,transparent_100%)] py-10 before:pointer-events-none before:absolute before:inset-0 before:[background-image:radial-gradient(circle_at_20%_50%,rgba(255,122,24,0.03)_1px,transparent_1px),radial-gradient(circle_at_80%_80%,rgba(255,183,3,0.03)_1px,transparent_1px)] before:bg-[length:50px_50px] before:opacity-50 before:content-[''] md:py-14 lg:py-18"
+                className="relative bg-[linear-gradient(180deg,transparent_0%,rgba(255,122,24,0.02)_50%,transparent_100%)] py-10 before:pointer-events-none before:absolute before:inset-0 before:[background-image:radial-gradient(circle_at_20%_50%,rgba(255,122,24,0.02)_1px,transparent_1px),radial-gradient(circle_at_80%_80%,rgba(255,183,3,0.02)_1px,transparent_1px)] before:bg-[length:50px_50px] before:opacity-50 before:content-[''] md:py-14 lg:py-18"
                 ref={missionRef}
             >
                 <Container>
@@ -161,7 +161,7 @@ function About() {
 
             {/* Values Section */}
             <section
-                className="relative bg-[linear-gradient(180deg,rgba(21,21,23,0.3)_0%,rgba(21,21,23,0.6)_50%,rgba(21,21,23,0.3)_100%)] py-10 md:py-14 lg:py-18"
+                className="relative bg-[linear-gradient(180deg,rgba(248,248,248,0.5)_0%,rgba(245,245,245,0.8)_50%,rgba(248,248,248,0.5)_100%)] py-10 md:py-14 lg:py-18"
                 ref={valuesRef}
             >
                 <Container>
@@ -211,7 +211,7 @@ function About() {
 
             {/* Stats Section */}
             <section
-                className="relative overflow-hidden border-t border-b border-white/[0.06] bg-[linear-gradient(135deg,rgba(255,122,24,0.05)_0%,rgba(255,183,3,0.03)_100%)] py-10 before:absolute before:top-0 before:-left-full before:h-full before:w-full before:animate-[slide-across_3s_ease-in-out_infinite] before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,122,24,0.1)_50%,transparent_100%)] before:content-[''] md:py-14 lg:py-18"
+                className="relative overflow-hidden border-t border-b border-black/[0.06] bg-[linear-gradient(135deg,rgba(255,122,24,0.04)_0%,rgba(255,183,3,0.02)_100%)] py-10 before:absolute before:top-0 before:-left-full before:h-full before:w-full before:animate-[slide-across_3s_ease-in-out_infinite] before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,122,24,0.08)_50%,transparent_100%)] before:content-[''] md:py-14 lg:py-18"
                 ref={statsRef}
             >
                 <Container>
@@ -240,7 +240,7 @@ function About() {
             <section className="py-12 md:py-16 lg:py-24">
                 <Container>
                     <div
-                        className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.1)_0%,rgba(255,183,3,0.05)_100%)] p-10 px-8 text-center shadow-[0_20px_60px_rgba(255,122,24,0.1),var(--shadow-2)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.15)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
+                        className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 px-8 text-center shadow-[var(--shadow-hover)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.12)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
                         ref={ctaCardRef}
                     >
                         <div className="relative z-[2]">
@@ -259,8 +259,8 @@ function About() {
                             </div>
                         </div>
                         <div className="pointer-events-none absolute top-0 right-0 z-[1] h-full w-full">
-                            <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)]" />
-                            <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)]" />
+                            <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
+                            <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
                         </div>
                     </div>
                 </Container>

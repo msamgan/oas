@@ -49,11 +49,11 @@ function SignInPage() {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="signin-hero" padding="lg" className="relative -mb-14 overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] bg-size-[200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] bg-size-[200%_200%]" />
 
                 {/* Decorative floating orbs */}
-                <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)]" />
-                <div className="pointer-events-none absolute -bottom-[40%] -left-[10%] h-[500px] w-[500px] animate-[float_10s_ease-in-out_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.1)_0%,transparent_70%)]" />
+                <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)]" />
+                <div className="pointer-events-none absolute -bottom-[40%] -left-[10%] h-[500px] w-[500px] animate-[float_10s_ease-in-out_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.06)_0%,transparent_70%)]" />
 
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-2xl text-center">
@@ -120,7 +120,7 @@ function SignInPage() {
                                     <input
                                         type="checkbox"
                                         name="remember"
-                                        className="h-4 w-4 cursor-pointer rounded border-white/20 bg-[var(--color-surface)] accent-[var(--color-accent)] transition-all hover:border-[var(--color-accent)]"
+                                        className="h-4 w-4 cursor-pointer rounded border-black/20 bg-white accent-[var(--color-accent)] transition-all hover:border-[var(--color-accent)]"
                                     />
                                     Remember me
                                 </label>
@@ -171,7 +171,7 @@ function SignInPage() {
                         )}
 
                         {/* Sign Up Link */}
-                        <div className="mt-6 border-t border-white/10 pt-6 text-center">
+                        <div className="mt-6 border-t border-black/10 pt-6 text-center">
                             <p className="text-sm text-[var(--color-muted)]">
                                 Don't have an account?{' '}
                                 <Link to="/contact" className="oas-link font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-2)]">

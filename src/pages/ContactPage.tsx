@@ -50,11 +50,11 @@ function ContactPage() {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="contact-hero" padding="lg" className="relative overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
 
                 {/* Decorative floating orbs */}
-                <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)]" />
-                <div className="pointer-events-none absolute -bottom-[40%] -left-[10%] h-[500px] w-[500px] animate-[float_10s_ease-in-out_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.1)_0%,transparent_70%)]" />
+                <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)]" />
+                <div className="pointer-events-none absolute -bottom-[40%] -left-[10%] h-[500px] w-[500px] animate-[float_10s_ease-in-out_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.06)_0%,transparent_70%)]" />
 
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-3xl text-center">
@@ -178,7 +178,7 @@ function ContactPage() {
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
-                            <div className="group rounded-(--radius) border border-white/10 bg-linear-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.15)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -235,7 +235,7 @@ function ContactPage() {
                             </div>
 
                             {/* FAQ / Quick Links Card */}
-                            <div className="group rounded-[var(--radius)] border border-white/10 bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[0_20px_60px_rgba(255,183,3,0.15)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <circle cx="12" cy="12" r="10" strokeWidth="2" />
@@ -271,8 +271,8 @@ function ContactPage() {
                             </div>
 
                             {/* Privacy Note */}
-                            <div className="rounded-[var(--radius-sm)] border border-white/[0.06] bg-white/[0.03] p-4">
-                                <p className="flex items-start gap-2 text-xs leading-relaxed text-white/60">
+                            <div className="rounded-[var(--radius-sm)] border border-black/[0.06] bg-black/[0.02] p-4">
+                                <p className="flex items-start gap-2 text-xs leading-relaxed text-[var(--color-muted)]">
                                     <svg
                                         className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
                                         viewBox="0 0 24 24"
@@ -299,7 +299,7 @@ function ContactPage() {
             {/* CTA Section */}
             <Section id="contact-cta" padding="md">
                 <Container>
-                    <div className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.1)_0%,rgba(255,183,3,0.05)_100%)] p-10 text-center shadow-[0_20px_60px_rgba(255,122,24,0.1),var(--shadow-2)] md:p-12 lg:p-16">
+                    <div className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-[var(--shadow-hover)] md:p-12 lg:p-16">
                         <div className="relative z-[2]">
                             <h2 className="m-0 mb-4 bg-gradient-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Interested in Submitting Your Work?
@@ -318,8 +318,8 @@ function ContactPage() {
 
                         {/* Decorative rotating elements */}
                         <div className="pointer-events-none absolute top-0 right-0 z-[1] h-full w-full">
-                            <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.15)_0%,transparent_70%)]" />
-                            <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.15)_0%,transparent_70%)]" />
+                            <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
+                            <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.1)_0%,transparent_70%)]" />
                         </div>
                     </div>
                 </Container>

@@ -5,7 +5,7 @@ function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="animate-[fade-in_1s_ease-out] border-t border-white/[0.06] py-7 pb-12 text-[var(--color-muted)]">
+        <footer className="animate-[fade-in_1s_ease-out] border-t border-black/[0.06] py-7 pb-12 text-[var(--color-muted)]">
             <Container>
                 <div className="flex flex-col justify-between gap-4 max-sm:text-center sm:flex-row">
                     <div>

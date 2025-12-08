@@ -28,9 +28,9 @@ function Hero() {
                     </div>
                 </div>
                 <div className="relative animate-[slide-in-right_0.8s_ease-out_0.4s_both]">
-                    <div className="animate-[float_6s_ease-in-out_infinite] overflow-hidden rounded-[var(--radius)] border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-white/[0.01] shadow-[var(--shadow-2)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+                    <div className="animate-[float_6s_ease-in-out_infinite] overflow-hidden rounded-[var(--radius)] border border-black/10 bg-gradient-to-b from-black/[0.02] to-white shadow-[var(--shadow-2)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[var(--shadow-hover)]">
                         <ArtCanvas variant="hero" />
-                        <div className="flex items-center justify-between gap-2 px-4 py-3.5">
+                        <div className="flex items-center justify-between gap-2 border-t border-black/6 bg-white/50 px-4 py-3.5">
                             <Badge variant="glow">New Drop</Badge>
                             <strong>Chromatic Echoes</strong>
                         </div>

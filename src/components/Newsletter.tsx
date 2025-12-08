@@ -32,7 +32,7 @@ function Newsletter() {
                     </p>
                 </div>
                 {isSubmitted ? (
-                    <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius)] border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.1)] p-5 text-center font-semibold text-[#86efac]">
+                    <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius)] border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.1)] p-5 text-center font-semibold text-[#16a34a]">
                         ✓ Thank you for subscribing!
                     </div>
                 ) : (

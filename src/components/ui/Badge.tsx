@@ -13,10 +13,10 @@ function cn(...classes: Array<string | undefined | false | null>) {
 
 const variants: Record<NonNullable<BadgeProps['variant']>, string> = {
     default:
-        'inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[rgba(255,122,24,0.12)] text-[#ffd7b0] text-xs font-bold tracking-wider uppercase animate-[scale-in_0.5s_ease-out]',
+        'inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[rgba(255,122,24,0.1)] text-[#d45a00] text-xs font-bold tracking-wider uppercase animate-[scale-in_0.5s_ease-out]',
     featured:
-        'px-2.5 py-1 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] text-xs font-bold text-[#1a1208] shadow-lg animate-[float_6s_ease-in-out_infinite]',
-    glow: 'px-2.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[var(--color-text)] text-xs font-bold animate-[glow_2s_ease-in-out_infinite]',
+        'px-2.5 py-1 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] text-xs font-bold text-white shadow-lg animate-[float_6s_ease-in-out_infinite]',
+    glow: 'px-2.5 py-1.5 rounded-full bg-black/[0.04] border border-black/10 text-[var(--color-text)] text-xs font-bold animate-[glow_2s_ease-in-out_infinite]',
 }
 
 function Badge({ children, className, variant = 'default', withDot = false, ...rest }: BadgeProps) {

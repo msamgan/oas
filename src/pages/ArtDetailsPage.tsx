@@ -64,12 +64,12 @@ function ArtDetailsPage() {
             {/* Hero Section */}
             <Section padding="lg" className="relative overflow-hidden">
                 {/* Animated Background Gradient */}
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
 
                 {/* Decorative Floating Orbs */}
-                <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,122,24,0.15)] to-transparent opacity-30 blur-3xl" />
+                <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,122,24,0.08)] to-transparent opacity-30 blur-3xl" />
                 <div
-                    className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,183,3,0.12)] to-transparent opacity-20 blur-3xl"
+                    className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-br from-[rgba(255,183,3,0.06)] to-transparent opacity-20 blur-3xl"
                     style={{ animationDelay: '1s' }}
                 />
 
@@ -144,7 +144,7 @@ function ArtDetailsPage() {
             </Section>
 
             {/* Artwork Details Section */}
-            <Section padding="lg" className="border-y border-white/[0.06]">
+            <Section padding="lg" className="border-y border-black/[0.06]">
                 <Container>
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                         {/* Artwork Display */}
@@ -197,10 +197,10 @@ function ArtDetailsPage() {
                                 ].map((stat, i) => (
                                     <div
                                         key={i}
-                                        className="group relative overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-white/[0.06] hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
+                                        className="group relative overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-black/[0.02] to-white p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-black/[0.04] hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
                                     >
                                         {/* Hover Shimmer */}
-                                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+                                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/[0.04] to-transparent transition-transform duration-500 group-hover:translate-x-full" />
 
                                         <div className="relative">
                                             <span className="mb-1 block text-xs font-bold tracking-wider text-[var(--color-muted)] uppercase">
@@ -264,7 +264,7 @@ function ArtDetailsPage() {
 
             {/* Related Works Section */}
             {relatedWorks.length > 0 && (
-                <Section padding="lg" className="border-t border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
+                <Section padding="lg" className="border-t border-black/[0.06] bg-gradient-to-b from-black/[0.01] to-transparent">
                     <Container>
                         <div className="mb-10 text-center">
                             <span className="mb-3 inline-block animate-[fade-in-up_0.8s_ease-out] text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
@@ -284,7 +284,7 @@ function ArtDetailsPage() {
                                     <Link
                                         key={`${work.title}-${i}`}
                                         to={`/artists/${artistSlug(workArtist.name, workArtist.location)}`}
-                                        className="group relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
+                                        className="group relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-black/[0.06] bg-gradient-to-br from-black/[0.02] to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/[0.04] hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
                                         style={{ animationDelay: `${0.2 + i * 0.1}s` }}
                                     >
                                         {/* Hover Overlay */}
@@ -292,7 +292,7 @@ function ArtDetailsPage() {
 
                                         <div className="relative">
                                             {/* Artwork Placeholder */}
-                                            <div className="mb-4 aspect-square overflow-hidden rounded-[var(--radius-sm)] bg-gradient-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] transition-transform duration-500 group-hover:scale-105">
+                                            <div className="mb-4 aspect-square overflow-hidden rounded-[var(--radius-sm)] bg-gradient-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5] transition-transform duration-500 group-hover:scale-105">
                                                 <div className="flex h-full items-center justify-center opacity-20">
                                                     <svg
                                                         className="h-12 w-12 text-[var(--color-accent)]"
@@ -339,9 +339,9 @@ function ArtDetailsPage() {
             )}
 
             {/* Call to Action */}
-            <Section padding="lg" className="border-t border-white/[0.06]">
+            <Section padding="lg" className="border-t border-black/[0.06]">
                 <Container>
-                    <div className="relative overflow-hidden rounded-[var(--radius)] border border-white/[0.08] bg-gradient-to-br from-[rgba(255,122,24,0.12)] via-[rgba(255,183,3,0.08)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
+                    <div className="relative overflow-hidden rounded-[var(--radius)] border border-black/[0.08] bg-gradient-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
                         {/* Decorative Elements */}
                         <div className="absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-gradient-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />

@@ -22,7 +22,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
                     <h3 className="mb-2 text-xl font-extrabold transition-colors duration-300 group-hover:text-[var(--color-accent)]">{name}</h3>
                     <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{genre}</p>
                     <p className="mb-4 text-sm leading-relaxed text-[var(--color-muted)]">{bio}</p>
-                    <div className="flex items-center justify-between border-t border-white/[0.06] pt-3">
+                    <div className="flex items-center justify-between border-t border-black/[0.06] pt-3">
                         <span className="text-xs text-[var(--color-muted)]">{works} works</span>
                         {location && (
                             <span className="flex items-center gap-1 text-xs text-[var(--color-muted)]">
@@ -43,7 +43,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
                 <h3 className="mb-1 text-lg font-extrabold transition-colors duration-300 ease-out group-hover:text-[var(--color-accent)]">{name}</h3>
                 <p className="mb-2 text-sm text-[var(--color-muted)]">{genre}</p>
                 <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-[var(--color-muted)]">{bio}</p>
-                <div className="flex items-center justify-between border-t border-white/[0.04] pt-2">
+                <div className="flex items-center justify-between border-t border-black/[0.04] pt-2">
                     <span className="text-xs text-[var(--color-muted)]">{works} works</span>
                     <span className="text-xs font-semibold text-[var(--color-accent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         View Profile →

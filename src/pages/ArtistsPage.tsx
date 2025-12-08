@@ -88,7 +88,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                 <Link
                                     to={`/artists/${artistSlug(artist.name, artist.location)}`}
                                     key={artist.name}
-                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.3)]"
+                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[var(--shadow-hover)]"
                                     style={{ animationDelay: `${index * 0.15}s` }}
                                 >
                                     {/* Shimmer effect overlay */}
@@ -97,15 +97,15 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                     </div>
 
                                     {/* Featured badge */}
-                                    <div className="absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] px-2.5 py-1 text-xs font-bold text-[#1a1208] shadow-lg">
+                                    <div className="absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] px-2.5 py-1 text-xs font-bold text-white shadow-lg">
                                         ★ Featured
                                     </div>
 
-                                    <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10]">
+                                    <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5]">
                                         {/* Animated gradient overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(255,122,24,0.15)] via-transparent to-[rgba(255,183,3,0.1)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(255,122,24,0.1)] via-transparent to-[rgba(255,183,3,0.08)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
                                         {/* Shimmer placeholder */}
-                                        <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.05)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
+                                        <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
                                     </div>
 
                                     <div className="relative p-5">
@@ -114,7 +114,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                         </h3>
                                         <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{artist.genre}</p>
                                         <p className="mb-4 text-sm leading-relaxed text-[var(--color-muted)]">{artist.bio}</p>
-                                        <div className="flex items-center justify-between border-t border-white/[0.06] pt-3">
+                                        <div className="flex items-center justify-between border-t border-black/[0.06] pt-3">
                                             <span className="text-xs text-[var(--color-muted)]">{artist.works} works</span>
                                             {artist.location && (
                                                 <span className="flex items-center gap-1 text-xs text-[var(--color-muted)]">
@@ -185,7 +185,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                     {/* Empty State */}
                     {filteredArtists.length === 0 && (
                         <div className="animate-[fade-in-up_0.6s_ease-out] py-20 text-center">
-                            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white/[0.06]">
+                            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-black/[0.04]">
                                 <svg className="h-8 w-8 text-[var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path
                                         strokeLinecap="round"
