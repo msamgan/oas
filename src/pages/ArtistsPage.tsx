@@ -86,24 +86,24 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                 <Link
                                     to={`/artists/${artistSlug(artist.name, artist.location)}`}
                                     key={artist.name}
-                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-(--shadow-hover)"
+                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-(--shadow-2) transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-(--shadow-hover)"
                                     style={{ animationDelay: `${index * 0.15}s` }}
                                 >
                                     {/* Shimmer effect overlay */}
                                     <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                        <div className="absolute inset-0 translate-x-[-100%] bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]" />
+                                        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
                                     </div>
 
                                     {/* Featured badge */}
-                                    <div className="from-accent to-accent-2 absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-r px-2.5 py-1 text-xs font-bold text-white shadow-lg">
+                                    <div className="from-accent to-accent-2 animate-float absolute top-3 right-3 z-10 rounded-full bg-linear-to-r px-2.5 py-1 text-xs font-bold text-white shadow-lg">
                                         ★ Featured
                                     </div>
 
-                                    <div className="relative aspect-[4/3] overflow-hidden bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5]">
+                                    <div className="relative aspect-4/3 overflow-hidden bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5]">
                                         {/* Animated gradient overlay */}
                                         <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.1)] via-transparent to-[rgba(255,183,3,0.08)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
                                         {/* Shimmer placeholder */}
-                                        <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
+                                        <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] bg-size-[200%_100%]" />
                                     </div>
 
                                     <div className="relative p-5">

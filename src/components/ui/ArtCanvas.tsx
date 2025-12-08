@@ -10,9 +10,9 @@ function cn(...classes: Array<string | undefined | false | null>) {
 }
 
 const variants: Record<NonNullable<ArtCanvasProps['variant']>, string> = {
-    default: 'aspect-[4/3] bg-linear-to-br from-[#f5f5f5] to-[#e8e8e8] relative overflow-hidden',
-    shimmer: 'aspect-[4/3] bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5] relative overflow-hidden',
-    hero: "aspect-[4/3] bg-[radial-gradient(120px_80px_at_20%_30%,rgba(255,122,24,0.15),transparent_50%),radial-gradient(160px_120px_at_70%_60%,rgba(255,183,3,0.12),transparent_50%),#fafafa] relative overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.6)_50%,transparent_100%)] before:bg-[length:200%_100%] before:animate-[shimmer_3s_infinite]",
+    default: 'aspect-4/3 bg-linear-to-br from-[#f5f5f5] to-[#e8e8e8] relative overflow-hidden',
+    shimmer: 'aspect-4/3 bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5] relative overflow-hidden',
+    hero: "aspect-4/3 bg-[radial-gradient(120px_80px_at_20%_30%,rgba(255,122,24,0.15),transparent_50%),radial-gradient(160px_120px_at_70%_60%,rgba(255,183,3,0.12),transparent_50%),#fafafa] relative overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.6)_50%,transparent_100%)] before:bg-[length:200%_100%] before:animate-[shimmer_3s_infinite]",
 }
 
 function ArtCanvas({ className, variant = 'default', withHoverEffect = false, ...rest }: ArtCanvasProps) {
@@ -23,7 +23,7 @@ function ArtCanvas({ className, variant = 'default', withHoverEffect = false, ..
                     {/* Animated gradient overlay */}
                     <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
                     {/* Shimmer placeholder */}
-                    <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
+                    <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] bg-size-[200%_100%]" />
                 </>
             )}
             {withHoverEffect && (
@@ -32,7 +32,7 @@ function ArtCanvas({ className, variant = 'default', withHoverEffect = false, ..
                     <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.12)] to-[rgba(255,183,3,0.08)] opacity-0 transition-opacity duration-[400ms] ease-out group-hover:opacity-100" />
                     {/* Shimmer effect */}
                     <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <div className="absolute inset-0 animate-[shimmer_2s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.5)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
+                        <div className="absolute inset-0 animate-[shimmer_2s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.5)_50%,transparent_60%,transparent_100%)] bg-size-[200%_100%]" />
                     </div>
                 </>
             )}

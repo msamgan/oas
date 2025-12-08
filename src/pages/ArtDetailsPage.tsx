@@ -69,7 +69,7 @@ function ArtDetailsPage() {
                 {/* Decorative Floating Orbs */}
                 <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,122,24,0.08)] to-transparent opacity-30 blur-3xl" />
                 <div
-                    className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,183,3,0.06)] to-transparent opacity-20 blur-3xl"
+                    className="animate-float absolute -bottom-10 -left-20 h-80 w-80 rounded-full bg-linear-to-br from-[rgba(255,183,3,0.06)] to-transparent opacity-20 blur-3xl"
                     style={{ animationDelay: '1s' }}
                 />
 
@@ -152,12 +152,12 @@ function ArtDetailsPage() {
                             className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                             style={{ transitionDelay: '0.5s' }}
                         >
-                            <div className="group relative aspect-[4/3] overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-[var(--shadow-2)] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
+                            <div className="group relative aspect-4/3 overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-(--shadow-2) transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
                                 {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.12)] via-transparent to-[rgba(255,183,3,0.1)] opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
 
                                 {/* Shimmer Effect */}
-                                <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.05)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
+                                <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.05)_50%,transparent_60%,transparent_100%)] bg-size-[200%_100%]" />
 
                                 {/* Placeholder Icon */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-20">
@@ -330,7 +330,7 @@ function ArtDetailsPage() {
             {/* Call to Action */}
             <Section padding="lg" className="border-t border-black/6">
                 <Container>
-                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
+                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-(--shadow-2)">
                         {/* Decorative Elements */}
                         <div className="from-accent absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />

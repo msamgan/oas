@@ -56,7 +56,7 @@ function ArtistDetailsPage() {
                 {/* Decorative Elements */}
                 <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,122,24,0.08)] to-transparent opacity-30 blur-3xl" />
                 <div
-                    className="absolute -bottom-10 -left-20 h-80 w-80 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,183,3,0.06)] to-transparent opacity-20 blur-3xl"
+                    className="animate-float absolute -bottom-10 -left-20 h-80 w-80 rounded-full bg-linear-to-br from-[rgba(255,183,3,0.06)] to-transparent opacity-20 blur-3xl"
                     style={{ animationDelay: '1s' }}
                 />
 
@@ -299,7 +299,7 @@ function ArtistDetailsPage() {
             {/* Call to Action */}
             <Section padding="lg" className="border-t border-black/6">
                 <Container>
-                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
+                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-(--shadow-2)">
                         {/* Decorative Elements */}
                         <div className="from-accent absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />
