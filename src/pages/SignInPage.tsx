@@ -155,8 +155,8 @@ function SignInPage() {
 
                         {/* Success Message */}
                         {status === 'success' && (
-                            <div className="mt-4 animate-[scale-in_0.3s_ease-out] rounded-[var(--radius-sm)] border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
-                                <p className="flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-2)]">
+                            <div className="mt-4 animate-[scale-in_0.3s_ease-out] rounded-sm border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
+                                <p className="text-accent-2 flex items-center gap-2 text-sm font-semibold">
                                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
                                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
@@ -174,7 +174,7 @@ function SignInPage() {
                         <div className="mt-6 border-t border-black/10 pt-6 text-center">
                             <p className="text-muted text-sm">
                                 Don't have an account?{' '}
-                                <Link to="/contact" className="oas-link font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-2)]">
+                                <Link to="/contact" className="oas-link text-accent hover:text-accent-2 font-semibold">
                                     Contact us to get started
                                 </Link>
                             </p>

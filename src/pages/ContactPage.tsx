@@ -50,7 +50,7 @@ function ContactPage() {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="contact-hero" padding="lg" className="relative overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] bg-size-[200%_200%]" />
 
                 {/* Decorative floating orbs */}
                 <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)]" />
@@ -58,7 +58,7 @@ function ContactPage() {
 
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-3xl text-center">
-                        <Badge withDot className="mb-6 animate-[scale-in_0.5s_ease-out]">
+                        <Badge withDot className="animate-scale-in mb-6">
                             Get in Touch
                         </Badge>
                         <Heading as="h1" variant="hero" className="mb-5 animate-[fade-in-up_0.8s_ease-out_0.2s_both]">
@@ -159,8 +159,8 @@ function ContactPage() {
 
                             {/* Success Message */}
                             {status === 'sent' && (
-                                <div className="animate-[scale-in_0.3s_ease-out] rounded-[var(--radius-sm)] border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
-                                    <p className="flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-2)]">
+                                <div className="animate-[scale-in_0.3s_ease-out] rounded-sm border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
+                                    <p className="text-accent-2 flex items-center gap-2 text-sm font-semibold">
                                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                             <path
                                                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
@@ -178,9 +178,9 @@ function ContactPage() {
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
-                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-(--shadow-1) transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
-                                    <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <svg className="text-accent h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
                                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                                             strokeWidth="2"
@@ -192,12 +192,7 @@ function ContactPage() {
                                 </h3>
                                 <ul className="text-muted space-y-4 text-sm">
                                     <li className="flex items-start gap-3">
-                                        <svg
-                                            className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                        >
+                                        <svg className="text-accent mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                             <path
                                                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                                                 strokeWidth="2"
@@ -206,24 +201,19 @@ function ContactPage() {
                                             />
                                         </svg>
                                         <div>
-                                            <p className="mb-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase">Email</p>
+                                            <p className="text-accent mb-1 text-xs font-semibold tracking-wider uppercase">Email</p>
                                             <a href="mailto:hello@orangeart.studio" className="oas-link hover:text-accent text-base font-semibold">
                                                 hello@orangeart.studio
                                             </a>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
-                                        <svg
-                                            className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                        >
+                                        <svg className="text-accent mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                             <circle cx="12" cy="12" r="10" strokeWidth="2" />
                                             <path d="M12 6v6l4 2" strokeWidth="2" strokeLinecap="round" />
                                         </svg>
                                         <div>
-                                            <p className="mb-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase">Hours</p>
+                                            <p className="text-accent mb-1 text-xs font-semibold tracking-wider uppercase">Hours</p>
                                             <p className="text-base">Monday – Friday</p>
                                             <p className="text-sm">9:00 AM – 6:00 PM EST</p>
                                         </div>
@@ -232,9 +222,9 @@ function ContactPage() {
                             </div>
 
                             {/* FAQ / Quick Links Card */}
-                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-(--shadow-1) transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
-                                    <svg className="h-5 w-5 text-[var(--color-accent-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <svg className="text-accent-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <circle cx="12" cy="12" r="10" strokeWidth="2" />
                                         <path
                                             d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3m.08 4h.01"
@@ -268,14 +258,9 @@ function ContactPage() {
                             </div>
 
                             {/* Privacy Note */}
-                            <div className="rounded-[var(--radius-sm)] border border-black/6 bg-black/2 p-4">
+                            <div className="rounded-sm border border-black/6 bg-black/2 p-4">
                                 <p className="text-muted flex items-start gap-2 text-xs leading-relaxed">
-                                    <svg
-                                        className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                    >
+                                    <svg className="text-accent mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
                                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                                             strokeWidth="2"

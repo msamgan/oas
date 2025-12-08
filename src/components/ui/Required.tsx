@@ -9,7 +9,7 @@ function cn(...classes: Array<string | undefined | false | null>) {
 }
 
 function Required({ className, children = '*', ...rest }: RequiredProps) {
-    const baseClasses = 'text-[var(--color-accent)]'
+    const baseClasses = 'text-accent'
     return (
         <span className={cn(baseClasses, className)} aria-hidden="true" {...rest}>
             {children}

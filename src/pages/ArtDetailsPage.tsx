@@ -64,7 +64,7 @@ function ArtDetailsPage() {
             {/* Hero Section */}
             <Section padding="lg" className="relative overflow-hidden">
                 {/* Animated Background Gradient */}
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] bg-size-[200%_200%]" />
 
                 {/* Decorative Floating Orbs */}
                 <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,122,24,0.08)] to-transparent opacity-30 blur-3xl" />
@@ -100,7 +100,7 @@ function ArtDetailsPage() {
                             style={{ transitionDelay: '0.3s' }}
                         >
                             <p className="mb-2 text-lg">
-                                by <span className="font-semibold text-[var(--color-accent)]">{artist.name}</span>
+                                by <span className="text-accent font-semibold">{artist.name}</span>
                             </p>
                             <p className="text-muted flex items-center justify-center gap-3">
                                 <span>{artist.genre}</span>
@@ -161,7 +161,7 @@ function ArtDetailsPage() {
 
                                 {/* Placeholder Icon */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                                    <svg className="h-24 w-24 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="text-accent h-24 w-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -197,7 +197,7 @@ function ArtDetailsPage() {
                                 ].map((stat, i) => (
                                     <div
                                         key={i}
-                                        className="group relative overflow-hidden rounded-[var(--radius-sm)] border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-black/[0.02] to-white p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-black/[0.04] hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
+                                        className="group relative overflow-hidden rounded-sm border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-black/[0.02] to-white p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-black/[0.04] hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
                                     >
                                         {/* Hover Shimmer */}
                                         <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-black/[0.04] to-transparent transition-transform duration-500 group-hover:translate-x-full" />
@@ -229,7 +229,7 @@ function ArtDetailsPage() {
                 <Section padding="lg" className="bg-linear-to-b from-transparent to-white/[0.02]">
                     <Container>
                         <div className="mb-10 text-center">
-                            <span className="animate-fade-in-up mb-3 inline-block text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
+                            <span className="animate-fade-in-up text-accent mb-3 inline-block text-xs font-bold tracking-wider uppercase">
                                 Portfolio
                             </span>
                             <Heading as="h2" variant="h2" className="animate-fade-in-up mb-3" style={{ animationDelay: '0.1s' }}>
@@ -261,7 +261,7 @@ function ArtDetailsPage() {
                 <Section padding="lg" className="border-t border-black/6 bg-linear-to-b from-black/1 to-transparent">
                     <Container>
                         <div className="mb-10 text-center">
-                            <span className="animate-fade-in-up mb-3 inline-block text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
+                            <span className="animate-fade-in-up text-accent mb-3 inline-block text-xs font-bold tracking-wider uppercase">
                                 Discover More
                             </span>
                             <Heading as="h2" variant="h2" className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
@@ -286,14 +286,9 @@ function ArtDetailsPage() {
 
                                         <div className="relative">
                                             {/* Artwork Placeholder */}
-                                            <div className="mb-4 aspect-square overflow-hidden rounded-[var(--radius-sm)] bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5] transition-transform duration-500 group-hover:scale-105">
+                                            <div className="mb-4 aspect-square overflow-hidden rounded-sm bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5] transition-transform duration-500 group-hover:scale-105">
                                                 <div className="flex h-full items-center justify-center opacity-20">
-                                                    <svg
-                                                        className="h-12 w-12 text-[var(--color-accent)]"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
+                                                    <svg className="text-accent h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path
                                                             strokeLinecap="round"
                                                             strokeLinejoin="round"
@@ -311,7 +306,7 @@ function ArtDetailsPage() {
                                             <p className="text-muted text-sm">by {work.author}</p>
 
                                             {/* Arrow Icon */}
-                                            <div className="absolute top-6 right-6 text-[var(--color-accent)] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                            <div className="text-accent absolute top-6 right-6 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                                                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>

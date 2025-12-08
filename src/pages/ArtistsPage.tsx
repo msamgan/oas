@@ -48,7 +48,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="artists-hero" padding="lg" className="relative overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] bg-size-[200%_200%]" />
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-3xl text-center">
                         <Badge withDot className="mb-6">
@@ -75,9 +75,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                     <Container>
                         <div className="mb-8 flex animate-[fade-in-up_0.6s_ease-out] items-center justify-between">
                             <div>
-                                <span className="mb-2 block text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
-                                    Featured Artists
-                                </span>
+                                <span className="text-accent mb-2 block text-xs font-bold tracking-wider uppercase">Featured Artists</span>
                                 <Heading as="h2" variant="h3">
                                     Spotlight
                                 </Heading>
@@ -112,7 +110,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                         <h3 className="group-hover:text-accent mb-2 text-xl font-extrabold transition-colors duration-300">
                                             {artist.name}
                                         </h3>
-                                        <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{artist.genre}</p>
+                                        <p className="text-accent mb-2 text-sm font-semibold">{artist.genre}</p>
                                         <p className="text-muted mb-4 text-sm leading-relaxed">{artist.bio}</p>
                                         <div className="flex items-center justify-between border-t border-black/6 pt-3">
                                             <span className="text-muted text-xs">{artist.works} works</span>

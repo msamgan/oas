@@ -13,7 +13,7 @@ function cn(...classes: Array<string | undefined | false | null>) {
 
 const variants: Record<NonNullable<BadgeProps['variant']>, string> = {
     default:
-        'inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[rgba(255,122,24,0.1)] text-[#d45a00] text-xs font-bold tracking-wider uppercase animate-[scale-in_0.5s_ease-out]',
+        'inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[rgba(255,122,24,0.1)] text-[#d45a00] text-xs font-bold tracking-wider uppercase animate-scale-in',
     featured:
         'px-2.5 py-1 rounded-full bg-linear-to-r from-accent to-accent-2 text-xs font-bold text-white shadow-lg animate-[float_6s_ease-in-out_infinite]',
     glow: 'px-2.5 py-1.5 rounded-full bg-black/4 border border-black/10 text-text text-xs font-bold animate-[glow_2s_ease-in-out_infinite]',

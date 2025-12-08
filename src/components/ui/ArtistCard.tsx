@@ -20,7 +20,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
                 <ArtCanvas variant="shimmer" />
                 <div className="relative p-5">
                     <h3 className="group-hover:text-accent mb-2 text-xl font-extrabold transition-colors duration-300">{name}</h3>
-                    <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{genre}</p>
+                    <p className="text-accent mb-2 text-sm font-semibold">{genre}</p>
                     <p className="text-muted mb-4 text-sm leading-relaxed">{bio}</p>
                     <div className="flex items-center justify-between border-t border-black/6 pt-3">
                         <span className="text-muted text-xs">{works} works</span>
@@ -45,7 +45,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
                 <p className="text-muted mb-3 line-clamp-2 text-xs leading-relaxed">{bio}</p>
                 <div className="flex items-center justify-between border-t border-black/4 pt-2">
                     <span className="text-muted text-xs">{works} works</span>
-                    <span className="text-xs font-semibold text-[var(--color-accent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="text-accent text-xs font-semibold opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         View Profile →
                     </span>
                 </div>

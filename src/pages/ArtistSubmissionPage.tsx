@@ -279,7 +279,7 @@ function ArtistSubmissionPage() {
                         {/* Submission Info Sidebar */}
                         <aside ref={sidebarRef} className="animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Submission Process Card */}
-                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-(--shadow-1) transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -323,7 +323,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Requirements Card */}
-                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-(--shadow-1) transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -356,7 +356,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Quick Links Card */}
-                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-(--shadow-1) transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 text-lg font-bold">Helpful Resources</h3>
                                 <ul className="space-y-3 text-sm">
                                     <li>

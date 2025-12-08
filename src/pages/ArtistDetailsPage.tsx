@@ -51,7 +51,7 @@ function ArtistDetailsPage() {
             {/* Hero Section with Profile */}
             <Section padding="lg" className="relative overflow-hidden">
                 {/* Animated Background Gradient */}
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] bg-size-[200%_200%]" />
 
                 {/* Decorative Elements */}
                 <div className="absolute -top-20 -right-20 h-96 w-96 animate-[float_8s_ease-in-out_infinite] rounded-full bg-linear-to-br from-[rgba(255,122,24,0.08)] to-transparent opacity-30 blur-3xl" />
@@ -98,7 +98,7 @@ function ArtistDetailsPage() {
                                 className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                                 style={{ transitionDelay: '0.3s' }}
                             >
-                                <p className="mb-2 text-lg font-semibold text-[var(--color-accent)]">{artist.genre}</p>
+                                <p className="text-accent mb-2 text-lg font-semibold">{artist.genre}</p>
                                 {artist.location && (
                                     <p className="text-muted mb-1 flex items-center justify-center gap-2">
                                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,9 +175,7 @@ function ArtistDetailsPage() {
                 <Container>
                     {/* Section Header */}
                     <div className="mb-12 text-center">
-                        <span className="animate-fade-in-up mb-3 inline-block text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
-                            Portfolio
-                        </span>
+                        <span className="animate-fade-in-up text-accent mb-3 inline-block text-xs font-bold tracking-wider uppercase">Portfolio</span>
                         <Heading as="h2" variant="h2" className="animate-fade-in-up mb-3" style={{ animationDelay: '0.1s' }}>
                             Featured Artworks
                         </Heading>
@@ -220,7 +218,7 @@ function ArtistDetailsPage() {
                 <Section padding="lg" className="border-t border-black/6 bg-linear-to-b from-black/1 to-transparent">
                     <Container>
                         <div className="mb-10 text-center">
-                            <span className="animate-fade-in-up mb-3 inline-block text-xs font-bold tracking-wider text-[var(--color-accent)] uppercase">
+                            <span className="animate-fade-in-up text-accent mb-3 inline-block text-xs font-bold tracking-wider uppercase">
                                 Discover More
                             </span>
                             <Heading as="h2" variant="h2" className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
@@ -278,7 +276,7 @@ function ArtistDetailsPage() {
                                         </div>
 
                                         {/* Arrow Icon */}
-                                        <div className="absolute top-6 right-6 text-[var(--color-accent)] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                        <div className="text-accent absolute top-6 right-6 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
