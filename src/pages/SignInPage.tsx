@@ -120,7 +120,7 @@ function SignInPage() {
                                     <input
                                         type="checkbox"
                                         name="remember"
-                                        className="h-4 w-4 cursor-pointer rounded border-black/20 bg-white accent-accent transition-all hover:border-accent"
+                                        className="accent-accent hover:border-accent h-4 w-4 cursor-pointer rounded border-black/20 bg-white transition-all"
                                     />
                                     Remember me
                                 </label>

@@ -5,7 +5,7 @@ function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="text-muted animate-[fade-in_1s_ease-out] border-t border-black/6 bg-linear-to-b from-transparent to-[var(--color-surface)]/30 py-12">
+        <footer className="text-muted animate-fade-in to-surface/30 border-t border-black/6 bg-linear-to-b from-transparent py-12">
             <Container>
                 <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div>
@@ -41,7 +41,7 @@ function Footer() {
                         <div className="flex gap-3">
                             <a
                                 href="#instagram"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:border-[var(--color-accent)] hover:shadow-lg"
+                                className="hover:border-accent flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:shadow-lg"
                                 aria-label="Instagram"
                             >
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ function Footer() {
                             </a>
                             <a
                                 href="#twitter"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:border-[var(--color-accent)] hover:shadow-lg"
+                                className="hover:border-accent flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:shadow-lg"
                                 aria-label="Twitter"
                             >
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ function Footer() {
                             </a>
                             <a
                                 href="#facebook"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:border-[var(--color-accent)] hover:shadow-lg"
+                                className="hover:border-accent flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white transition-all hover:shadow-lg"
                                 aria-label="Facebook"
                             >
                                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
