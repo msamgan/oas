@@ -6,6 +6,7 @@ import ArtDetailsPage from './pages/ArtDetailsPage'
 import ArtistDetailsPage from './pages/ArtistDetailsPage'
 import ArtistsPage from './pages/ArtistsPage'
 import ContactPage from './pages/ContactPage'
+import SignInPage from './pages/SignInPage'
 import Home from './pages/Home'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/artists/:slug" element={<ArtistDetailsPage />} />
                 <Route path="/art/:slug" element={<ArtDetailsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/sign-in" element={<SignInPage />} />
             </Routes>
             <Footer />
         </BrowserRouter>

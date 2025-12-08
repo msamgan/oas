@@ -42,6 +42,9 @@ function Header() {
                     <RouterLink to="/contact" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         Contact
                     </RouterLink>
+                    <RouterLink to="/sign-in" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
+                        Sign In
+                    </RouterLink>
                 </nav>
             </Container>
         </header>
