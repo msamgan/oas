@@ -85,7 +85,7 @@ function ArtDetailsPage() {
                         <Heading
                             as="h1"
                             variant="hero"
-                            className={`from-text mb-3 bg-linear-to-r via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                            className={`from-text mb-3 bg-linear-to-r via-accent-2 to-text bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                             style={{
                                 backgroundSize: '200% auto',
                                 animation: 'gradient-shift 4s ease-in-out infinite',
@@ -144,7 +144,7 @@ function ArtDetailsPage() {
             </Section>
 
             {/* Artwork Details Section */}
-            <Section padding="lg" className="border-y border-black/[0.06]">
+            <Section padding="lg" className="border-y border-black/6">
                 <Container>
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                         {/* Artwork Display */}
@@ -152,7 +152,7 @@ function ArtDetailsPage() {
                             className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                             style={{ transitionDelay: '0.5s' }}
                         >
-                            <div className="group relative aspect-4/3 overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-(--shadow-2) transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
+                            <div className="group relative aspect-4/3 overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-text shadow-(--shadow-2) transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
                                 {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.12)] via-transparent to-[rgba(255,183,3,0.1)] opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
 
@@ -197,10 +197,10 @@ function ArtDetailsPage() {
                                 ].map((stat, i) => (
                                     <div
                                         key={i}
-                                        className="group relative overflow-hidden rounded-sm border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-black/[0.02] to-white p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-black/[0.04] hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
+                                        className="group relative overflow-hidden rounded-sm border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-black/2 to-white p-4 transition-all duration-300 hover:border-accent/40 hover:bg-black/4 hover:shadow-[0_4px_20px_rgba(255,122,24,0.15)]"
                                     >
                                         {/* Hover Shimmer */}
-                                        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-black/[0.04] to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+                                        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-black/4 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
 
                                         <div className="relative">
                                             <span className="text-muted mb-1 block text-xs font-bold tracking-wider uppercase">{stat.label}</span>
@@ -226,7 +226,7 @@ function ArtDetailsPage() {
 
             {/* More from Artist Section */}
             {artistWorks.length > 1 && (
-                <Section padding="lg" className="bg-linear-to-b from-transparent to-white/[0.02]">
+                <Section padding="lg" className="bg-linear-to-b from-transparent to-white/2">
                     <Container>
                         <div className="mb-10 text-center">
                             <span className="animate-fade-in-up text-accent mb-3 inline-block text-xs font-bold tracking-wider uppercase">
@@ -247,7 +247,7 @@ function ArtDetailsPage() {
                                         title={w.title}
                                         author={w.author}
                                         animationDelay={0}
-                                        className="h-full transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
+                                        className="h-full transition-all duration-500 hover:scale-[1.02] hover:shadow-hover"
                                     />
                                 </div>
                             ))}
@@ -278,7 +278,7 @@ function ArtDetailsPage() {
                                     <Link
                                         key={`${work.title}-${i}`}
                                         to={`/artists/${artistSlug(workArtist.name, workArtist.location)}`}
-                                        className="group animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/4 hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
+                                        className="group animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:bg-black/4 hover:shadow-hover"
                                         style={{ animationDelay: `${0.2 + i * 0.1}s` }}
                                     >
                                         {/* Hover Overlay */}
@@ -333,7 +333,7 @@ function ArtDetailsPage() {
                     <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-(--shadow-2)">
                         {/* Decorative Elements */}
                         <div className="from-accent absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br to-transparent opacity-20 blur-2xl" />
-                        <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />
+                        <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-accent-2 to-transparent opacity-20 blur-2xl" />
 
                         <div className="relative z-10">
                             <Heading as="h2" variant="h2" className="animate-fade-in-up mb-4">
