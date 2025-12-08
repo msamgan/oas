@@ -7,6 +7,7 @@ import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
+import Form from '../components/ui/Form'
 
 function ContactPage() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -78,14 +79,10 @@ function ContactPage() {
                 <Container>
                     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                         {/* Main Contact Form */}
-                        <form
-                            ref={formRef}
-                            onSubmit={handleSubmit}
-                            className="contact-form group animate-[fade-in-up_0.7s_ease-out_0.5s_both] space-y-5 rounded-[var(--radius)] border border-white/10 bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.02)] p-8 opacity-0 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.15)] md:p-10"
-                        >
+                        <Form ref={formRef} onSubmit={handleSubmit}>
                             <div>
-                                <h2 className="mb-2 text-2xl font-bold text-[var(--color-text)]">Send us a message</h2>
-                                <p className="text-sm text-[var(--color-muted)]">Fill out the form below and we'll get back to you soon.</p>
+                                <h2 className="mb-2 text-2xl font-bold text-text">Send us a message</h2>
+                                <p className="text-sm text-muted">Fill out the form below and we'll get back to you soon.</p>
                             </div>
 
                             <div className="grid gap-5 md:grid-cols-2">
@@ -175,7 +172,7 @@ function ContactPage() {
                                     </p>
                                 </div>
                             )}
-                        </form>
+                        </Form>
 
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
