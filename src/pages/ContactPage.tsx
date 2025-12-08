@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
+import Form from '../components/ui/Form'
 import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
-import Form from '../components/ui/Form'
+import Textarea from '../components/ui/Textarea'
 
 function ContactPage() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -81,8 +82,8 @@ function ContactPage() {
                         {/* Main Contact Form */}
                         <Form ref={formRef} onSubmit={handleSubmit}>
                             <div>
-                                <h2 className="mb-2 text-2xl font-bold text-text">Send us a message</h2>
-                                <p className="text-sm text-muted">Fill out the form below and we'll get back to you soon.</p>
+                                <h2 className="text-text mb-2 text-2xl font-bold">Send us a message</h2>
+                                <p className="text-muted text-sm">Fill out the form below and we'll get back to you soon.</p>
                             </div>
 
                             <div className="grid gap-5 md:grid-cols-2">
@@ -117,13 +118,13 @@ function ContactPage() {
                                 <Label htmlFor="message">
                                     Message <Required />
                                 </Label>
-                                <textarea
+                                <Textarea
                                     id="message"
                                     required
                                     name="message"
                                     placeholder="Tell us more about your inquiry..."
                                     rows={6}
-                                    className="w-full resize-y rounded-[var(--radius)] border border-white/10 bg-white/[0.06] p-4 text-base text-[var(--color-text)] transition-all duration-300 ease-out outline-none placeholder:text-[#9a9a9a] focus:border-[var(--color-accent)] focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(255,122,24,0.1)]"
+                                    className={'w-full'}
                                 />
                             </div>
 
@@ -149,7 +150,7 @@ function ContactPage() {
                                     {status === 'idle' && 'Send Message'}
                                 </Button>
                                 {status === 'idle' && (
-                                    <span className="text-sm text-[var(--color-muted)]">
+                                    <span className="text-sm text-muted">
                                         <span className="mr-1">💬</span>
                                         Response time: 1–2 business days
                                     </span>
@@ -177,7 +178,7 @@ function ContactPage() {
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
-                            <div className="group rounded-[var(--radius)] border border-white/10 bg-gradient-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.15)]">
+                            <div className="group rounded-(--radius) border border-white/10 bg-linear-to-br from-[var(--color-surface)] to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[0_20px_60px_rgba(255,122,24,0.15)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
