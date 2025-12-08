@@ -3,6 +3,7 @@ import Container from './ui/Container'
 import FeaturedWorkCard from './ui/FeaturedWorkCard'
 import Heading from './ui/Heading'
 import Section from './ui/Section'
+import Badge from "./ui/Badge.tsx";
 
 type FeaturedItem = { title: string; author: string }
 
@@ -40,9 +41,9 @@ function FeaturedGrid({ items = defaultItems }: { items?: FeaturedItem[] }) {
         <Section id="featured" padding="md" className="relative">
             <Container>
                 <div className="mb-12 text-center">
-                    <div className="border-accent/20 bg-accent/5 text-accent mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold">
-                        🎨 Curated Collection
-                    </div>
+                    <Badge withDot className="animate-[fade-in-up_0.8s_ease-out_0s_both]">
+                        Curated Collection
+                    </Badge>
                     <Heading as="h2" variant="h2" className="animate-fade-in-up mx-auto max-w-3xl">
                         Featured works
                     </Heading>

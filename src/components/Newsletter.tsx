@@ -4,6 +4,7 @@ import Container from './ui/Container'
 import Heading from './ui/Heading'
 import Input from './ui/Input'
 import Section from './ui/Section'
+import Badge from "./ui/Badge.tsx";
 
 function Newsletter() {
     const [email, setEmail] = useState('')
@@ -30,9 +31,9 @@ function Newsletter() {
 
                     <div className="animate-fade-in-up relative grid grid-cols-1 items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
                         <div>
-                            <div className="border-accent/20 bg-accent/5 text-accent mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold">
-                                📬 NEWSLETTER
-                            </div>
+                            <Badge withDot className="animate-[fade-in-up_0.8s_ease-out_0s_both]">
+                                NEWSLETTER
+                            </Badge>
                             <Heading as="h2" variant="h2" className="mb-3">
                                 Stay in the loop
                             </Heading>
