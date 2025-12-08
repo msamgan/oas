@@ -1,10 +1,10 @@
 import { type FormEvent, useState } from 'react'
+import Badge from './ui/Badge.tsx'
 import Button from './ui/Button'
 import Container from './ui/Container'
 import Heading from './ui/Heading'
 import Input from './ui/Input'
 import Section from './ui/Section'
-import Badge from "./ui/Badge.tsx";
 
 function Newsletter() {
     const [email, setEmail] = useState('')

@@ -11,8 +11,38 @@ function Hero() {
     }
 
     return (
-        <Section padding="lg" className="relative">
-            <Container className="grid grid-cols-1 gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+        <Section padding="lg" className="relative overflow-hidden">
+            {/* Enhanced Hero Background */}
+            <div className="pointer-events-none absolute inset-0 z-0">
+                {/* Animated gradient mesh background */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,122,24,0.15),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(255,183,3,0.12),transparent_50%),radial-gradient(circle_at_40%_80%,rgba(255,122,24,0.08),transparent_40%)]" />
+
+                {/* Floating gradient orbs with different animations */}
+                <div className="from-accent/20 via-accent/10 absolute top-20 right-[15%] h-[500px] w-[500px] animate-[float_10s_ease-in-out_infinite] rounded-full bg-linear-to-br to-transparent blur-3xl" />
+                <div className="from-accent-2/15 via-accent-2/8 absolute top-40 left-[10%] h-[400px] w-[400px] animate-[float_12s_ease-in-out_infinite_2s] rounded-full bg-linear-to-tl to-transparent blur-3xl" />
+                <div className="from-accent/12 to-accent-2/8 absolute right-[25%] bottom-20 h-[350px] w-[350px] animate-[float_14s_ease-in-out_infinite_4s] rounded-full bg-linear-to-tr via-transparent blur-2xl" />
+
+                {/* Subtle animated rings */}
+                <div className="border-accent/10 absolute top-[15%] left-[5%] h-64 w-64 animate-[rotate_40s_linear_infinite] rounded-full border-2" />
+                <div className="border-accent-2/10 absolute right-[8%] bottom-[20%] h-48 w-48 animate-[rotate-reverse_50s_linear_infinite] rounded-full border-2" />
+
+                {/* Glowing dots */}
+                <div className="from-accent to-accent-2 absolute top-[30%] left-[20%] h-3 w-3 animate-[pulse_3s_ease-in-out_infinite] rounded-full bg-linear-to-r blur-sm" />
+                <div className="from-accent-2 to-accent absolute top-[60%] right-[15%] h-2 w-2 animate-[pulse_4s_ease-in-out_infinite_1s] rounded-full bg-linear-to-r blur-sm" />
+                <div className="from-accent to-accent-2 absolute bottom-[40%] left-[40%] h-2.5 w-2.5 animate-[pulse_3.5s_ease-in-out_infinite_2s] rounded-full bg-linear-to-r blur-sm" />
+
+                {/* Artistic brush strokes with shimmer */}
+                <div
+                    className="via-accent/15 absolute top-[25%] left-0 h-1 w-[40%] animate-[shimmer_8s_ease-in-out_infinite] bg-linear-to-r from-transparent to-transparent blur-sm"
+                    style={{ transform: 'rotate(-8deg)' }}
+                />
+                <div
+                    className="via-accent-2/12 absolute right-0 bottom-[35%] h-1 w-[35%] animate-[shimmer_10s_ease-in-out_infinite_3s] bg-linear-to-r from-transparent to-transparent blur-sm"
+                    style={{ transform: 'rotate(12deg)' }}
+                />
+            </div>
+
+            <Container className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
                 <div className="flex flex-col justify-center">
                     <Badge withDot className="animate-[fade-in-up_0.8s_ease-out_0s_both]">
                         Rising artists • Contemporary works

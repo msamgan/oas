@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'
+import Badge from './ui/Badge.tsx'
 import Container from './ui/Container'
 import FeaturedWorkCard from './ui/FeaturedWorkCard'
 import Heading from './ui/Heading'
 import Section from './ui/Section'
-import Badge from "./ui/Badge.tsx";
 
 type FeaturedItem = { title: string; author: string }
 
