@@ -101,11 +101,11 @@ function About() {
             {/* Hero Section */}
             <section className="relative overflow-hidden py-15 before:absolute before:-top-1/2 before:-right-[20%] before:h-[600px] before:w-[600px] before:animate-[float_8s_ease-in-out_infinite] before:rounded-full before:bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)] before:content-[''] after:absolute after:-bottom-[40%] after:-left-[10%] after:h-[500px] after:w-[500px] after:animate-[float_10s_ease-in-out_infinite_reverse] after:rounded-full after:bg-[radial-gradient(circle,rgba(255,183,3,0.06)_0%,transparent_70%)] after:content-[''] md:py-20 lg:py-30">
                 <Container>
-                    <div className="relative z-[1] mx-auto max-w-[900px] text-center">
+                    <div className="relative z-1 mx-auto max-w-[900px] text-center">
                         <Badge withDot>Our Story</Badge>
                         <h1 className="my-5 mb-6 animate-[fade-in-up_0.8s_ease-out_0.2s_both] text-[clamp(36px,7vw,64px)] leading-[1.1] font-black tracking-[-1px]">
                             Championing{' '}
-                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <span className="from-accent to-accent-2 relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Emerging Artists
                             </span>{' '}
                             in the Digital Age
@@ -120,37 +120,37 @@ function About() {
 
             {/* Mission Section */}
             <section
-                className="relative bg-[linear-gradient(180deg,transparent_0%,rgba(255,122,24,0.02)_50%,transparent_100%)] py-10 before:pointer-events-none before:absolute before:inset-0 before:[background-image:radial-gradient(circle_at_20%_50%,rgba(255,122,24,0.02)_1px,transparent_1px),radial-gradient(circle_at_80%_80%,rgba(255,183,3,0.02)_1px,transparent_1px)] before:bg-[length:50px_50px] before:opacity-50 before:content-[''] md:py-14 lg:py-18"
+                className="relative bg-[linear-gradient(180deg,transparent_0%,rgba(255,122,24,0.02)_50%,transparent_100%)] py-10 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_20%_50%,rgba(255,122,24,0.02)_1px,transparent_1px),radial-gradient(circle_at_80%_80%,rgba(255,183,3,0.02)_1px,transparent_1px)] before:bg-size-[50px_50px] before:opacity-50 before:content-[''] md:py-14 lg:py-18"
                 ref={missionRef}
             >
                 <Container>
-                    <div className="relative z-[1] mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="relative z-1 mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         <Card variant="mission" className="mission-card" style={{ animationDelay: '0.1s' }}>
                             <MissionIcon emoji="🎨" />
-                            <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h3 className="text-text hover:text-accent relative z-1 m-0 mb-3 text-2xl font-extrabold transition-colors duration-300 ease-out">
                                 Our Mission
                             </h3>
-                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text relative z-1 m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out">
                                 To champion new voices, foster discovery, and make art collecting approachable without compromising on taste. We
                                 believe every artist deserves a platform to shine.
                             </p>
                         </Card>
                         <Card variant="mission" className="mission-card" style={{ animationDelay: '0.2s' }}>
                             <MissionIcon emoji="✨" />
-                            <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h3 className="text-text hover:text-accent relative z-1 m-0 mb-3 text-2xl font-extrabold transition-colors duration-300 ease-out">
                                 Our Vision
                             </h3>
-                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text relative z-1 m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out">
                                 A world where emerging artists are celebrated, supported, and connected with collectors who appreciate their unique
                                 perspectives and creative expressions.
                             </p>
                         </Card>
                         <Card variant="mission" className="mission-card" style={{ animationDelay: '0.3s' }}>
                             <MissionIcon emoji="🚀" />
-                            <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h3 className="text-text hover:text-accent relative z-1 m-0 mb-3 text-2xl font-extrabold transition-colors duration-300 ease-out">
                                 Our Approach
                             </h3>
-                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text relative z-1 m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out">
                                 We publish limited drops, host seasonal showcases, and collaborate with artists across mediums—from digital to
                                 traditional, photography to mixed media.
                             </p>
@@ -165,43 +165,43 @@ function About() {
                 ref={valuesRef}
             >
                 <Container>
-                    <h2 className="animate-fade-in-up m-0 mb-12 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-center text-[clamp(32px,5vw,48px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                    <h2 className="animate-fade-in-up from-text to-accent m-0 mb-12 bg-linear-to-br bg-clip-text text-center text-[clamp(32px,5vw,48px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                         What We Stand For
                     </h2>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-6">
                         <Card variant="value" className="value-item group" style={{ transitionDelay: '0.1s' }}>
                             <ValueNumber number="01" />
-                            <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h4 className="text-text hover:text-accent m-0 mb-2.5 text-[22px] font-extrabold transition-colors duration-300 ease-out">
                                 Authenticity
                             </h4>
-                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out">
                                 We showcase genuine talent and original work. Every piece tells a story, and every artist brings a unique perspective.
                             </p>
                         </Card>
                         <Card variant="value" className="value-item group" style={{ transitionDelay: '0.2s' }}>
                             <ValueNumber number="02" />
-                            <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h4 className="text-text hover:text-accent m-0 mb-2.5 text-[22px] font-extrabold transition-colors duration-300 ease-out">
                                 Accessibility
                             </h4>
-                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out">
                                 Art should be approachable. We break down barriers between artists and collectors, making discovery effortless.
                             </p>
                         </Card>
                         <Card variant="value" className="value-item group" style={{ transitionDelay: '0.3s' }}>
                             <ValueNumber number="03" />
-                            <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h4 className="text-text hover:text-accent m-0 mb-2.5 text-[22px] font-extrabold transition-colors duration-300 ease-out">
                                 Quality
                             </h4>
-                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out">
                                 Curated doesn't mean exclusive—it means excellent. We maintain high standards while keeping an open mind.
                             </p>
                         </Card>
                         <Card variant="value" className="value-item group" style={{ transitionDelay: '0.4s' }}>
                             <ValueNumber number="04" />
-                            <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
+                            <h4 className="text-text hover:text-accent m-0 mb-2.5 text-[22px] font-extrabold transition-colors duration-300 ease-out">
                                 Community
                             </h4>
-                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted hover:text-text m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out">
                                 We're building more than a gallery—we're fostering connections between artists, collectors, and enthusiasts.
                             </p>
                         </Card>
@@ -240,11 +240,11 @@ function About() {
             <section className="py-12 md:py-16 lg:py-24">
                 <Container>
                     <div
-                        className="animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 px-8 text-center shadow-[var(--shadow-hover)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.12)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
+                        className="animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 px-8 text-center shadow-(--shadow-hover) before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.12)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
                         ref={ctaCardRef}
                     >
-                        <div className="relative z-[2]">
-                            <h2 className="m-0 mb-4 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                        <div className="relative z-2">
+                            <h2 className="from-text to-accent m-0 mb-4 bg-linear-to-br bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Join Our Creative Community
                             </h2>
                             <p className="text-muted mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6]">
@@ -258,7 +258,7 @@ function About() {
                                 </Button>
                             </div>
                         </div>
-                        <div className="pointer-events-none absolute top-0 right-0 z-[1] h-full w-full">
+                        <div className="pointer-events-none absolute top-0 right-0 z-1 h-full w-full">
                             <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
                             <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
                         </div>

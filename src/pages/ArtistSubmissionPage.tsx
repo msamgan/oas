@@ -279,7 +279,7 @@ function ArtistSubmissionPage() {
                         {/* Submission Info Sidebar */}
                         <aside ref={sidebarRef} className="animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Submission Process Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -323,7 +323,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Requirements Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -356,7 +356,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Quick Links Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
                                 <h3 className="text-text mb-4 text-lg font-bold">Helpful Resources</h3>
                                 <ul className="space-y-3 text-sm">
                                     <li>
@@ -405,7 +405,7 @@ function ArtistSubmissionPage() {
             {/* CTA Section */}
             <Section id="submit-cta" padding="md">
                 <Container>
-                    <div className="animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-[var(--shadow-hover)] md:p-12 lg:p-16">
+                    <div className="animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-(--shadow-hover) md:p-12 lg:p-16">
                         <div className="relative z-2">
                             <h2 className="from-text to-accent m-0 mb-4 bg-linear-to-br bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Questions About Submission?

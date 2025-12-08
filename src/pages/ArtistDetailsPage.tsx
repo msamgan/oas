@@ -73,7 +73,7 @@ function ArtistDetailsPage() {
 
                             {/* Artist Avatar Placeholder */}
                             <div
-                                className={`mx-auto mb-6 h-32 w-32 rounded-full bg-linear-to-br from-[var(--color-accent)] via-[var(--color-accent-2)] to-[var(--color-accent)] shadow-[0_0_50px_rgba(255,122,24,0.4)] transition-all duration-1000 ${isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}`}
+                                className={`from-accent to-accent mx-auto mb-6 h-32 w-32 rounded-full bg-linear-to-br via-[var(--color-accent-2)] shadow-[0_0_50px_rgba(255,122,24,0.4)] transition-all duration-1000 ${isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}`}
                                 style={{
                                     backgroundSize: '200% 200%',
                                     animation: 'gradient-shift 3s ease-in-out infinite',
@@ -84,7 +84,7 @@ function ArtistDetailsPage() {
                             <Heading
                                 as="h1"
                                 variant="hero"
-                                className={`mb-3 bg-linear-to-r from-[var(--color-text)] via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                                className={`from-text mb-3 bg-linear-to-r via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                                 style={{
                                     backgroundSize: '200% auto',
                                     animation: 'gradient-shift 4s ease-in-out infinite',
@@ -152,14 +152,14 @@ function ArtistDetailsPage() {
                         ].map((stat, i) => (
                             <div
                                 key={i}
-                                className={`group relative overflow-hidden rounded-[var(--radius)] border border-black/[0.06] bg-linear-to-br from-black/[0.02] to-white p-6 text-center backdrop-blur-sm transition-all duration-500 hover:border-[var(--color-accent)]/30 hover:bg-black/[0.04] hover:shadow-[0_8px_30px_rgba(255,122,24,0.15)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                                className={`group relative overflow-hidden rounded-(--radius) border border-black/[0.06] bg-linear-to-br from-black/[0.02] to-white p-6 text-center backdrop-blur-sm transition-all duration-500 hover:border-[var(--color-accent)]/30 hover:bg-black/[0.04] hover:shadow-[0_8px_30px_rgba(255,122,24,0.15)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                                 style={{ transitionDelay: stat.delay }}
                             >
                                 {/* Hover Shimmer Effect */}
                                 <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-black/[0.05] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                                 <div className="relative">
-                                    <div className="mb-2 text-3xl font-extrabold text-[var(--color-text)] transition-all duration-300 group-hover:scale-110 group-hover:text-[var(--color-accent)]">
+                                    <div className="text-text group-hover:text-accent mb-2 text-3xl font-extrabold transition-all duration-300 group-hover:scale-110">
                                         {stat.value}
                                     </div>
                                     <div className="text-muted text-xs font-bold tracking-wider uppercase">{stat.label}</div>
@@ -200,7 +200,7 @@ function ArtistDetailsPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="rounded-[var(--radius)] border border-dashed border-black/10 bg-black/1 py-20 text-center">
+                        <div className="rounded-(--radius) border border-dashed border-black/10 bg-black/1 py-20 text-center">
                             <svg className="text-muted mx-auto mb-4 h-16 w-16 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path
                                     strokeLinecap="round"
@@ -233,18 +233,18 @@ function ArtistDetailsPage() {
                                 <Link
                                     key={relatedArtist.name}
                                     to={`/artists/${artistSlug(relatedArtist.name, relatedArtist.location)}`}
-                                    className="group animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/4 hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
+                                    className="group animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/4 hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
                                     style={{ animationDelay: `${0.2 + i * 0.1}s` }}
                                 >
                                     {/* Hover Overlay */}
-                                    <div className="absolute inset-0 bg-linear-to-br from-[var(--color-accent)]/0 to-[var(--color-accent-2)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--color-accent)]/10 group-hover:to-[var(--color-accent-2)]/5 group-hover:opacity-100" />
+                                    <div className="from-accent/0 to-accent-2/0 group-hover:from-accent/10 group-hover:to-accent-2/5 absolute inset-0 bg-linear-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                                     <div className="relative">
                                         {/* Avatar */}
-                                        <div className="mb-4 h-20 w-20 rounded-full bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(255,122,24,0.5)]" />
+                                        <div className="from-accent to-accent-2 mb-4 h-20 w-20 rounded-full bg-linear-to-br shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(255,122,24,0.5)]" />
 
                                         {/* Content */}
-                                        <h3 className="mb-2 text-xl font-extrabold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+                                        <h3 className="text-text group-hover:text-accent mb-2 text-xl font-extrabold transition-colors duration-300">
                                             {relatedArtist.name}
                                         </h3>
                                         <p className="text-muted mb-3 text-sm">{relatedArtist.genre}</p>
@@ -301,9 +301,9 @@ function ArtistDetailsPage() {
             {/* Call to Action */}
             <Section padding="lg" className="border-t border-black/6">
                 <Container>
-                    <div className="relative overflow-hidden rounded-[var(--radius)] border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
+                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
                         {/* Decorative Elements */}
-                        <div className="absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent)] to-transparent opacity-20 blur-2xl" />
+                        <div className="from-accent absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />
 
                         <div className="relative z-10">

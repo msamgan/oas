@@ -85,7 +85,7 @@ function ArtDetailsPage() {
                         <Heading
                             as="h1"
                             variant="hero"
-                            className={`mb-3 bg-linear-to-r from-[var(--color-text)] via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                            className={`from-text mb-3 bg-linear-to-r via-[var(--color-accent-2)] to-[var(--color-text)] bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                             style={{
                                 backgroundSize: '200% auto',
                                 animation: 'gradient-shift 4s ease-in-out infinite',
@@ -152,7 +152,7 @@ function ArtDetailsPage() {
                             className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                             style={{ transitionDelay: '0.5s' }}
                         >
-                            <div className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-[var(--shadow-2)] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
+                            <div className="group relative aspect-[4/3] overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-[#0b0b0d] via-[#1a1a1c] to-[#0f0f10] shadow-[var(--shadow-2)] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,122,24,0.25)]">
                                 {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.12)] via-transparent to-[rgba(255,183,3,0.1)] opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
 
@@ -204,7 +204,7 @@ function ArtDetailsPage() {
 
                                         <div className="relative">
                                             <span className="text-muted mb-1 block text-xs font-bold tracking-wider uppercase">{stat.label}</span>
-                                            <span className="block font-semibold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+                                            <span className="text-text group-hover:text-accent block font-semibold transition-colors duration-300">
                                                 {stat.value}
                                             </span>
                                         </div>
@@ -278,11 +278,11 @@ function ArtDetailsPage() {
                                     <Link
                                         key={`${work.title}-${i}`}
                                         to={`/artists/${artistSlug(workArtist.name, workArtist.location)}`}
-                                        className="group animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/4 hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
+                                        className="group animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-black/6 bg-linear-to-br from-black/2 to-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-accent)]/30 hover:bg-black/4 hover:shadow-[0_12px_40px_rgba(255,122,24,0.2)]"
                                         style={{ animationDelay: `${0.2 + i * 0.1}s` }}
                                     >
                                         {/* Hover Overlay */}
-                                        <div className="absolute inset-0 bg-linear-to-br from-[var(--color-accent)]/0 to-[var(--color-accent-2)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--color-accent)]/10 group-hover:to-[var(--color-accent-2)]/5 group-hover:opacity-100" />
+                                        <div className="from-accent/0 to-accent-2/0 group-hover:from-accent/10 group-hover:to-accent-2/5 absolute inset-0 bg-linear-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                                         <div className="relative">
                                             {/* Artwork Placeholder */}
@@ -305,7 +305,7 @@ function ArtDetailsPage() {
                                             </div>
 
                                             {/* Content */}
-                                            <h3 className="mb-1 text-lg font-bold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+                                            <h3 className="text-text group-hover:text-accent mb-1 text-lg font-bold transition-colors duration-300">
                                                 {work.title}
                                             </h3>
                                             <p className="text-muted text-sm">by {work.author}</p>
@@ -335,9 +335,9 @@ function ArtDetailsPage() {
             {/* Call to Action */}
             <Section padding="lg" className="border-t border-black/6">
                 <Container>
-                    <div className="relative overflow-hidden rounded-[var(--radius)] border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
+                    <div className="relative overflow-hidden rounded-(--radius) border border-black/8 bg-linear-to-br from-[rgba(255,122,24,0.08)] via-[rgba(255,183,3,0.05)] to-transparent p-12 text-center shadow-[var(--shadow-2)]">
                         {/* Decorative Elements */}
-                        <div className="absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent)] to-transparent opacity-20 blur-2xl" />
+                        <div className="from-accent absolute -top-10 -right-10 h-40 w-40 animate-[rotate_20s_linear_infinite] rounded-full bg-linear-to-br to-transparent opacity-20 blur-2xl" />
                         <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-[rotate_15s_linear_infinite] rounded-full bg-linear-to-br from-[var(--color-accent-2)] to-transparent opacity-20 blur-2xl" />
 
                         <div className="relative z-10">

@@ -78,7 +78,7 @@ function SignInPage() {
                 <div className="mx-auto w-full max-w-lg">
                     <Form ref={formRef} onSubmit={handleSubmit} aria-labelledby="signin-title">
                         <div className="mb-6">
-                            <h2 id="signin-title" className="text-2xl font-extrabold text-[var(--color-text)] md:text-3xl">
+                            <h2 id="signin-title" className="text-text text-2xl font-extrabold md:text-3xl">
                                 Sign In
                             </h2>
                             <p className="text-muted mt-2 text-sm">Use your email and password to continue.</p>
@@ -116,7 +116,7 @@ function SignInPage() {
                             </div>
 
                             <div className="flex items-center justify-between">
-                                <label className="text-muted flex cursor-pointer items-center gap-2 text-sm transition-colors hover:text-[var(--color-text)]">
+                                <label className="text-muted hover:text-text flex cursor-pointer items-center gap-2 text-sm transition-colors">
                                     <input
                                         type="checkbox"
                                         name="remember"

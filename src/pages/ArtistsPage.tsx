@@ -88,7 +88,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                 <Link
                                     to={`/artists/${artistSlug(artist.name, artist.location)}`}
                                     key={artist.name}
-                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[var(--shadow-hover)]"
+                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-(--shadow-hover)"
                                     style={{ animationDelay: `${index * 0.15}s` }}
                                 >
                                     {/* Shimmer effect overlay */}
@@ -97,7 +97,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                     </div>
 
                                     {/* Featured badge */}
-                                    <div className="absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] px-2.5 py-1 text-xs font-bold text-white shadow-lg">
+                                    <div className="from-accent to-accent-2 absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-r px-2.5 py-1 text-xs font-bold text-white shadow-lg">
                                         ★ Featured
                                     </div>
 
@@ -109,7 +109,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                     </div>
 
                                     <div className="relative p-5">
-                                        <h3 className="mb-2 text-xl font-extrabold transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+                                        <h3 className="group-hover:text-accent mb-2 text-xl font-extrabold transition-colors duration-300">
                                             {artist.name}
                                         </h3>
                                         <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{artist.genre}</p>

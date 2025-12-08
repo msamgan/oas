@@ -19,7 +19,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
             <Card variant="featured" animationDelay={animationDelay} {...rest}>
                 <ArtCanvas variant="shimmer" />
                 <div className="relative p-5">
-                    <h3 className="mb-2 text-xl font-extrabold transition-colors duration-300 group-hover:text-[var(--color-accent)]">{name}</h3>
+                    <h3 className="group-hover:text-accent mb-2 text-xl font-extrabold transition-colors duration-300">{name}</h3>
                     <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{genre}</p>
                     <p className="text-muted mb-4 text-sm leading-relaxed">{bio}</p>
                     <div className="flex items-center justify-between border-t border-black/6 pt-3">
@@ -40,7 +40,7 @@ function ArtistCard({ name, genre, bio, works, animationDelay, location, feature
         <Card variant="default" animationDelay={animationDelay} className="artist-card group" role="listitem" {...rest}>
             <ArtCanvas withHoverEffect />
             <div className="p-4 transition-[background] duration-300 ease-out group-hover:bg-[rgba(255,122,24,0.05)]">
-                <h3 className="mb-1 text-lg font-extrabold transition-colors duration-300 ease-out group-hover:text-[var(--color-accent)]">{name}</h3>
+                <h3 className="group-hover:text-accent mb-1 text-lg font-extrabold transition-colors duration-300 ease-out">{name}</h3>
                 <p className="text-muted mb-2 text-sm">{genre}</p>
                 <p className="text-muted mb-3 line-clamp-2 text-xs leading-relaxed">{bio}</p>
                 <div className="flex items-center justify-between border-t border-black/4 pt-2">

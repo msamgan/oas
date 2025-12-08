@@ -63,7 +63,7 @@ function ContactPage() {
                         </Badge>
                         <Heading as="h1" variant="hero" className="mb-5 animate-[fade-in-up_0.8s_ease-out_0.2s_both]">
                             Let's Start a{' '}
-                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <span className="from-accent to-accent-2 relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Conversation
                             </span>
                         </Heading>
@@ -178,8 +178,8 @@ function ContactPage() {
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
-                                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-(--shadow-hover)">
+                                <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
                                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
@@ -207,10 +207,7 @@ function ContactPage() {
                                         </svg>
                                         <div>
                                             <p className="mb-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase">Email</p>
-                                            <a
-                                                href="mailto:hello@orangeart.studio"
-                                                className="oas-link text-base font-semibold hover:text-[var(--color-accent)]"
-                                            >
+                                            <a href="mailto:hello@orangeart.studio" className="oas-link hover:text-accent text-base font-semibold">
                                                 hello@orangeart.studio
                                             </a>
                                         </div>
@@ -235,8 +232,8 @@ function ContactPage() {
                             </div>
 
                             {/* FAQ / Quick Links Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
-                                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
+                            <div className="group rounded-(--radius) border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-(--shadow-hover)">
+                                <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="h-5 w-5 text-[var(--color-accent-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <circle cx="12" cy="12" r="10" strokeWidth="2" />
                                         <path
@@ -299,9 +296,9 @@ function ContactPage() {
             {/* CTA Section */}
             <Section id="contact-cta" padding="md">
                 <Container>
-                    <div className="animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-[var(--shadow-hover)] md:p-12 lg:p-16">
-                        <div className="relative z-[2]">
-                            <h2 className="m-0 mb-4 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                    <div className="animate-fade-in-up relative overflow-hidden rounded-(--radius) border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-(--shadow-hover) md:p-12 lg:p-16">
+                        <div className="relative z-2">
+                            <h2 className="from-text to-accent m-0 mb-4 bg-linear-to-br bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Interested in Submitting Your Work?
                             </h2>
                             <p className="text-muted mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6]">
@@ -317,7 +314,7 @@ function ContactPage() {
                         </div>
 
                         {/* Decorative rotating elements */}
-                        <div className="pointer-events-none absolute top-0 right-0 z-[1] h-full w-full">
+                        <div className="pointer-events-none absolute top-0 right-0 z-1 h-full w-full">
                             <div className="absolute -top-[200px] -right-[100px] h-[400px] w-[400px] animate-[float_10s_ease-in-out_infinite,rotate_20s_linear_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.1)_0%,transparent_70%)]" />
                             <div className="absolute -bottom-[150px] -left-[100px] h-[300px] w-[300px] animate-[float_12s_ease-in-out_infinite_reverse,rotate_25s_linear_infinite_reverse] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.1)_0%,transparent_70%)]" />
                         </div>

@@ -11,14 +11,14 @@ function Header() {
         <header className="sticky top-0 z-10 animate-[fade-in-down_0.6s_ease-out] border-b border-black/6 bg-linear-to-b from-[rgba(255,255,255,0.95)] to-[rgba(255,255,255,0.8)] shadow-sm backdrop-blur-md transition-all duration-300">
             <Container className="flex items-center justify-between py-4">
                 <RouterLink
-                    className="group flex items-center gap-3 text-[var(--color-text)] no-underline transition-transform duration-300 ease-out hover:scale-105"
+                    className="group text-text flex items-center gap-3 no-underline transition-transform duration-300 ease-out hover:scale-105"
                     to="/"
                 >
                     <Logo />
                     <span className="font-extrabold tracking-[0.2px]">Orange Art Studio</span>
                 </RouterLink>
                 <button
-                    className="hidden cursor-pointer border-none bg-transparent p-2 text-[var(--color-text)] transition-transform hover:scale-110 max-md:block"
+                    className="text-text hidden cursor-pointer border-none bg-transparent p-2 transition-transform hover:scale-110 max-md:block"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Toggle menu"
                     aria-expanded={isMenuOpen}

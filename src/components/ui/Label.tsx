@@ -7,7 +7,7 @@ function cn(...classes: Array<string | undefined | false | null>) {
 }
 
 function Label({ className, ...rest }: LabelProps) {
-    const baseClasses = 'mb-2 block text-sm font-semibold text-[var(--color-text)]'
+    const baseClasses = 'mb-2 block text-sm font-semibold text-text'
     return <label className={cn(baseClasses, className)} {...rest} />
 }
 

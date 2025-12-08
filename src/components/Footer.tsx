@@ -10,8 +10,8 @@ function Footer() {
                 <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div>
                         <div className="mb-3 flex items-center gap-2">
-                            <div className="h-8 w-8 rounded-lg bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] shadow-lg" />
-                            <span className="font-bold text-[var(--color-text)]">Orange Art Studio</span>
+                            <div className="from-accent to-accent-2 h-8 w-8 rounded-lg bg-linear-to-br shadow-lg" />
+                            <span className="text-text font-bold">Orange Art Studio</span>
                         </div>
                         <p className="text-sm leading-relaxed opacity-80">
                             Curating contemporary art from emerging voices worldwide. Discover, collect, and support the next generation of artists.
@@ -19,7 +19,7 @@ function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="mb-3 text-sm font-bold tracking-wider text-[var(--color-text)] uppercase">Quick Links</h3>
+                        <h3 className="text-text mb-3 text-sm font-bold tracking-wider uppercase">Quick Links</h3>
                         <div className="flex flex-col gap-2">
                             <Link href="/artists" variant="underline-thin">
                                 Browse Artists
@@ -37,7 +37,7 @@ function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="mb-3 text-sm font-bold tracking-wider text-[var(--color-text)] uppercase">Follow Us</h3>
+                        <h3 className="text-text mb-3 text-sm font-bold tracking-wider uppercase">Follow Us</h3>
                         <div className="flex gap-3">
                             <a
                                 href="#instagram"
