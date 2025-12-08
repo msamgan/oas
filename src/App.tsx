@@ -5,9 +5,10 @@ import AboutPage from './pages/AboutPage'
 import ArtDetailsPage from './pages/ArtDetailsPage'
 import ArtistDetailsPage from './pages/ArtistDetailsPage'
 import ArtistsPage from './pages/ArtistsPage'
+import ArtistSubmissionPage from './pages/ArtistSubmissionPage'
 import ContactPage from './pages/ContactPage'
-import SignInPage from './pages/SignInPage'
 import Home from './pages/Home'
+import SignInPage from './pages/SignInPage'
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/art/:slug" element={<ArtDetailsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/sign-in" element={<SignInPage />} />
+                <Route path="/submit-artist" element={<ArtistSubmissionPage />} />
             </Routes>
             <Footer />
         </BrowserRouter>

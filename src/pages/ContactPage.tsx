@@ -150,7 +150,7 @@ function ContactPage() {
                                     {status === 'idle' && 'Send Message'}
                                 </Button>
                                 {status === 'idle' && (
-                                    <span className="text-sm text-muted">
+                                    <span className="text-muted text-sm">
                                         <span className="mr-1">💬</span>
                                         Response time: 1–2 business days
                                     </span>
