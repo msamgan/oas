@@ -81,7 +81,7 @@ function SignInPage() {
                             <h2 id="signin-title" className="text-2xl font-extrabold text-[var(--color-text)] md:text-3xl">
                                 Sign In
                             </h2>
-                            <p className="mt-2 text-sm text-[var(--color-muted)]">Use your email and password to continue.</p>
+                            <p className="text-muted mt-2 text-sm">Use your email and password to continue.</p>
                         </div>
 
                         <div className="space-y-5">
@@ -116,7 +116,7 @@ function SignInPage() {
                             </div>
 
                             <div className="flex items-center justify-between">
-                                <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]">
+                                <label className="text-muted flex cursor-pointer items-center gap-2 text-sm transition-colors hover:text-[var(--color-text)]">
                                     <input
                                         type="checkbox"
                                         name="remember"
@@ -172,7 +172,7 @@ function SignInPage() {
 
                         {/* Sign Up Link */}
                         <div className="mt-6 border-t border-black/10 pt-6 text-center">
-                            <p className="text-sm text-[var(--color-muted)]">
+                            <p className="text-muted text-sm">
                                 Don't have an account?{' '}
                                 <Link to="/contact" className="oas-link font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-2)]">
                                     Contact us to get started

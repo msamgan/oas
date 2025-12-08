@@ -5,12 +5,12 @@ function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="animate-[fade-in_1s_ease-out] border-t border-black/6 bg-gradient-to-b from-transparent to-[var(--color-surface)]/30 py-12 text-[var(--color-muted)]">
+        <footer className="text-muted animate-[fade-in_1s_ease-out] border-t border-black/6 bg-linear-to-b from-transparent to-[var(--color-surface)]/30 py-12">
             <Container>
                 <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div>
                         <div className="mb-3 flex items-center gap-2">
-                            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] shadow-lg" />
+                            <div className="h-8 w-8 rounded-lg bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] shadow-lg" />
                             <span className="font-bold text-[var(--color-text)]">Orange Art Studio</span>
                         </div>
                         <p className="text-sm leading-relaxed opacity-80">
@@ -70,7 +70,7 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col justify-between gap-4 border-t border-black/[0.06] pt-8 max-sm:text-center sm:flex-row">
+                <div className="flex flex-col justify-between gap-4 border-t border-black/6 pt-8 max-sm:text-center sm:flex-row">
                     <div>
                         <small>© {currentYear} Orange Art Studio. All rights reserved.</small>
                     </div>

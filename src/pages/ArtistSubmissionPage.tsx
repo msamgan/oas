@@ -214,7 +214,7 @@ function ArtistSubmissionPage() {
                                 </div>
 
                                 {/* Consent */}
-                                <div className="flex items-start gap-2 rounded-sm border border-black/10 bg-black/[0.02] p-4">
+                                <div className="flex items-start gap-2 rounded-sm border border-black/10 bg-black/2 p-4">
                                     <label className="text-muted hover:text-text flex cursor-pointer items-start gap-3 text-sm transition-colors">
                                         <input
                                             required
@@ -279,7 +279,7 @@ function ArtistSubmissionPage() {
                         {/* Submission Info Sidebar */}
                         <aside ref={sidebarRef} className="animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Submission Process Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -323,7 +323,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Requirements Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="text-text mb-4 flex items-center gap-2 text-lg font-bold">
                                     <svg className="text-accent-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -356,7 +356,7 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Quick Links Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="text-text mb-4 text-lg font-bold">Helpful Resources</h3>
                                 <ul className="space-y-3 text-sm">
                                     <li>
@@ -381,8 +381,8 @@ function ArtistSubmissionPage() {
                             </div>
 
                             {/* Privacy Note */}
-                            <div className="rounded-sm border border-black/[0.06] bg-black/[0.02] p-4">
-                                <p className="flex items-start gap-2 text-xs leading-relaxed text-[var(--color-muted)]">
+                            <div className="rounded-sm border border-black/6 bg-black/2 p-4">
+                                <p className="text-muted flex items-start gap-2 text-xs leading-relaxed">
                                     <svg className="text-accent mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
                                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"

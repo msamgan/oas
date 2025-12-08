@@ -8,7 +8,7 @@ function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <header className="sticky top-0 z-10 animate-[fade-in-down_0.6s_ease-out] border-b border-black/6 bg-gradient-to-b from-[rgba(255,255,255,0.95)] to-[rgba(255,255,255,0.8)] shadow-sm backdrop-blur-md transition-all duration-300">
+        <header className="sticky top-0 z-10 animate-[fade-in-down_0.6s_ease-out] border-b border-black/6 bg-linear-to-b from-[rgba(255,255,255,0.95)] to-[rgba(255,255,255,0.8)] shadow-sm backdrop-blur-md transition-all duration-300">
             <Container className="flex items-center justify-between py-4">
                 <RouterLink
                     className="group flex items-center gap-3 text-[var(--color-text)] no-underline transition-transform duration-300 ease-out hover:scale-105"

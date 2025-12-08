@@ -105,12 +105,12 @@ function About() {
                         <Badge withDot>Our Story</Badge>
                         <h1 className="my-5 mb-6 animate-[fade-in-up_0.8s_ease-out_0.2s_both] text-[clamp(36px,7vw,64px)] leading-[1.1] font-black tracking-[-1px]">
                             Championing{' '}
-                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Emerging Artists
                             </span>{' '}
                             in the Digital Age
                         </h1>
-                        <p className="mx-auto max-w-[70ch] animate-[fade-in-up_0.8s_ease-out_0.3s_both] text-[clamp(17px,2.5vw,20px)] leading-[1.7] text-[var(--color-muted)]">
+                        <p className="text-muted mx-auto max-w-[70ch] animate-[fade-in-up_0.8s_ease-out_0.3s_both] text-[clamp(17px,2.5vw,20px)] leading-[1.7]">
                             Orange Art Studio is a curated platform spotlighting contemporary works from rising talents. We're building a community
                             where discovery meets accessibility, and where every artist has a voice.
                         </p>
@@ -130,7 +130,7 @@ function About() {
                             <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Our Mission
                             </h3>
-                            <p className="relative z-[1] m-0 text-[15px] leading-[1.6] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 To champion new voices, foster discovery, and make art collecting approachable without compromising on taste. We
                                 believe every artist deserves a platform to shine.
                             </p>
@@ -140,7 +140,7 @@ function About() {
                             <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Our Vision
                             </h3>
-                            <p className="relative z-[1] m-0 text-[15px] leading-[1.6] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 A world where emerging artists are celebrated, supported, and connected with collectors who appreciate their unique
                                 perspectives and creative expressions.
                             </p>
@@ -150,7 +150,7 @@ function About() {
                             <h3 className="relative z-[1] m-0 mb-3 text-2xl font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Our Approach
                             </h3>
-                            <p className="relative z-[1] m-0 text-[15px] leading-[1.6] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted relative z-[1] m-0 text-[15px] leading-[1.6] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 We publish limited drops, host seasonal showcases, and collaborate with artists across mediums—from digital to
                                 traditional, photography to mixed media.
                             </p>
@@ -165,7 +165,7 @@ function About() {
                 ref={valuesRef}
             >
                 <Container>
-                    <h2 className="m-0 mb-12 animate-[fade-in-up_0.8s_ease-out] bg-gradient-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-center text-[clamp(32px,5vw,48px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                    <h2 className="animate-fade-in-up m-0 mb-12 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-center text-[clamp(32px,5vw,48px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                         What We Stand For
                     </h2>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-6">
@@ -174,7 +174,7 @@ function About() {
                             <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Authenticity
                             </h4>
-                            <p className="m-0 text-[15px] leading-[1.7] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 We showcase genuine talent and original work. Every piece tells a story, and every artist brings a unique perspective.
                             </p>
                         </Card>
@@ -183,7 +183,7 @@ function About() {
                             <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Accessibility
                             </h4>
-                            <p className="m-0 text-[15px] leading-[1.7] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 Art should be approachable. We break down barriers between artists and collectors, making discovery effortless.
                             </p>
                         </Card>
@@ -192,7 +192,7 @@ function About() {
                             <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Quality
                             </h4>
-                            <p className="m-0 text-[15px] leading-[1.7] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 Curated doesn't mean exclusive—it means excellent. We maintain high standards while keeping an open mind.
                             </p>
                         </Card>
@@ -201,7 +201,7 @@ function About() {
                             <h4 className="m-0 mb-2.5 text-[22px] font-extrabold text-[var(--color-text)] transition-colors duration-300 ease-out hover:text-[var(--color-accent)]">
                                 Community
                             </h4>
-                            <p className="m-0 text-[15px] leading-[1.7] text-[var(--color-muted)] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
+                            <p className="text-muted m-0 text-[15px] leading-[1.7] transition-colors duration-300 ease-out hover:text-[var(--color-text)]">
                                 We're building more than a gallery—we're fostering connections between artists, collectors, and enthusiasts.
                             </p>
                         </Card>
@@ -211,11 +211,11 @@ function About() {
 
             {/* Stats Section */}
             <section
-                className="relative overflow-hidden border-t border-b border-black/[0.06] bg-[linear-gradient(135deg,rgba(255,122,24,0.04)_0%,rgba(255,183,3,0.02)_100%)] py-10 before:absolute before:top-0 before:-left-full before:h-full before:w-full before:animate-[slide-across_3s_ease-in-out_infinite] before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,122,24,0.08)_50%,transparent_100%)] before:content-[''] md:py-14 lg:py-18"
+                className="relative overflow-hidden border-t border-b border-black/6 bg-[linear-gradient(135deg,rgba(255,122,24,0.04)_0%,rgba(255,183,3,0.02)_100%)] py-10 before:absolute before:top-0 before:-left-full before:h-full before:w-full before:animate-[slide-across_3s_ease-in-out_infinite] before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,122,24,0.08)_50%,transparent_100%)] before:content-[''] md:py-14 lg:py-18"
                 ref={statsRef}
             >
                 <Container>
-                    <div className="relative z-[1] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="relative z-1 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         <Card variant="stat" className="stat-card" style={{ transitionDelay: '0.1s' }}>
                             <StatNumber value="500+" />
                             <StatLabel>Artists Featured</StatLabel>
@@ -240,14 +240,14 @@ function About() {
             <section className="py-12 md:py-16 lg:py-24">
                 <Container>
                     <div
-                        className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 px-8 text-center shadow-[var(--shadow-hover)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.12)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
+                        className="animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 px-8 text-center shadow-[var(--shadow-hover)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,122,24,0.12)_0%,transparent_50%)] before:opacity-0 before:transition-opacity before:duration-300 before:ease-out before:content-[''] hover:before:opacity-100 md:p-12 md:px-10 lg:p-16 lg:px-12"
                         ref={ctaCardRef}
                     >
                         <div className="relative z-[2]">
-                            <h2 className="m-0 mb-4 bg-gradient-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <h2 className="m-0 mb-4 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Join Our Creative Community
                             </h2>
-                            <p className="mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6] text-[var(--color-muted)]">
+                            <p className="text-muted mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6]">
                                 Whether you're an artist looking to be featured or a collector seeking fresh perspectives, we'd love to connect with
                                 you.
                             </p>

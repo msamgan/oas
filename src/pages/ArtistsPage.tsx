@@ -48,16 +48,16 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="artists-hero" padding="lg" className="relative overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.08)] via-transparent to-[rgba(255,183,3,0.06)] [background-size:200%_200%]" />
                 <Container className="relative z-10">
                     <div className="mx-auto max-w-3xl text-center">
                         <Badge withDot className="mb-6">
                             Discover Talent
                         </Badge>
-                        <Heading as="h1" variant="hero" className="mb-5 animate-[fade-in-up_0.8s_ease-out]">
+                        <Heading as="h1" variant="hero" className="animate-fade-in-up mb-5">
                             Meet Our Artists
                         </Heading>
-                        <p className="mb-8 animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
+                        <p className="text-muted mb-8 animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-lg leading-relaxed md:text-xl">
                             Explore the creators behind the works. Discover emerging and established artists, their unique styles, and the mediums
                             they master.
                         </p>
@@ -71,7 +71,7 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
 
             {/* Featured Artists Spotlight */}
             {featuredArtists.length > 0 && (
-                <Section id="featured-artists" padding="md" className="bg-gradient-to-b from-transparent to-[rgba(255,122,24,0.02)]">
+                <Section id="featured-artists" padding="md" className="bg-linear-to-b from-transparent to-[rgba(255,122,24,0.02)]">
                     <Container>
                         <div className="mb-8 flex animate-[fade-in-up_0.6s_ease-out] items-center justify-between">
                             <div>
@@ -88,22 +88,22 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                 <Link
                                     to={`/artists/${artistSlug(artist.name, artist.location)}`}
                                     key={artist.name}
-                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-gradient-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[var(--shadow-hover)]"
+                                    className="featured-card group relative animate-[fade-in-up_0.7s_ease-out_forwards] cursor-pointer overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.15)] bg-linear-to-br from-white to-[rgba(255,122,24,0.03)] opacity-0 shadow-[var(--shadow-2)] transition-all duration-500 [transition-timing-function:cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-3 hover:scale-[1.03] hover:border-[rgba(255,122,24,0.4)] hover:shadow-[var(--shadow-hover)]"
                                     style={{ animationDelay: `${index * 0.15}s` }}
                                 >
                                     {/* Shimmer effect overlay */}
                                     <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                        <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]" />
+                                        <div className="absolute inset-0 translate-x-[-100%] bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]" />
                                     </div>
 
                                     {/* Featured badge */}
-                                    <div className="absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] px-2.5 py-1 text-xs font-bold text-white shadow-lg">
+                                    <div className="absolute top-3 right-3 z-10 animate-[float_6s_ease-in-out_infinite] rounded-full bg-linear-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] px-2.5 py-1 text-xs font-bold text-white shadow-lg">
                                         ★ Featured
                                     </div>
 
-                                    <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5]">
+                                    <div className="relative aspect-[4/3] overflow-hidden bg-linear-to-br from-[#fafafa] via-[#f0f0f0] to-[#f5f5f5]">
                                         {/* Animated gradient overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(255,122,24,0.1)] via-transparent to-[rgba(255,183,3,0.08)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
+                                        <div className="absolute inset-0 bg-linear-to-br from-[rgba(255,122,24,0.1)] via-transparent to-[rgba(255,183,3,0.08)] opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
                                         {/* Shimmer placeholder */}
                                         <div className="absolute inset-0 animate-[shimmer_3s_linear_infinite] bg-[linear-gradient(110deg,transparent_0%,transparent_40%,rgba(255,255,255,0.4)_50%,transparent_60%,transparent_100%)] [background-size:200%_100%]" />
                                     </div>
@@ -113,11 +113,11 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                             {artist.name}
                                         </h3>
                                         <p className="mb-2 text-sm font-semibold text-[var(--color-accent)]">{artist.genre}</p>
-                                        <p className="mb-4 text-sm leading-relaxed text-[var(--color-muted)]">{artist.bio}</p>
-                                        <div className="flex items-center justify-between border-t border-black/[0.06] pt-3">
-                                            <span className="text-xs text-[var(--color-muted)]">{artist.works} works</span>
+                                        <p className="text-muted mb-4 text-sm leading-relaxed">{artist.bio}</p>
+                                        <div className="flex items-center justify-between border-t border-black/6 pt-3">
+                                            <span className="text-muted text-xs">{artist.works} works</span>
                                             {artist.location && (
-                                                <span className="flex items-center gap-1 text-xs text-[var(--color-muted)]">
+                                                <span className="text-muted flex items-center gap-1 text-xs">
                                                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path
                                                             strokeLinecap="round"
@@ -185,8 +185,8 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                     {/* Empty State */}
                     {filteredArtists.length === 0 && (
                         <div className="animate-[fade-in-up_0.6s_ease-out] py-20 text-center">
-                            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-black/[0.04]">
-                                <svg className="h-8 w-8 text-[var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-black/4">
+                                <svg className="text-muted h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -195,20 +195,20 @@ function ArtistsPage({ artists = defaultArtists }: { artists?: Artist[] }) {
                                     />
                                 </svg>
                             </div>
-                            <p className="text-lg text-[var(--color-muted)]">No artists found in this category</p>
+                            <p className="text-muted text-lg">No artists found in this category</p>
                         </div>
                     )}
                 </Container>
             </Section>
 
             {/* Call to Action */}
-            <Section id="artists-cta" padding="md" className="bg-gradient-to-br from-[rgba(255,122,24,0.04)] to-transparent">
+            <Section id="artists-cta" padding="md" className="bg-linear-to-br from-[rgba(255,122,24,0.04)] to-transparent">
                 <Container>
-                    <div className="mx-auto max-w-2xl animate-[fade-in-up_0.8s_ease-out] py-12 text-center">
+                    <div className="animate-fade-in-up mx-auto max-w-2xl py-12 text-center">
                         <Heading as="h2" variant="h3" className="mb-4">
                             Are You an Artist?
                         </Heading>
-                        <p className="mb-8 text-lg leading-relaxed text-[var(--color-muted)]">
+                        <p className="text-muted mb-8 text-lg leading-relaxed">
                             Join our community of talented artists. Share your portfolio and connect with collectors worldwide.
                         </p>
                         <div className="flex items-center justify-center gap-3">

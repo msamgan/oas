@@ -50,7 +50,7 @@ function ContactPage() {
         <main className="min-h-screen">
             {/* Hero Section */}
             <Section id="contact-hero" padding="lg" className="relative overflow-hidden">
-                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-gradient-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
+                <div className="absolute inset-0 animate-[gradient-shift_8s_ease-in-out_infinite] bg-linear-to-br from-[rgba(255,122,24,0.04)] via-transparent to-[rgba(255,183,3,0.03)] [background-size:200%_200%]" />
 
                 {/* Decorative floating orbs */}
                 <div className="pointer-events-none absolute -top-1/2 -right-[20%] h-[600px] w-[600px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.08)_0%,transparent_70%)]" />
@@ -63,11 +63,11 @@ function ContactPage() {
                         </Badge>
                         <Heading as="h1" variant="hero" className="mb-5 animate-[fade-in-up_0.8s_ease-out_0.2s_both]">
                             Let's Start a{' '}
-                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <span className="relative inline-block animate-[gradient-shift_3s_ease-in-out_infinite] bg-linear-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Conversation
                             </span>
                         </Heading>
-                        <p className="mb-8 animate-[fade-in-up_0.8s_ease-out_0.3s_both] text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
+                        <p className="text-muted mb-8 animate-[fade-in-up_0.8s_ease-out_0.3s_both] text-lg leading-relaxed md:text-xl">
                             Have a question, collaboration idea, or feedback? We'd love to hear from you. Our team is here to help and typically
                             responds within 1–2 business days.
                         </p>
@@ -76,7 +76,7 @@ function ContactPage() {
             </Section>
 
             {/* Contact Form Section */}
-            <Section id="contact-form" padding="md" className="bg-gradient-to-b from-transparent to-[rgba(255,122,24,0.02)]">
+            <Section id="contact-form" padding="md" className="bg-linear-to-b from-transparent to-[rgba(255,122,24,0.02)]">
                 <Container>
                     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                         {/* Main Contact Form */}
@@ -178,7 +178,7 @@ function ContactPage() {
                         {/* Contact Information Sidebar */}
                         <aside ref={contactInfoRef} className="contact-info animate-[fade-in-up_0.7s_ease-out_0.6s_both] space-y-6 opacity-0">
                             {/* Contact Details Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,122,24,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,122,24,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path
@@ -190,7 +190,7 @@ function ContactPage() {
                                     </svg>
                                     Contact Details
                                 </h3>
-                                <ul className="space-y-4 text-sm text-[var(--color-muted)]">
+                                <ul className="text-muted space-y-4 text-sm">
                                     <li className="flex items-start gap-3">
                                         <svg
                                             className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
@@ -235,7 +235,7 @@ function ContactPage() {
                             </div>
 
                             {/* FAQ / Quick Links Card */}
-                            <div className="group rounded-[var(--radius)] border border-black/10 bg-gradient-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
+                            <div className="group rounded-[var(--radius)] border border-black/10 bg-linear-to-br from-white to-[rgba(255,183,3,0.02)] p-6 shadow-[var(--shadow-1)] transition-all duration-500 hover:border-[rgba(255,183,3,0.2)] hover:shadow-[var(--shadow-hover)]">
                                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-[var(--color-text)]">
                                     <svg className="h-5 w-5 text-[var(--color-accent-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <circle cx="12" cy="12" r="10" strokeWidth="2" />
@@ -271,8 +271,8 @@ function ContactPage() {
                             </div>
 
                             {/* Privacy Note */}
-                            <div className="rounded-[var(--radius-sm)] border border-black/[0.06] bg-black/[0.02] p-4">
-                                <p className="flex items-start gap-2 text-xs leading-relaxed text-[var(--color-muted)]">
+                            <div className="rounded-[var(--radius-sm)] border border-black/6 bg-black/2 p-4">
+                                <p className="text-muted flex items-start gap-2 text-xs leading-relaxed">
                                     <svg
                                         className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-accent)]"
                                         viewBox="0 0 24 24"
@@ -299,12 +299,12 @@ function ContactPage() {
             {/* CTA Section */}
             <Section id="contact-cta" padding="md">
                 <Container>
-                    <div className="relative animate-[fade-in-up_0.8s_ease-out] overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-[var(--shadow-hover)] md:p-12 lg:p-16">
+                    <div className="animate-fade-in-up relative overflow-hidden rounded-[var(--radius)] border border-[rgba(255,122,24,0.2)] bg-[linear-gradient(135deg,rgba(255,122,24,0.06)_0%,rgba(255,183,3,0.04)_100%)] p-10 text-center shadow-[var(--shadow-hover)] md:p-12 lg:p-16">
                         <div className="relative z-[2]">
-                            <h2 className="m-0 mb-4 bg-gradient-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                            <h2 className="m-0 mb-4 bg-linear-to-br from-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-[clamp(28px,5vw,42px)] font-black tracking-[-0.5px] text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                                 Interested in Submitting Your Work?
                             </h2>
-                            <p className="mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6] text-[var(--color-muted)]">
+                            <p className="text-muted mx-auto mb-8 max-w-[60ch] text-[clamp(16px,2.2vw,18px)] leading-[1.6]">
                                 We're always looking for talented artists to feature. Submit your portfolio and join our growing community of
                                 creators.
                             </p>

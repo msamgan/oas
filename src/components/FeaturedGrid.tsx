@@ -46,7 +46,7 @@ function FeaturedGrid({ items = defaultItems }: { items?: FeaturedItem[] }) {
                     <Heading as="h2" variant="h2" className="animate-fade-in-up mx-auto max-w-3xl">
                         Featured works
                     </Heading>
-                    <p className="mx-auto mt-4 max-w-2xl animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-lg text-[var(--color-muted)]">
+                    <p className="text-muted mx-auto mt-4 max-w-2xl animate-[fade-in-up_0.8s_ease-out_0.1s_both] text-lg">
                         Hand-picked pieces from artists we believe in. Each work tells a unique story and showcases exceptional creativity.
                     </p>
                 </div>
@@ -58,10 +58,7 @@ function FeaturedGrid({ items = defaultItems }: { items?: FeaturedItem[] }) {
 
                 {/* View All Link */}
                 <div className="mt-12 text-center">
-                    <a
-                        href="/artists"
-                        className="group inline-flex items-center gap-2 text-lg font-semibold text-[var(--color-accent)] transition-all hover:gap-3"
-                    >
+                    <a href="/artists" className="group text-accent inline-flex items-center gap-2 text-lg font-semibold transition-all hover:gap-3">
                         Explore all artworks
                         <span className="transition-transform group-hover:translate-x-1">→</span>
                     </a>
