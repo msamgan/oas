@@ -1,7 +1,7 @@
 import type { SVGAttributes } from 'react'
 
 type IconProps = SVGAttributes<SVGSVGElement> & {
-    name: 'location' | 'menu' | 'close'
+    name: 'location' | 'menu' | 'close' | 'grid' | 'masonry' | 'search'
     size?: number
 }
 
@@ -53,6 +53,28 @@ function Icon({ name, size = 24, className, ...rest }: IconProps) {
             >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        ),
+        grid: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <rect x="3" y="3" width="7" height="7" strokeWidth="2" />
+                <rect x="14" y="3" width="7" height="7" strokeWidth="2" />
+                <rect x="14" y="14" width="7" height="7" strokeWidth="2" />
+                <rect x="3" y="14" width="7" height="7" strokeWidth="2" />
+            </svg>
+        ),
+        masonry: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <rect x="3" y="3" width="7" height="12" strokeWidth="2" />
+                <rect x="14" y="3" width="7" height="7" strokeWidth="2" />
+                <rect x="3" y="17" width="7" height="4" strokeWidth="2" />
+                <rect x="14" y="12" width="7" height="9" strokeWidth="2" />
+            </svg>
+        ),
+        search: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <circle cx="11" cy="11" r="8" strokeWidth="2" />
+                <path d="m21 21-4.35-4.35" strokeWidth="2" strokeLinecap="round" />
             </svg>
         ),
     }
