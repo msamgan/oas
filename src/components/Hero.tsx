@@ -45,27 +45,27 @@ function Hero() {
             {absoluteMousePosition.x > 0 && (
                 <>
                     <div
-                        className="pointer-events-none absolute z-50 h-8 w-8 rounded-full bg-accent/30 blur-xl transition-all duration-200 ease-out"
+                        className="bg-accent/30 pointer-events-none absolute z-50 h-8 w-8 rounded-full blur-xl transition-all duration-200 ease-out"
                         style={{
                             left: `${absoluteMousePosition.x}px`,
                             top: `${absoluteMousePosition.y}px`,
-                            transform: 'translate(-50%, -50%)'
+                            transform: 'translate(-50%, -50%)',
                         }}
                     />
                     <div
-                        className="pointer-events-none absolute z-50 h-16 w-16 rounded-full bg-accent-2/20 blur-2xl transition-all duration-500 ease-out"
+                        className="bg-accent-2/20 pointer-events-none absolute z-50 h-16 w-16 rounded-full blur-2xl transition-all duration-500 ease-out"
                         style={{
                             left: `${absoluteMousePosition.x}px`,
                             top: `${absoluteMousePosition.y}px`,
-                            transform: 'translate(-50%, -50%)'
+                            transform: 'translate(-50%, -50%)',
                         }}
                     />
                     <div
-                        className="pointer-events-none absolute z-50 h-4 w-4 rounded-full border-2 border-accent/50 transition-all duration-100 ease-out"
+                        className="border-accent/50 pointer-events-none absolute z-50 h-4 w-4 rounded-full border-2 transition-all duration-100 ease-out"
                         style={{
                             left: `${absoluteMousePosition.x}px`,
                             top: `${absoluteMousePosition.y}px`,
-                            transform: 'translate(-50%, -50%)'
+                            transform: 'translate(-50%, -50%)',
                         }}
                     />
                 </>
@@ -102,16 +102,22 @@ function Hero() {
 
                 {/* Glowing dots */}
                 <div
-                    className="from-accent to-accent-2 absolute top-[30%] left-[20%] h-4 w-4 animate-[pulse_3s_ease-in-out_infinite] rounded-full bg-linear-to-r shadow-lg shadow-accent/30 transition-transform duration-200 ease-out"
-                    style={{ transform: `translate(${mousePosition.x * 120}px, ${mousePosition.y * 120}px) scale(${1 + Math.abs(mousePosition.x) * 0.5})` }}
+                    className="from-accent to-accent-2 shadow-accent/30 absolute top-[30%] left-[20%] h-4 w-4 animate-[pulse_3s_ease-in-out_infinite] rounded-full bg-linear-to-r shadow-lg transition-transform duration-200 ease-out"
+                    style={{
+                        transform: `translate(${mousePosition.x * 120}px, ${mousePosition.y * 120}px) scale(${1 + Math.abs(mousePosition.x) * 0.5})`,
+                    }}
                 />
                 <div
-                    className="from-accent-2 to-accent absolute top-[60%] right-[15%] h-3 w-3 animate-[pulse_4s_ease-in-out_infinite_1s] rounded-full bg-linear-to-r shadow-lg shadow-accent-2/30 transition-transform duration-250 ease-out"
-                    style={{ transform: `translate(${mousePosition.x * -100}px, ${mousePosition.y * -100}px) scale(${1 + Math.abs(mousePosition.y) * 0.6})` }}
+                    className="from-accent-2 to-accent shadow-accent-2/30 absolute top-[60%] right-[15%] h-3 w-3 animate-[pulse_4s_ease-in-out_infinite_1s] rounded-full bg-linear-to-r shadow-lg transition-transform duration-250 ease-out"
+                    style={{
+                        transform: `translate(${mousePosition.x * -100}px, ${mousePosition.y * -100}px) scale(${1 + Math.abs(mousePosition.y) * 0.6})`,
+                    }}
                 />
                 <div
-                    className="from-accent to-accent-2 absolute bottom-[40%] left-[40%] h-3.5 w-3.5 animate-[pulse_3.5s_ease-in-out_infinite_2s] rounded-full bg-linear-to-r shadow-lg shadow-accent/30 transition-transform duration-200 ease-out"
-                    style={{ transform: `translate(${mousePosition.x * 90}px, ${mousePosition.y * 90}px) scale(${1 + (Math.abs(mousePosition.x) + Math.abs(mousePosition.y)) * 0.4})` }}
+                    className="from-accent to-accent-2 shadow-accent/30 absolute bottom-[40%] left-[40%] h-3.5 w-3.5 animate-[pulse_3.5s_ease-in-out_infinite_2s] rounded-full bg-linear-to-r shadow-lg transition-transform duration-200 ease-out"
+                    style={{
+                        transform: `translate(${mousePosition.x * 90}px, ${mousePosition.y * 90}px) scale(${1 + (Math.abs(mousePosition.x) + Math.abs(mousePosition.y)) * 0.4})`,
+                    }}
                 />
 
                 {/* Artistic brush strokes with shimmer */}
@@ -171,7 +177,7 @@ function Hero() {
                     className="relative animate-[slide-in-right_0.8s_ease-out_0.4s_both] transition-transform duration-300 ease-out"
                     style={{
                         transform: `perspective(1000px) rotateY(${mousePosition.x * 15}deg) rotateX(${mousePosition.y * -15}deg) translateZ(${Math.abs(mousePosition.x + mousePosition.y) * 20}px)`,
-                        transformStyle: 'preserve-3d'
+                        transformStyle: 'preserve-3d',
                     }}
                 >
                     {/* Decorative background element */}
@@ -191,7 +197,9 @@ function Hero() {
                     {/* Floating badge */}
                     <div
                         className="text-accent absolute -top-4 -right-4 animate-[float_4s_ease-in-out_infinite_1s] rounded-full bg-white px-4 py-2 text-xs font-bold shadow-lg transition-transform duration-200 ease-out"
-                        style={{ transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px) scale(${1 + Math.abs(mousePosition.x) * 0.2})` }}
+                        style={{
+                            transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px) scale(${1 + Math.abs(mousePosition.x) * 0.2})`,
+                        }}
                     >
                         ✨ Trending
                     </div>
