@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage'
 import DashboardPage from './pages/DashboardPage'
 import Home from './pages/Home'
 import SignInPage from './pages/SignInPage'
+import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
     return (
@@ -25,7 +26,14 @@ function App() {
                     <Route path="/art/:slug" element={<ArtDetailsPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/sign-in" element={<SignInPage />} />
-                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <ProtectedRoute>
+                                <DashboardPage />
+                            </ProtectedRoute>
+                        }
+                    />
                     <Route path="/submit-artist" element={<ArtistSubmissionPage />} />
                 </Routes>
                 <Footer />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
 import Container from '../components/ui/Container'
@@ -18,6 +18,7 @@ function SignInPage() {
     const formRef = useRef<HTMLFormElement>(null)
     const signInCardRef = useRef<HTMLDivElement>(null)
     const navigate = useNavigate()
+    const location = useLocation()
     const auth = useAuth()
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -32,12 +33,20 @@ function SignInPage() {
         const result = await auth.signIn({ email, password })
         if (result.ok) {
             setStatus('success')
-            navigate('/dashboard', { replace: true })
+            const from = (location.state as any)?.from?.pathname || '/dashboard'
+            navigate(from, { replace: true })
         } else {
             setStatus('error')
             setError(result.message)
         }
     }
+
+    // If already authenticated, redirect away from sign-in
+    useEffect(() => {
+        if (auth.isAuthenticated && !auth.loading) {
+            navigate('/dashboard', { replace: true })
+        }
+    }, [auth.isAuthenticated, auth.loading, navigate])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
