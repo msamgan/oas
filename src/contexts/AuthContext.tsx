@@ -1,44 +1,19 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { getApiUrl } from '../lib/methods'
-
-type AuthUser = Record<string, any> | null
-
-type AuthState = {
-    user: AuthUser
-    token: string | null
-    tokenType: string | null
-    loading: boolean
-}
-
-type SignInPayload = {
-    email: string
-    password: string
-}
-
-type AuthContextValue = AuthState & {
-    isAuthenticated: boolean
-    signIn: (payload: SignInPayload) => Promise<{ ok: true } | { ok: false; message: string }>
-    signOut: () => void
-    getAuthHeader: () => Record<string, string>
-}
-
-const AuthContext = createContext<AuthContextValue | undefined>(undefined)
+import { AuthContext, type AuthContextValue, type AuthState, type AuthUser, type SignInPayload } from './auth-context.shared'
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-    const [state, setState] = useState<AuthState>({ user: null, token: null, tokenType: null, loading: true })
-
-    // Hydrate from storage on mount
-    useEffect(() => {
+    const [state, setState] = useState<AuthState>(() => {
         try {
             const token = localStorage.getItem('auth_token')
             const tokenType = localStorage.getItem('auth_token_type')
             const rawUser = localStorage.getItem('user')
             const user = rawUser ? (JSON.parse(rawUser) as AuthUser) : null
-            setState({ user, token, tokenType, loading: false })
+            return { user, token, tokenType, loading: false }
         } catch {
-            setState({ user: null, token: null, tokenType: null, loading: false })
+            return { user: null, token: null, tokenType: null, loading: false }
         }
-    }, [])
+    })
 
     const persist = useCallback((user: AuthUser, token: string, tokenType?: string | null) => {
         localStorage.setItem('auth_token', token)
@@ -83,8 +58,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 persist(user, token, tokenType || null)
                 setState({ user, token, tokenType: tokenType || null, loading: false })
                 return { ok: true as const }
-            } catch (err: any) {
-                return { ok: false as const, message: err?.message || 'Network error while signing in.' }
+            } catch (err: unknown) {
+                const message = err instanceof Error ? err.message : 'Network error while signing in.'
+                return { ok: false as const, message }
             }
         },
         [persist],
@@ -95,10 +71,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setState({ user: null, token: null, tokenType: null, loading: false })
     }, [clear])
 
-    const getAuthHeader = useCallback(() => {
-        if (!state.token) return {}
-        const type = state.tokenType || 'Bearer'
-        return { Authorization: `${type} ${state.token}` }
+    const getAuthHeader = useCallback<() => Record<string, string>>(() => {
+        const headers: Record<string, string> = {}
+        if (state.token) {
+            const type = state.tokenType || 'Bearer'
+            headers.Authorization = `${type} ${state.token}`
+        }
+        return headers
     }, [state.token, state.tokenType])
 
     const value = useMemo<AuthContextValue>(
@@ -113,10 +92,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     )
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-}
-
-export function useAuth() {
-    const ctx = useContext(AuthContext)
-    if (!ctx) throw new Error('useAuth must be used within an AuthProvider')
-    return ctx
 }

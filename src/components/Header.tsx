@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../contexts/auth-context.shared'
 import Container from './ui/Container'
 import Icon from './ui/Icon'
 import Logo from './ui/Logo'

@@ -10,7 +10,8 @@ import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../contexts/auth-context.shared'
+type LocationState = { from?: { pathname?: string } } | null
 
 function SignInPage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -31,9 +32,10 @@ function SignInPage() {
         const password = String(form.get('password') || '')
 
         const result = await auth.signIn({ email, password })
+
         if (result.ok) {
             setStatus('success')
-            const from = (location.state as any)?.from?.pathname || '/dashboard'
+            const from = (location.state as LocationState)?.from?.pathname || '/dashboard'
             navigate(from, { replace: true })
         } else {
             setStatus('error')

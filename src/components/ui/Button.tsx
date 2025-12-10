@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import type { ButtonHTMLAttributes, ComponentProps, PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
 type ButtonProps = PropsWithChildren<
@@ -25,7 +25,7 @@ function Button({ children, className, variant = 'primary', type = 'button', asL
     const classes = cn(variants[variant], className)
     if (asLink && to) {
         return (
-            <Link to={to} className={classes} {...(rest as any)}>
+            <Link to={to} className={classes} {...(rest as unknown as Omit<ComponentProps<typeof Link>, 'to' | 'className'>)}>
                 {children}
             </Link>
         )
