@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
-import Button from '../components/ui/Button'
+import Button from '../components/ui/Button.tsx'
 import Container from '../components/ui/Container'
 import Form from '../components/ui/Form'
+import FormSubmitButton from '../components/ui/FormSubmitButton'
 import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
@@ -11,16 +13,18 @@ import Section from '../components/ui/Section'
 import Textarea from '../components/ui/Textarea'
 
 function ContactPage() {
-    const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+    const [error, setError] = useState<string | null>(null)
     const formRef = useRef<HTMLFormElement>(null)
     const contactInfoRef = useRef<HTMLDivElement>(null)
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         // This is a static site form placeholder. Replace with real handler/integration as needed.
-        setStatus('sending')
+        setError(null)
+        setStatus('submitting')
         setTimeout(() => {
-            setStatus('sent')
+            setStatus('success')
             setTimeout(() => {
                 setStatus('idle')
                 formRef.current?.reset()
@@ -129,26 +133,11 @@ function ContactPage() {
                             </div>
 
                             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                                <Button type="submit" disabled={status === 'sending' || status === 'sent'} className="group relative overflow-hidden">
-                                    {status === 'sending' && (
-                                        <span className="flex items-center gap-2">
-                                            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <circle cx="12" cy="12" r="10" strokeWidth="2" strokeOpacity="0.3" />
-                                                <path d="M12 2 A10 10 0 0 1 22 12" strokeWidth="2" strokeLinecap="round" />
-                                            </svg>
-                                            Sending...
-                                        </span>
-                                    )}
-                                    {status === 'sent' && (
-                                        <span className="flex items-center gap-2">
-                                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path d="M5 13l4 4L19 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                            Message Sent!
-                                        </span>
-                                    )}
-                                    {status === 'idle' && 'Send Message'}
-                                </Button>
+                                <FormSubmitButton
+                                    status={status}
+                                    className="group relative w-full overflow-hidden sm:w-auto"
+                                    labels={{ idle: 'Send Message', submitting: 'Sending...', success: 'Message Sent!', error: 'Send Message' }}
+                                />
                                 {status === 'idle' && (
                                     <span className="text-muted text-sm">
                                         <span className="mr-1">💬</span>
@@ -157,21 +146,18 @@ function ContactPage() {
                                 )}
                             </div>
 
+                            {/* Error Message */}
+                            {status === 'error' && error && (
+                                <Alert variant="error" message={error} className="mt-2 animate-[scale-in_0.3s_ease-out]" />
+                            )}
+
                             {/* Success Message */}
-                            {status === 'sent' && (
-                                <div className="animate-[scale-in_0.3s_ease-out] rounded-sm border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
-                                    <p className="text-accent-2 flex items-center gap-2 text-sm font-semibold">
-                                        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
-                                        </svg>
-                                        Thank you! We've received your message and will respond shortly.
-                                    </p>
-                                </div>
+                            {status === 'success' && (
+                                <Alert
+                                    variant="success"
+                                    message="Thank you! We've received your message and will respond shortly."
+                                    className="mt-2 animate-[scale-in_0.3s_ease-out]"
+                                />
                             )}
                         </Form>
 
