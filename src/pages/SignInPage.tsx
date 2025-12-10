@@ -1,31 +1,90 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
-import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
 import Form from '../components/ui/Form'
+import FormSubmitButton from '../components/ui/FormSubmitButton'
 import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
+import { getApiUrl } from '../lib/methods.ts'
 
 function SignInPage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+    const [error, setError] = useState<string | null>(null)
     const formRef = useRef<HTMLFormElement>(null)
     const signInCardRef = useRef<HTMLDivElement>(null)
+    const navigate = useNavigate()
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        // Placeholder submit handler for static site. Replace with real auth later.
+        setError(null)
         setStatus('submitting')
-        setTimeout(() => {
+
+        const form = new FormData(e.currentTarget)
+        const email = String(form.get('email') || '').trim()
+        const password = String(form.get('password') || '')
+
+        // Resolve API endpoint from env
+        const url = getApiUrl('auth/sign-in')
+
+        if (!url) {
+            setStatus('error')
+            setError('Missing API configuration.')
+
+            return
+        }
+
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            })
+
+            const data = await res.json().catch(() => ({})) // in case of empty body
+
+            if (!res.ok) {
+                const message =
+                    (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Sign in failed with status ${res.status}`
+                setStatus('error')
+                setError(message)
+                return
+            }
+
+            // Extract token and user from the provided API shape, with safe fallbacks
+            const token: string | undefined = data?.payload?.token || data?.token || data?.access_token || data?.data?.token
+            const tokenType: string | undefined = data?.payload?.type || data?.type || data?.token_type
+            if (!token) {
+                setStatus('error')
+                setError('Unexpected response from server: missing token.')
+                return
+            }
+
+            // Persist token based on remember me
+            const storage = window.localStorage
+
+            storage.setItem('auth_token', token)
+
+            if (tokenType) storage.setItem('auth_token_type', tokenType)
+
+            const user = data?.payload?.user || data?.user || data?.data?.user || {}
+            storage.setItem('user', JSON.stringify(user))
+
             setStatus('success')
-            setTimeout(() => {
-                setStatus('idle')
-                formRef.current?.reset()
-            }, 2000)
-        }, 700)
+
+            // Redirect to dashboard
+            navigate('/dashboard', { replace: true })
+        } catch (err: any) {
+            setStatus('error')
+            setError(err?.message || 'Network error while signing in.')
+        }
     }
 
     useEffect(() => {
@@ -116,58 +175,31 @@ function SignInPage() {
                             </div>
 
                             <div className="flex items-center justify-between">
-                                <label className="text-muted hover:text-text flex cursor-pointer items-center gap-2 text-sm transition-colors">
-                                    <input
-                                        type="checkbox"
-                                        name="remember"
-                                        className="accent-accent hover:border-accent h-4 w-4 cursor-pointer rounded border-black/20 bg-white transition-all"
-                                    />
-                                    Remember me
-                                </label>
                                 <Link to="/contact" className="oas-link oas-link-underline text-sm font-semibold">
                                     Forgot password?
                                 </Link>
                             </div>
 
                             <div className="pt-2">
-                                <Button type="submit" disabled={status === 'submitting' || status === 'success'} className="w-full transition-all">
-                                    {status === 'submitting' && (
-                                        <span className="flex items-center justify-center gap-2">
-                                            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <circle cx="12" cy="12" r="10" strokeWidth="2" strokeOpacity="0.3" />
-                                                <path d="M12 2 A10 10 0 0 1 22 12" strokeWidth="2" strokeLinecap="round" />
-                                            </svg>
-                                            Signing In...
-                                        </span>
-                                    )}
-                                    {status === 'success' && (
-                                        <span className="flex items-center justify-center gap-2">
-                                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path d="M5 13l4 4L19 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                            Signed In!
-                                        </span>
-                                    )}
-                                    {status === 'idle' && 'Sign In'}
-                                </Button>
+                                <FormSubmitButton
+                                    status={status}
+                                    className="w-full transition-all"
+                                    labels={{
+                                        idle: 'Sign In',
+                                        submitting: 'Signing In...',
+                                        success: 'Signed In!',
+                                        error: 'Sign In',
+                                    }}
+                                />
                             </div>
                         </div>
 
+                        {/* Error Message */}
+                        {status === 'error' && error && <Alert variant="error" message={error} className="mt-4 animate-[scale-in_0.3s_ease-out]" />}
+
                         {/* Success Message */}
                         {status === 'success' && (
-                            <div className="mt-4 animate-[scale-in_0.3s_ease-out] rounded-sm border border-[rgba(255,183,3,0.3)] bg-[rgba(255,183,3,0.08)] p-4">
-                                <p className="text-accent-2 flex items-center gap-2 text-sm font-semibold">
-                                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                    Signed in successfully! (demo)
-                                </p>
-                            </div>
+                            <Alert variant="success" message="Signed in successfully!" className="mt-4 animate-[scale-in_0.3s_ease-out]" />
                         )}
 
                         {/* Sign Up Link */}
