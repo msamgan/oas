@@ -1,4 +1,4 @@
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { forwardRef, type HTMLAttributes, type PropsWithChildren } from 'react'
 
 type SectionProps = PropsWithChildren<
     HTMLAttributes<HTMLElement> & {
@@ -17,12 +17,14 @@ const paddingClasses: Record<NonNullable<SectionProps['padding']>, string> = {
     xl: 'py-15 md:py-20 lg:py-30',
 }
 
-function Section({ children, className, padding = 'md', ...rest }: SectionProps) {
+const Section = forwardRef<HTMLElement, SectionProps>(({ children, className, padding = 'md', ...rest }, ref) => {
     return (
-        <section className={cn(paddingClasses[padding], className)} {...rest}>
+        <section ref={ref} className={cn(paddingClasses[padding], className)} {...rest}>
             {children}
         </section>
     )
-}
+})
+
+Section.displayName = 'Section'
 
 export default Section
