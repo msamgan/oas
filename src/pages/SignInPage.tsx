@@ -10,7 +10,7 @@ import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Section from '../components/ui/Section'
-import { getApiUrl } from '../lib/methods.ts'
+import { useAuth } from '../contexts/AuthContext'
 
 function SignInPage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -18,6 +18,7 @@ function SignInPage() {
     const formRef = useRef<HTMLFormElement>(null)
     const signInCardRef = useRef<HTMLDivElement>(null)
     const navigate = useNavigate()
+    const auth = useAuth()
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -28,62 +29,13 @@ function SignInPage() {
         const email = String(form.get('email') || '').trim()
         const password = String(form.get('password') || '')
 
-        // Resolve API endpoint from env
-        const url = getApiUrl('auth/sign-in')
-
-        if (!url) {
-            setStatus('error')
-            setError('Missing API configuration.')
-
-            return
-        }
-
-        try {
-            const res = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            })
-
-            const data = await res.json().catch(() => ({})) // in case of empty body
-
-            if (!res.ok) {
-                const message =
-                    (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Sign in failed with status ${res.status}`
-                setStatus('error')
-                setError(message)
-                return
-            }
-
-            // Extract token and user from the provided API shape, with safe fallbacks
-            const token: string | undefined = data?.payload?.token || data?.token || data?.access_token || data?.data?.token
-            const tokenType: string | undefined = data?.payload?.type || data?.type || data?.token_type
-            if (!token) {
-                setStatus('error')
-                setError('Unexpected response from server: missing token.')
-                return
-            }
-
-            // Persist token based on remember me
-            const storage = window.localStorage
-
-            storage.setItem('auth_token', token)
-
-            if (tokenType) storage.setItem('auth_token_type', tokenType)
-
-            const user = data?.payload?.user || data?.user || data?.data?.user || {}
-            storage.setItem('user', JSON.stringify(user))
-
+        const result = await auth.signIn({ email, password })
+        if (result.ok) {
             setStatus('success')
-
-            // Redirect to dashboard
             navigate('/dashboard', { replace: true })
-        } catch (err: any) {
+        } else {
             setStatus('error')
-            setError(err?.message || 'Network error while signing in.')
+            setError(result.message)
         }
     }
 
