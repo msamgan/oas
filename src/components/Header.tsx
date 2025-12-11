@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { useAuth } from '../contexts/auth-context.shared'
 import Container from './ui/Container'
 import Icon from './ui/Icon'
@@ -7,14 +7,7 @@ import Logo from './ui/Logo'
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const navigate = useNavigate()
-    const { isAuthenticated, loading, signOut } = useAuth()
-
-    function handleSignOut() {
-        signOut()
-        setIsMenuOpen(false)
-        navigate('/', { replace: true })
-    }
+    const { isAuthenticated, loading } = useAuth()
 
     return (
         <header className="animate-fade-in-down sticky top-0 z-10 border-b border-black/6 bg-linear-to-b from-[rgba(255,255,255,0.95)] to-[rgba(255,255,255,0.8)] shadow-sm backdrop-blur-md transition-all duration-300">
@@ -60,13 +53,7 @@ function Header() {
                     </RouterLink>
                     {!loading &&
                         (isAuthenticated ? (
-                            <button
-                                type="button"
-                                onClick={handleSignOut}
-                                className="oas-link oas-link-underline cursor-pointer border-0 bg-transparent p-0 text-left font-semibold"
-                            >
-                                Sign Out
-                            </button>
+                            <></>
                         ) : (
                             <RouterLink to="/sign-in" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                                 Sign In
