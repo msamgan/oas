@@ -7,6 +7,7 @@ import Heading from '../components/ui/Heading'
 import Input from '../components/ui/Input'
 import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
+import Textarea from '../components/ui/Textarea.tsx'
 import { useAuth } from '../contexts/auth-context.shared'
 
 export default function ProfileUpdatePage() {
@@ -134,13 +135,7 @@ export default function ProfileUpdatePage() {
 
                                 <div className="group/input md:col-span-2">
                                     <Label htmlFor="bio">Bio</Label>
-                                    <textarea
-                                        id="bio"
-                                        name="bio"
-                                        rows={4}
-                                        placeholder="Tell us about yourself..."
-                                        className="text-text placeholder:text-muted/50 focus:border-accent focus:ring-accent/20 w-full rounded-lg border border-black/10 bg-white px-4 py-3 transition-all focus:ring-2 focus:outline-none"
-                                    />
+                                    <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." />
                                 </div>
                             </div>
 
