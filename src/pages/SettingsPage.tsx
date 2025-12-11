@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import ChangePasswordCard from './settings/ChangePasswordCard'
 import Badge from '../components/ui/Badge'
 import Card from '../components/ui/Card'
 import Heading from '../components/ui/Heading'
 import Icon from '../components/ui/Icon'
+import ChangePasswordCard from './settings/ChangePasswordCard'
 
 type TabKey = 'password' | 'preferences' | 'notifications'
 type TabIcon = 'lock' | 'sliders' | 'bell'

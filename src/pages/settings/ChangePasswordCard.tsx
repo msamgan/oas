@@ -1,12 +1,12 @@
 import { useState } from 'react'
+import { changePassword, type ChangePasswordResult } from '../../api/profile'
+import Alert from '../../components/ui/Alert'
 import Card from '../../components/ui/Card'
 import Form from '../../components/ui/Form'
-import Label from '../../components/ui/Label'
-import Input from '../../components/ui/Input'
-import Required from '../../components/ui/Required'
 import FormSubmitButton from '../../components/ui/FormSubmitButton'
-import Alert from '../../components/ui/Alert'
-import { changePassword, type ChangePasswordResult } from '../../api/profile'
+import Input from '../../components/ui/Input'
+import Label from '../../components/ui/Label'
+import Required from '../../components/ui/Required'
 
 export default function ChangePasswordCard() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -14,10 +14,12 @@ export default function ChangePasswordCard() {
 
     async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
+        // Cache the form element before any awaits to avoid issues with React's synthetic event pooling
+        const form = e.currentTarget as HTMLFormElement
         setStatus('submitting')
         setMessage(null)
 
-        const fd = new FormData(e.currentTarget)
+        const fd = new FormData(form)
         const current_password = (fd.get('current_password') || '').toString()
         const new_password = (fd.get('new_password') || '').toString()
         const confirm_password = (fd.get('confirm_password') || '').toString()
@@ -48,7 +50,7 @@ export default function ChangePasswordCard() {
 
         setStatus('success')
         setMessage(res.message || 'Password updated successfully.')
-        ;(e.currentTarget as HTMLFormElement).reset()
+        form.reset()
         setTimeout(() => setStatus('idle'), 2000)
     }
 
@@ -123,9 +125,7 @@ export default function ChangePasswordCard() {
                 {status === 'error' && message && <Alert variant="error" message={message} className="mt-6 animate-[scale-in_0.3s_ease-out]" />}
 
                 {/* Success Message */}
-                {status === 'success' && message && (
-                    <Alert variant="success" message={message} className="mt-6 animate-[scale-in_0.3s_ease-out]" />
-                )}
+                {status === 'success' && message && <Alert variant="success" message={message} className="mt-6 animate-[scale-in_0.3s_ease-out]" />}
 
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                     <FormSubmitButton
