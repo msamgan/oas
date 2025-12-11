@@ -4,8 +4,8 @@ import Badge from '../components/ui/Badge'
 import Heading from '../components/ui/Heading'
 import Icon from '../components/ui/Icon'
 import Pagination from '../components/ui/Pagination'
-import { useAuth } from '../contexts/auth-context.shared'
 import { PERMISSIONS } from '../constants/permissions'
+import { useAuth } from '../contexts/auth-context.shared'
 
 type UiState = 'idle' | 'loading' | 'error' | 'ready' | 'empty'
 
@@ -181,9 +181,7 @@ function ContactMessagesPage() {
                     <Heading as="h1" variant="h2" className="mb-3">
                         Access denied
                     </Heading>
-                    <p className="text-muted max-w-2xl text-lg leading-relaxed">
-                        You do not have permission to view contact messages.
-                    </p>
+                    <p className="text-muted max-w-2xl text-lg leading-relaxed">You do not have permission to view contact messages.</p>
                 </div>
             </div>
         )

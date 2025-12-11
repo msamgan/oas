@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+import { ROUTES } from '../constants/routes'
 import { useAuth } from '../contexts/auth-context.shared'
 import Container from './ui/Container'
 import Icon from './ui/Icon'
@@ -14,7 +15,7 @@ function Header() {
             <Container className="flex items-center justify-between py-4">
                 <RouterLink
                     className="group text-text flex items-center gap-3 no-underline transition-transform duration-300 ease-out hover:scale-105"
-                    to="/"
+                    to={ROUTES.HOME}
                 >
                     <Logo />
                     <span className="font-extrabold tracking-[0.2px]">Orange Art Studio</span>
@@ -33,7 +34,7 @@ function Header() {
                 >
                     {!loading && isAuthenticated && (
                         <RouterLink
-                            to="/dashboard"
+                            to={ROUTES.DASHBOARD}
                             onClick={() => setIsMenuOpen(false)}
                             className="text-text inline-flex items-center gap-2 rounded-md px-3 py-2 font-semibold transition-colors hover:bg-black/5"
                             aria-label="Dashboard"
@@ -42,25 +43,29 @@ function Header() {
                             <Icon name="grid" />
                         </RouterLink>
                     )}
-                    <RouterLink to="/artists" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
+                    <RouterLink to={ROUTES.ARTISTS} onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         Artists
                     </RouterLink>
-                    <RouterLink to="/about" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
+                    <RouterLink to={ROUTES.ABOUT} onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         About
                     </RouterLink>
-                    <RouterLink to="/contact" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
+                    <RouterLink to={ROUTES.CONTACT} onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         Contact
                     </RouterLink>
                     {!loading &&
                         (isAuthenticated ? (
                             <></>
                         ) : (
-                            <RouterLink to="/sign-in" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
+                            <RouterLink
+                                to={ROUTES.SIGN_IN}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="oas-link oas-link-underline font-semibold"
+                            >
                                 Sign In
                             </RouterLink>
                         ))}
                     <RouterLink
-                        to="/submit-artist"
+                        to={ROUTES.SUBMIT_ARTIST}
                         onClick={() => setIsMenuOpen(false)}
                         className="inline-flex items-center rounded-lg bg-linear-to-r from-orange-500 to-orange-600 px-5 py-2.5 font-bold text-white shadow-md transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-orange-700 hover:shadow-lg focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none"
                     >

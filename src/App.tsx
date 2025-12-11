@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PublicLayout from './components/layouts/PublicLayout'
 import SidebarLayout from './components/layouts/SidebarLayout'
+import { ROUTES } from './constants/routes'
 import { AuthProvider } from './contexts/AuthContext'
 import AboutPage from './pages/AboutPage'
 import ArtDetailsPage from './pages/ArtDetailsPage'
@@ -23,14 +24,14 @@ function App() {
                 <Routes>
                     {/* Public routes with header/footer */}
                     <Route element={<PublicLayout />}>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/artists" element={<ArtistsPage />} />
-                        <Route path="/artists/:slug" element={<ArtistDetailsPage />} />
-                        <Route path="/art/:slug" element={<ArtDetailsPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/sign-in" element={<SignInPage />} />
-                        <Route path="/submit-artist" element={<ArtistSubmissionPage />} />
+                        <Route path={ROUTES.HOME} element={<Home />} />
+                        <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+                        <Route path={ROUTES.ARTISTS} element={<ArtistsPage />} />
+                        <Route path={ROUTES.ARTIST_DETAILS} element={<ArtistDetailsPage />} />
+                        <Route path={ROUTES.ART_DETAILS} element={<ArtDetailsPage />} />
+                        <Route path={ROUTES.CONTACT} element={<ContactPage />} />
+                        <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
+                        <Route path={ROUTES.SUBMIT_ARTIST} element={<ArtistSubmissionPage />} />
                     </Route>
 
                     {/* Protected routes with sidebar layout */}
@@ -41,11 +42,11 @@ function App() {
                             </ProtectedRoute>
                         }
                     >
-                        <Route path="/dashboard" element={<DashboardPage />} />
+                        <Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
                         {/* Add more protected routes here */}
-                        <Route path="/profile" element={<ProfileUpdatePage />} />
-                        <Route path="/settings" element={<SettingsPage />} />
-                        <Route path="/contact-messages" element={<ContactMessagesPage />} />
+                        <Route path={ROUTES.PROFILE} element={<ProfileUpdatePage />} />
+                        <Route path={ROUTES.SETTINGS} element={<SettingsPage />} />
+                        <Route path={ROUTES.CONTACT_MESSAGES} element={<ContactMessagesPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

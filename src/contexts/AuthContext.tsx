@@ -94,7 +94,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             if (Array.isArray(val)) {
                 for (const p of val) if (typeof p === 'string') perms.add(p)
             } else if (typeof val === 'string') {
-                val.split(',').map((s) => s.trim()).filter(Boolean).forEach((s) => perms.add(s))
+                val.split(',')
+                    .map((s) => s.trim())
+                    .filter(Boolean)
+                    .forEach((s) => perms.add(s))
             }
         }
         if (user && typeof user === 'object') {
@@ -106,10 +109,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return perms
     }, [state.user])
 
-    const hasPermission = useCallback(
-        (permission: string) => permissionsSet.has('*') || permissionsSet.has(permission),
-        [permissionsSet],
-    )
+    const hasPermission = useCallback((permission: string) => permissionsSet.has('*') || permissionsSet.has(permission), [permissionsSet])
 
     const value = useMemo<AuthContextValue>(
         () => ({

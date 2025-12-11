@@ -3,4 +3,4 @@ export const PERMISSIONS = {
 } as const
 
 export type PermissionKey = keyof typeof PERMISSIONS
-export type PermissionValue = typeof PERMISSIONS[PermissionKey]
+export type PermissionValue = (typeof PERMISSIONS)[PermissionKey]
