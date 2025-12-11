@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { submitContact } from '../api/contact'
 import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button.tsx'
@@ -18,18 +19,41 @@ function ContactPage() {
     const formRef = useRef<HTMLFormElement>(null)
     const contactInfoRef = useRef<HTMLDivElement>(null)
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        // This is a static site form placeholder. Replace with real handler/integration as needed.
         setError(null)
         setStatus('submitting')
+
+        const form = e.currentTarget
+        const formData = new FormData(form)
+
+        const payload = {
+            name: (formData.get('name') || '').toString().trim(),
+            email: (formData.get('email') || '').toString().trim(),
+            subject: (formData.get('subject') || '').toString().trim(),
+            message: (formData.get('message') || '').toString().trim(),
+        }
+
+        // basic client-side guard
+        if (!payload.name || !payload.email || !payload.message) {
+            setStatus('error')
+            setError('Please fill in your name, email, and message.')
+            return
+        }
+        const result = await submitContact(payload)
+
+        if (!result.ok) {
+            setStatus('error')
+            setError(result.message)
+            return
+        }
+
+        setStatus('success')
+        // Reset after a short delay to show success state
         setTimeout(() => {
-            setStatus('success')
-            setTimeout(() => {
-                setStatus('idle')
-                formRef.current?.reset()
-            }, 3000)
-        }, 700)
+            setStatus('idle')
+            formRef.current?.reset()
+        }, 2000)
     }
 
     useEffect(() => {
