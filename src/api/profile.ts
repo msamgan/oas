@@ -95,3 +95,43 @@ export async function updateProfile(payload: ProfilePayload): Promise<ProfileRes
 }
 
 export default updateProfile
+
+// SETTINGS: Change Password
+export type ChangePasswordPayload = {
+    current_password: string
+    new_password: string
+}
+
+export type ChangePasswordResult = { ok: true; message?: string } | { ok: false; message: string }
+
+export async function changePassword(payload: ChangePasswordPayload): Promise<ChangePasswordResult> {
+    const url = getApiUrl('profile/password')
+
+    try {
+        const res = await fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                ...getAuthHeaderFromStorage(),
+            },
+            body: JSON.stringify({
+                current_password: payload.current_password,
+                password: payload.new_password,
+            }),
+        })
+
+        const data = await res.json().catch(() => ({}) as never)
+
+        if (!res.ok) {
+            const message = (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Update failed with status ${res.status}`
+            return { ok: false, message }
+        }
+
+        const message: string | undefined = (data && (data.message || data.payload?.message || data.status)) || undefined
+        return { ok: true, message }
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Network error while updating your password.'
+        return { ok: false, message }
+    }
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/auth-context.shared'
+import Icon from '../ui/Icon.tsx'
 
 export default function SidebarFooter() {
     const { signOut, user } = useAuth()
@@ -70,6 +71,15 @@ export default function SidebarFooter() {
                                 />
                             </svg>
                             <span className="font-medium">Profile Settings</span>
+                        </Link>
+
+                        <Link
+                            to="/settings"
+                            onClick={() => setIsDropdownOpen(false)}
+                            className="text-text group flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-black/5"
+                        >
+                            <Icon name="sliders" size={20} className={`text-muted group-hover:text-accent h-5 w-5 transition-colors duration-200`} />
+                            <span className="font-medium">Settings</span>
                         </Link>
 
                         {/* Divider */}

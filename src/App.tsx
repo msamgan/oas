@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage'
 import DashboardPage from './pages/DashboardPage'
 import Home from './pages/Home'
 import ProfileUpdatePage from './pages/ProfileUpdatePage'
+import SettingsPage from './pages/SettingsPage'
 import SignInPage from './pages/SignInPage'
 import ProtectedRoute from './routes/ProtectedRoute'
 
@@ -42,6 +43,7 @@ function App() {
                         <Route path="/dashboard" element={<DashboardPage />} />
                         {/* Add more protected routes here */}
                         <Route path="/profile" element={<ProfileUpdatePage />} />
+                        <Route path="/settings" element={<SettingsPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

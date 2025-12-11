@@ -9,7 +9,6 @@ export default function SidebarNav() {
     return (
         <nav className="flex flex-1 flex-col gap-2">
             <div className="text-muted mb-2 px-3 text-xs font-bold tracking-wider uppercase">Menu</div>
-
             <Link
                 to="/dashboard"
                 className={`group flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 ease-out ${
