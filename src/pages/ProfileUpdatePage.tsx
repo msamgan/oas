@@ -102,14 +102,16 @@ export default function ProfileUpdatePage() {
 
                         <Form ref={formRef} onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                                <div className="group/input md:col-span-2">
+                                {/* Full Name */}
+                                <div className="group/input">
                                     <Label htmlFor="name">
                                         Full Name <Required />
                                     </Label>
-                                    <Input id="name" name="name" placeholder="Jane Doe" defaultValue={userName} required />
+                                    <Input id="name" name="name" placeholder="Jane Doe" defaultValue={userName} required className="w-full" />
                                 </div>
 
-                                <div className="group/input md:col-span-2">
+                                {/* Email Address */}
+                                <div className="group/input">
                                     <Label htmlFor="email">
                                         Email Address <Required />
                                     </Label>
@@ -120,22 +122,45 @@ export default function ProfileUpdatePage() {
                                         placeholder="jane@example.com"
                                         defaultValue={(user?.email as string) || ''}
                                         required
+                                        className="w-full"
                                     />
                                 </div>
 
+                                {/* Country Code */}
+                                <div className="group/input">
+                                    <Label htmlFor="countryCode">Country Code</Label>
+                                    <Input
+                                        id="countryCode"
+                                        name="countryCode"
+                                        type="tel"
+                                        placeholder="+1"
+                                        defaultValue="+1"
+                                        className="w-full"
+                                    />
+                                </div>
+
+                                {/* Phone Number */}
                                 <div className="group/input">
                                     <Label htmlFor="phone">Phone Number</Label>
-                                    <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567" />
+                                    <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" className="w-full" />
                                 </div>
 
+                                {/* Location */}
                                 <div className="group/input">
                                     <Label htmlFor="location">Location</Label>
-                                    <Input id="location" name="location" placeholder="City, Country" />
+                                    <Input id="location" name="location" placeholder="City, Country" className="w-full" />
                                 </div>
 
+                                {/* Website */}
+                                <div className="group/input">
+                                    <Label htmlFor="website">Website</Label>
+                                    <Input id="website" name="website" type="url" placeholder="https://yourwebsite.com" className="w-full" />
+                                </div>
+
+                                {/* Bio - Full Width */}
                                 <div className="group/input md:col-span-2">
                                     <Label htmlFor="bio">Bio</Label>
-                                    <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." />
+                                    <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." className="w-full" />
                                 </div>
                             </div>
 
