@@ -76,6 +76,9 @@ function ContactMessagesPage() {
     const [items, setItems] = useState<ContactMessage[]>([])
     const [page, setPage] = useState(1)
     const [perPage] = useState(15)
+    const [search, setSearch] = useState('')
+    const [debouncedSearch, setDebouncedSearch] = useState('')
+    const [status, setStatus] = useState<string>('all')
     const [pagination, setPagination] = useState<{
         currentPage: number
         perPage: number
@@ -85,12 +88,45 @@ function ContactMessagesPage() {
         to: number
     } | null>(null)
     const gridRef = useRef<HTMLUListElement>(null)
+    const prevSearchRef = useRef(debouncedSearch)
+    const prevStatusRef = useRef(status)
+
+    // Debounce search input (500ms delay)
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedSearch(search)
+        }, 500)
+
+        return () => clearTimeout(timer)
+    }, [search])
 
     useEffect(() => {
         let active = true
+
+        // Reset page when filters change
+        if (prevSearchRef.current !== debouncedSearch || prevStatusRef.current !== status) {
+            prevSearchRef.current = debouncedSearch
+            prevStatusRef.current = status
+            if (page !== 1) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
+                setPage(1)
+                return // Don't fetch yet, wait for page state to update
+            }
+        }
+
         ;(async () => {
             setState('loading')
-            const res = await listContactMessages(getAuthHeader, { page, perPage })
+            const params: { page: number; perPage: number; search?: string; status?: string } = { page, perPage }
+
+            if (debouncedSearch.trim()) {
+                params.search = debouncedSearch.trim()
+            }
+
+            if (status && status !== 'all') {
+                params.status = status
+            }
+
+            const res = await listContactMessages(getAuthHeader, params)
 
             if (!active) return
 
@@ -106,7 +142,7 @@ function ContactMessagesPage() {
         return () => {
             active = false
         }
-    }, [getAuthHeader, page, perPage])
+    }, [getAuthHeader, page, perPage, debouncedSearch, status])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -141,6 +177,130 @@ function ContactMessagesPage() {
                 <p className="text-muted max-w-2xl text-lg leading-relaxed">
                     Review messages submitted via the public contact form. Stay connected with artists, collectors, and art enthusiasts.
                 </p>
+            </div>
+
+            {/* Filters Section */}
+            <div className="mb-6 animate-[fade-in-up_0.6s_ease-out_0.1s_both]">
+                <div className="bg-surface/40 rounded-(--radius) border border-white/6 p-4 shadow-(--shadow-1) transition-all duration-300 hover:border-white/10">
+                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        {/* Search Bar */}
+                        <div className="relative flex-1 md:max-w-md">
+                            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg
+                                    className="text-muted h-5 w-5 transition-colors duration-200"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </div>
+                            <input
+                                type="text"
+                                value={search}
+                                onChange={(e) => {
+                                    setSearch(e.target.value)
+                                }}
+                                placeholder="Search messages by name, email, or subject..."
+                                className="text-text placeholder:text-muted focus:border-accent/50 focus:ring-accent/20 w-full rounded-sm border border-white/10 bg-white/5 py-2.5 pr-4 pl-10 text-sm transition-all duration-300 focus:bg-white/8 focus:ring-2 focus:outline-none"
+                            />
+                            {search && (
+                                <button
+                                    onClick={() => {
+                                        setSearch('')
+                                        setPage(1)
+                                    }}
+                                    className="text-muted hover:text-text absolute inset-y-0 right-0 flex items-center pr-3 transition-colors duration-200"
+                                >
+                                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Status Filter */}
+                        <div className="flex items-center gap-3">
+                            <label htmlFor="status-filter" className="text-muted text-sm font-medium whitespace-nowrap">
+                                Status:
+                            </label>
+                            <div className="relative">
+                                <select
+                                    id="status-filter"
+                                    value={status}
+                                    onChange={(e) => {
+                                        setStatus(e.target.value)
+                                        setPage(1) // Reset to first page on filter change
+                                    }}
+                                    className="text-text hover:border-accent/30 focus:border-accent/50 focus:ring-accent/20 w-full appearance-none rounded-[var(--radius-sm)] border border-white/10 bg-white/5 py-2.5 pr-10 pl-4 text-sm font-medium transition-all duration-300 focus:bg-white/8 focus:ring-2 focus:outline-none md:w-auto"
+                                >
+                                    <option value="all">All Messages</option>
+                                    <option value="submitted">Submitted</option>
+                                    <option value="responded">Responded</option>
+                                </select>
+                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <svg className="text-muted h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Active Filters Display */}
+                    {(search || status !== 'all') && (
+                        <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-white/6 pt-3">
+                            <span className="text-muted text-xs font-medium tracking-wider uppercase">Active Filters:</span>
+                            {search && (
+                                <span className="border-accent/20 bg-accent/10 text-accent inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium">
+                                    Search: "{search}"
+                                    <button
+                                        onClick={() => {
+                                            setSearch('')
+                                            setPage(1)
+                                        }}
+                                        className="hover:text-accent-2 transition-colors duration-200"
+                                    >
+                                        <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </span>
+                            )}
+                            {status !== 'all' && (
+                                <span className="border-accent/20 bg-accent/10 text-accent inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium">
+                                    Status: {status.charAt(0).toUpperCase() + status.slice(1)}
+                                    <button
+                                        onClick={() => {
+                                            setStatus('all')
+                                            setPage(1)
+                                        }}
+                                        className="hover:text-accent-2 transition-colors duration-200"
+                                    >
+                                        <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </span>
+                            )}
+                            <button
+                                onClick={() => {
+                                    setSearch('')
+                                    setStatus('all')
+                                    setPage(1)
+                                }}
+                                className="text-muted hover:text-accent ml-auto text-xs font-medium underline transition-colors duration-200"
+                            >
+                                Clear all filters
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Content */}

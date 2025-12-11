@@ -27,13 +27,17 @@ export type ListContactMessagesResult = { ok: true; data: ContactMessage[]; pagi
  */
 export async function listContactMessages(
     getAuthHeader?: () => Record<string, string>,
-    params?: { page?: number; perPage?: number },
+    params?: { page?: number; perPage?: number; search?: string; status?: string },
 ): Promise<ListContactMessagesResult> {
-    // Build URL with optional pagination params (page, per_page)
+    // Build URL with optional pagination and filter params
     const base = getApiUrl('contact/messages')
+
     const usp = new URLSearchParams()
     if (params?.page) usp.set('page', String(params.page))
     if (params?.perPage) usp.set('per_page', String(params.perPage))
+    if (params?.search) usp.set('search', params.search)
+    if (params?.status) usp.set('status', params.status)
+
     const url = usp.toString() ? `${base}?${usp.toString()}` : base
 
     try {
