@@ -19,7 +19,7 @@ export default function ProfileUpdatePage() {
     const [loadError, setLoadError] = useState<string | null>(null)
     const [formDefaults, setFormDefaults] = useState<{ [k: string]: string }>({})
     const formRef = useRef<HTMLFormElement>(null)
-    const { user } = useAuth()
+    const { user, updateUser } = useAuth()
 
     useEffect(() => {
         // Fetch fresh profile details using /users/{user:slug} and prefill the form
@@ -90,12 +90,8 @@ export default function ProfileUpdatePage() {
             return
         }
 
-        // Persist updated user info returned by API
-        try {
-            localStorage.setItem('user', JSON.stringify(result.user || {}))
-        } catch {
-            // ignore storage failures
-        }
+        // Update the user in the AuthContext
+        updateUser(result.user || {})
 
         setStatus('success')
         setTimeout(() => setStatus('idle'), 2000)

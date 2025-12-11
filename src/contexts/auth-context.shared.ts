@@ -19,6 +19,7 @@ export type AuthContextValue = AuthState & {
     signIn: (payload: SignInPayload) => Promise<{ ok: true } | { ok: false; message: string }>
     signOut: () => void
     getAuthHeader: () => Record<string, string>
+    updateUser: (user: AuthUser) => void
 }
 
 export const AuthContext = createContext<AuthContextValue | undefined>(undefined)

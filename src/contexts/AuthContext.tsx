@@ -71,6 +71,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setState({ user: null, token: null, tokenType: null, loading: false })
     }, [clear])
 
+    const updateUser = useCallback((user: AuthUser) => {
+        setState((prev) => ({ ...prev, user }))
+        localStorage.setItem('user', JSON.stringify(user || {}))
+    }, [])
+
     const getAuthHeader = useCallback<() => Record<string, string>>(() => {
         const headers: Record<string, string> = {}
         if (state.token) {
@@ -87,8 +92,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             signIn,
             signOut,
             getAuthHeader,
+            updateUser,
         }),
-        [state, signIn, signOut, getAuthHeader],
+        [state, signIn, signOut, getAuthHeader, updateUser],
     )
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

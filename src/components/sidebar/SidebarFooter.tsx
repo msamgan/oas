@@ -16,6 +16,8 @@ export default function SidebarFooter() {
 
     const userName = (user?.name as string) || (user?.email as string) || 'User'
     const userInitial = userName.charAt(0).toUpperCase()
+    const userRoles = user?.roles as string[] | undefined
+    const userRole = userRoles && userRoles.length > 0 ? userRoles[0] : 'User'
 
     return (
         <div className="border-t border-black/6 pt-4">
@@ -34,7 +36,7 @@ export default function SidebarFooter() {
                     {/* User Info */}
                     <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-semibold">{userName}</p>
-                        <p className="text-muted truncate text-xs">View Profile</p>
+                        <p className="text-muted truncate text-xs capitalize">{userRole}</p>
                     </div>
 
                     {/* Chevron Icon */}
