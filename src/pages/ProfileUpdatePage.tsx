@@ -118,7 +118,8 @@ export default function ProfileUpdatePage() {
                         </div>
 
                         <Form ref={formRef} onSubmit={handleSubmit}>
-                            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                            {/* First Row: Name, Email, Location */}
+                            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                                 {/* Full Name */}
                                 <div className="group/input">
                                     <Label htmlFor="name">
@@ -143,6 +144,17 @@ export default function ProfileUpdatePage() {
                                     />
                                 </div>
 
+                                {/* Location */}
+                                <div className="group/input">
+                                    <Label htmlFor="location">
+                                        Location <Required />
+                                    </Label>
+                                    <Input id="location" name="location" placeholder="City, Country" className="w-full" />
+                                </div>
+                            </div>
+
+                            {/* Second Row: Country Code, Phone, Website */}
+                            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                                 {/* Country Code */}
                                 <div className="group/input">
                                     <Label htmlFor="countryCode">Country Code</Label>
@@ -155,25 +167,17 @@ export default function ProfileUpdatePage() {
                                     <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" className="w-full" />
                                 </div>
 
-                                {/* Location */}
-                                <div className="group/input">
-                                    <Label htmlFor="location">
-                                        Location <Required />
-                                    </Label>
-                                    <Input id="location" name="location" placeholder="City, Country" className="w-full" />
-                                </div>
-
                                 {/* Website */}
                                 <div className="group/input">
                                     <Label htmlFor="website">Website</Label>
                                     <Input id="website" name="website" type="url" placeholder="https://yourwebsite.com" className="w-full" />
                                 </div>
+                            </div>
 
-                                {/* Bio - Full Width */}
-                                <div className="group/input md:col-span-2">
-                                    <Label htmlFor="bio">Bio</Label>
-                                    <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." className="w-full" />
-                                </div>
+                            {/* Bio - Full Width */}
+                            <div className="group/input">
+                                <Label htmlFor="bio">Bio</Label>
+                                <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." className="w-full" />
                             </div>
 
                             {/* Error Message */}
