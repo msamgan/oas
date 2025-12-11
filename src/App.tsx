@@ -7,6 +7,7 @@ import ArtDetailsPage from './pages/ArtDetailsPage'
 import ArtistDetailsPage from './pages/ArtistDetailsPage'
 import ArtistsPage from './pages/ArtistsPage'
 import ArtistSubmissionPage from './pages/ArtistSubmissionPage'
+import ContactMessagesPage from './pages/ContactMessagesPage'
 import ContactPage from './pages/ContactPage'
 import DashboardPage from './pages/DashboardPage'
 import Home from './pages/Home'
@@ -44,6 +45,7 @@ function App() {
                         {/* Add more protected routes here */}
                         <Route path="/profile" element={<ProfileUpdatePage />} />
                         <Route path="/settings" element={<SettingsPage />} />
+                        <Route path="/contact-messages" element={<ContactMessagesPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

@@ -1,7 +1,7 @@
 import type { SVGAttributes } from 'react'
 
 type IconProps = SVGAttributes<SVGSVGElement> & {
-    name: 'location' | 'menu' | 'close' | 'grid' | 'masonry' | 'search' | 'lock' | 'sliders' | 'bell'
+    name: 'location' | 'menu' | 'close' | 'grid' | 'masonry' | 'search' | 'lock' | 'sliders' | 'bell' | 'mail' | 'user' | 'at-sign' | 'clock'
     size?: number
 }
 
@@ -100,6 +100,34 @@ function Icon({ name, size = 24, className, ...rest }: IconProps) {
             <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
                 <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M13.73 21a2 2 0 01-3.46 0" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+        ),
+        mail: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <path
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+            </svg>
+        ),
+        user: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <path d="M20 21a8 8 0 10-16 0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="12" cy="7" r="4" strokeWidth="2" />
+            </svg>
+        ),
+        'at-sign': (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <path d="M16 8a4 4 0 11-2.35-3.64" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 8v5a2 2 0 004 0V8a8 8 0 10-3.17 6.36" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        clock: (
+            <svg className={cn(baseClasses, className)} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" {...rest}>
+                <circle cx="12" cy="12" r="9" strokeWidth="2" />
+                <path d="M12 7v5l3 3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         ),
     }
