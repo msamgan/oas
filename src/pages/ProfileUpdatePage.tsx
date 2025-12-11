@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
 import Card from '../components/ui/Card'
 import Form from '../components/ui/Form'
@@ -12,12 +13,28 @@ import { useAuth } from '../contexts/auth-context.shared'
 
 export default function ProfileUpdatePage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+    const [error, setError] = useState<string | null>(null)
     const formRef = useRef<HTMLFormElement>(null)
     const { user } = useAuth()
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
+        setError(null)
         setStatus('submitting')
+
+        const form = e.currentTarget
+        const formData = new FormData(form)
+
+        // Basic client-side validation
+        const name = (formData.get('name') || '').toString().trim()
+        const email = (formData.get('email') || '').toString().trim()
+
+        if (!name || !email) {
+            setStatus('error')
+            setError('Please fill in your name and email address.')
+            return
+        }
+
         // Placeholder: integrate with API when available
         await new Promise((r) => setTimeout(r, 800))
         setStatus('success')
@@ -129,14 +146,7 @@ export default function ProfileUpdatePage() {
                                 {/* Country Code */}
                                 <div className="group/input">
                                     <Label htmlFor="countryCode">Country Code</Label>
-                                    <Input
-                                        id="countryCode"
-                                        name="countryCode"
-                                        type="tel"
-                                        placeholder="+1"
-                                        defaultValue="+1"
-                                        className="w-full"
-                                    />
+                                    <Input id="countryCode" name="countryCode" type="tel" placeholder="+1" defaultValue="+1" className="w-full" />
                                 </div>
 
                                 {/* Phone Number */}
@@ -147,7 +157,9 @@ export default function ProfileUpdatePage() {
 
                                 {/* Location */}
                                 <div className="group/input">
-                                    <Label htmlFor="location">Location</Label>
+                                    <Label htmlFor="location">
+                                        Location <Required />
+                                    </Label>
                                     <Input id="location" name="location" placeholder="City, Country" className="w-full" />
                                 </div>
 
@@ -164,21 +176,14 @@ export default function ProfileUpdatePage() {
                                 </div>
                             </div>
 
-                            {/* Success Message with enhanced styling */}
+                            {/* Error Message */}
+                            {status === 'error' && error && (
+                                <Alert variant="error" message={error} className="mt-6 animate-[scale-in_0.3s_ease-out]" />
+                            )}
+
+                            {/* Success Message */}
                             {status === 'success' && (
-                                <div className="animate-scale-in mt-6 flex items-center gap-3 rounded-lg border border-green-200/60 bg-linear-to-r from-green-50 to-emerald-50 px-4 py-3 shadow-sm">
-                                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500">
-                                        <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <p className="text-sm font-semibold text-green-800">Profile updated successfully!</p>
-                                </div>
+                                <Alert variant="success" message="Profile updated successfully!" className="mt-6 animate-[scale-in_0.3s_ease-out]" />
                             )}
 
                             <div className="mt-6 flex flex-wrap items-center gap-3">
