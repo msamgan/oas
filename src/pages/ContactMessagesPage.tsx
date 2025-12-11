@@ -5,6 +5,7 @@ import Heading from '../components/ui/Heading'
 import Icon from '../components/ui/Icon'
 import Pagination from '../components/ui/Pagination'
 import { useAuth } from '../contexts/auth-context.shared'
+import { PERMISSIONS } from '../constants/permissions'
 
 type UiState = 'idle' | 'loading' | 'error' | 'ready' | 'empty'
 
@@ -70,7 +71,8 @@ function MessageItem({ msg, index }: { msg: ContactMessage; index: number }) {
 }
 
 function ContactMessagesPage() {
-    const { getAuthHeader } = useAuth()
+    const { getAuthHeader, hasPermission } = useAuth()
+    const canView = hasPermission(PERMISSIONS.CONTACT_MESSAGES_VIEW)
     const [state, setState] = useState<UiState>('idle')
     const [error, setError] = useState<string | null>(null)
     const [items, setItems] = useState<ContactMessage[]>([])
@@ -102,6 +104,16 @@ function ContactMessagesPage() {
 
     useEffect(() => {
         let active = true
+
+        if (!canView) {
+            // reset state when user lacks permission
+            setItems([])
+            setPagination(null)
+            setState('idle')
+            return () => {
+                active = false
+            }
+        }
 
         // Reset page when filters change
         if (prevSearchRef.current !== debouncedSearch || prevStatusRef.current !== status) {
@@ -142,7 +154,7 @@ function ContactMessagesPage() {
         return () => {
             active = false
         }
-    }, [getAuthHeader, page, perPage, debouncedSearch, status])
+    }, [getAuthHeader, page, perPage, debouncedSearch, status, canView])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -161,6 +173,21 @@ function ContactMessagesPage() {
 
         return () => observer.disconnect()
     }, [items])
+
+    if (!canView) {
+        return (
+            <div className="min-h-screen">
+                <div className="animate-fade-in-up mb-8">
+                    <Heading as="h1" variant="h2" className="mb-3">
+                        Access denied
+                    </Heading>
+                    <p className="text-muted max-w-2xl text-lg leading-relaxed">
+                        You do not have permission to view contact messages.
+                    </p>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="min-h-screen">

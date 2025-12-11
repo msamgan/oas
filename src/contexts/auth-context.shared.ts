@@ -20,6 +20,7 @@ export type AuthContextValue = AuthState & {
     signOut: () => void
     getAuthHeader: () => Record<string, string>
     updateUser: (user: AuthUser) => void
+    hasPermission: (permission: string) => boolean
 }
 
 export const AuthContext = createContext<AuthContextValue | undefined>(undefined)

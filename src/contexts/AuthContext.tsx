@@ -85,6 +85,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return headers
     }, [state.token, state.tokenType])
 
+    // derive permissions set from user payload in a tolerant way
+    const permissionsSet = useMemo<Set<string>>(() => {
+        const perms = new Set<string>()
+        const user = state.user as unknown as Record<string, unknown> | null
+        const tryAdd = (val: unknown) => {
+            if (!val) return
+            if (Array.isArray(val)) {
+                for (const p of val) if (typeof p === 'string') perms.add(p)
+            } else if (typeof val === 'string') {
+                val.split(',').map((s) => s.trim()).filter(Boolean).forEach((s) => perms.add(s))
+            }
+        }
+        if (user && typeof user === 'object') {
+            tryAdd((user as any).permissions)
+            tryAdd((user as any).scopes)
+            tryAdd((user as any).abilities)
+            tryAdd((user as any).perms)
+        }
+        return perms
+    }, [state.user])
+
+    const hasPermission = useCallback(
+        (permission: string) => permissionsSet.has('*') || permissionsSet.has(permission),
+        [permissionsSet],
+    )
+
     const value = useMemo<AuthContextValue>(
         () => ({
             ...state,
@@ -93,8 +119,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             signOut,
             getAuthHeader,
             updateUser,
+            hasPermission,
         }),
-        [state, signIn, signOut, getAuthHeader, updateUser],
+        [state, signIn, signOut, getAuthHeader, updateUser, hasPermission],
     )
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
