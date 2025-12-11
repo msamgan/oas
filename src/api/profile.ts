@@ -1,5 +1,5 @@
-import { getApiUrl } from '../lib/methods'
 import type { AuthUser } from '../contexts/auth-context.shared'
+import { getApiUrl } from '../lib/methods'
 
 export type ProfilePayload = {
     name: string
@@ -41,8 +41,7 @@ export async function getUserBySlug(slug: string): Promise<GetUserBySlugResult> 
         const data = await res.json().catch(() => ({}) as never)
 
         if (!res.ok) {
-            const message =
-                (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Fetch failed with status ${res.status}`
+            const message = (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Fetch failed with status ${res.status}`
             return { ok: false, message }
         }
 
@@ -82,8 +81,7 @@ export async function updateProfile(payload: ProfilePayload): Promise<ProfileRes
         const data = await res.json().catch(() => ({}) as never)
 
         if (!res.ok) {
-            const message =
-                (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Update failed with status ${res.status}`
+            const message = (data && (data.message || data.error || data.errors?.[0] || data.detail)) || `Update failed with status ${res.status}`
             return { ok: false, message }
         }
 

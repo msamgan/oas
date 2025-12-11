@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { getUserBySlug, updateProfile, type ProfilePayload } from '../api/profile'
 import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
 import Card from '../components/ui/Card'
@@ -10,7 +11,6 @@ import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Textarea from '../components/ui/Textarea.tsx'
 import { useAuth } from '../contexts/auth-context.shared'
-import { updateProfile, type ProfilePayload, getUserBySlug } from '../api/profile'
 
 export default function ProfileUpdatePage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -28,7 +28,6 @@ export default function ProfileUpdatePage() {
             (raw?.slug as string | undefined) || (raw?.username as string | undefined) || (raw?.userName as string | undefined)
 
         if (!slug) return
-
 
         getUserBySlug(slug)
             .then((res) => {
@@ -234,9 +233,9 @@ export default function ProfileUpdatePage() {
                             </div>
 
                             {/* Second Row: Country Code, Phone, Website */}
-                            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+                            <div className="grid grid-cols-1 gap-5 md:grid-cols-6">
                                 {/* Country Code */}
-                                <div className="group/input">
+                                <div className="group/input md:col-span-1">
                                     <Label htmlFor="countryCode">Country Code</Label>
                                     <Input
                                         id="countryCode"
@@ -249,7 +248,7 @@ export default function ProfileUpdatePage() {
                                 </div>
 
                                 {/* Phone Number */}
-                                <div className="group/input">
+                                <div className="group/input md:col-span-2">
                                     <Label htmlFor="phone">Phone Number</Label>
                                     <Input
                                         id="phone"
@@ -262,7 +261,7 @@ export default function ProfileUpdatePage() {
                                 </div>
 
                                 {/* Website */}
-                                <div className="group/input">
+                                <div className="group/input md:col-span-3">
                                     <Label htmlFor="website">Website</Label>
                                     <Input
                                         id="website"
