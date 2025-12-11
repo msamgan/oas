@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Alert from '../components/ui/Alert'
 import Badge from '../components/ui/Badge'
 import Card from '../components/ui/Card'
@@ -10,12 +10,50 @@ import Label from '../components/ui/Label'
 import Required from '../components/ui/Required'
 import Textarea from '../components/ui/Textarea.tsx'
 import { useAuth } from '../contexts/auth-context.shared'
+import { updateProfile, type ProfilePayload, getUserBySlug } from '../api/profile'
 
 export default function ProfileUpdatePage() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
     const [error, setError] = useState<string | null>(null)
+    const [loadingProfile, setLoadingProfile] = useState<boolean>(true)
+    const [loadError, setLoadError] = useState<string | null>(null)
+    const [formDefaults, setFormDefaults] = useState<{ [k: string]: string }>({})
     const formRef = useRef<HTMLFormElement>(null)
     const { user } = useAuth()
+
+    useEffect(() => {
+        // Fetch fresh profile details using /users/{user:slug} and prefill the form
+        const raw = user as Record<string, unknown> | null
+        const slug: string | undefined =
+            (raw?.slug as string | undefined) || (raw?.username as string | undefined) || (raw?.userName as string | undefined)
+
+        if (!slug) return
+
+
+        getUserBySlug(slug)
+            .then((res) => {
+                if (!res.ok) {
+                    setLoadError(res.message)
+                    return
+                }
+                const u = (res.user || {}) as Record<string, unknown>
+                const nextDefaults = {
+                    name: (u.name as string) || '',
+                    email: (u.email as string) || '',
+                    location: (u.location as string) || '',
+                    countryCode: (u.country_code as string) || (u.countryCode as string) || '',
+                    phone: (u.phone_number as string) || (u.phone as string) || '',
+                    website: (u.website as string) || (u.url as string) || '',
+                    bio: (u.bio as string) || (u.about as string) || '',
+                }
+                setFormDefaults(nextDefaults)
+            })
+            .catch((e: unknown) => {
+                const msg = e instanceof Error ? e.message : 'Failed to load your profile.'
+                setLoadError(msg)
+            })
+            .finally(() => setLoadingProfile(false))
+    }, [user])
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -28,15 +66,38 @@ export default function ProfileUpdatePage() {
         // Basic client-side validation
         const name = (formData.get('name') || '').toString().trim()
         const email = (formData.get('email') || '').toString().trim()
+        const location = (formData.get('location') || '').toString().trim()
 
-        if (!name || !email) {
+        if (!name || !email || !location) {
             setStatus('error')
-            setError('Please fill in your name and email address.')
+            setError('Please fill in your name, email address, and location.')
             return
         }
 
-        // Placeholder: integrate with API when available
-        await new Promise((r) => setTimeout(r, 800))
+        const payload: ProfilePayload = {
+            name,
+            email,
+            location,
+            country_code: (formData.get('countryCode') || '').toString().trim() || undefined,
+            phone_number: (formData.get('phone') || '').toString().trim() || undefined,
+            website: (formData.get('website') || '').toString().trim() || undefined,
+            bio: (formData.get('bio') || '').toString().trim() || undefined,
+        }
+
+        const result = await updateProfile(payload)
+        if (!result.ok) {
+            setStatus('error')
+            setError(result.message)
+            return
+        }
+
+        // Persist updated user info returned by API
+        try {
+            localStorage.setItem('user', JSON.stringify(result.user || {}))
+        } catch {
+            // ignore storage failures
+        }
+
         setStatus('success')
         setTimeout(() => setStatus('idle'), 2000)
     }
@@ -117,7 +178,12 @@ export default function ProfileUpdatePage() {
                             </div>
                         </div>
 
-                        <Form ref={formRef} onSubmit={handleSubmit}>
+                        <Form
+                            ref={formRef}
+                            onSubmit={handleSubmit}
+                            // Force re-mount of inputs so defaultValue takes effect after async load
+                            key={JSON.stringify(formDefaults)}
+                        >
                             {/* First Row: Name, Email, Location */}
                             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                                 {/* Full Name */}
@@ -125,7 +191,14 @@ export default function ProfileUpdatePage() {
                                     <Label htmlFor="name">
                                         Full Name <Required />
                                     </Label>
-                                    <Input id="name" name="name" placeholder="Jane Doe" defaultValue={userName} required className="w-full" />
+                                    <Input
+                                        id="name"
+                                        name="name"
+                                        placeholder="Jane Doe"
+                                        defaultValue={formDefaults.name ?? userName}
+                                        required
+                                        className="w-full"
+                                    />
                                 </div>
 
                                 {/* Email Address */}
@@ -138,7 +211,7 @@ export default function ProfileUpdatePage() {
                                         name="email"
                                         type="email"
                                         placeholder="jane@example.com"
-                                        defaultValue={(user?.email as string) || ''}
+                                        defaultValue={formDefaults.email ?? ((user?.email as string) || '')}
                                         required
                                         className="w-full"
                                     />
@@ -149,7 +222,14 @@ export default function ProfileUpdatePage() {
                                     <Label htmlFor="location">
                                         Location <Required />
                                     </Label>
-                                    <Input id="location" name="location" placeholder="City, Country" className="w-full" />
+                                    <Input
+                                        id="location"
+                                        name="location"
+                                        placeholder="City, Country"
+                                        defaultValue={formDefaults.location ?? ''}
+                                        className="w-full"
+                                        required
+                                    />
                                 </div>
                             </div>
 
@@ -158,27 +238,58 @@ export default function ProfileUpdatePage() {
                                 {/* Country Code */}
                                 <div className="group/input">
                                     <Label htmlFor="countryCode">Country Code</Label>
-                                    <Input id="countryCode" name="countryCode" type="tel" placeholder="+1" defaultValue="+1" className="w-full" />
+                                    <Input
+                                        id="countryCode"
+                                        name="countryCode"
+                                        type="tel"
+                                        placeholder="+1"
+                                        defaultValue={formDefaults.countryCode ?? ''}
+                                        className="w-full"
+                                    />
                                 </div>
 
                                 {/* Phone Number */}
                                 <div className="group/input">
                                     <Label htmlFor="phone">Phone Number</Label>
-                                    <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" className="w-full" />
+                                    <Input
+                                        id="phone"
+                                        name="phone"
+                                        type="tel"
+                                        placeholder="(555) 123-4567"
+                                        defaultValue={formDefaults.phone ?? ''}
+                                        className="w-full"
+                                    />
                                 </div>
 
                                 {/* Website */}
                                 <div className="group/input">
                                     <Label htmlFor="website">Website</Label>
-                                    <Input id="website" name="website" type="url" placeholder="https://yourwebsite.com" className="w-full" />
+                                    <Input
+                                        id="website"
+                                        name="website"
+                                        type="url"
+                                        placeholder="https://yourwebsite.com"
+                                        defaultValue={formDefaults.website ?? ''}
+                                        className="w-full"
+                                    />
                                 </div>
                             </div>
 
                             {/* Bio - Full Width */}
                             <div className="group/input">
                                 <Label htmlFor="bio">Bio</Label>
-                                <Textarea id="bio" name="bio" rows={4} placeholder="Tell us about yourself..." className="w-full" />
+                                <Textarea
+                                    id="bio"
+                                    name="bio"
+                                    rows={4}
+                                    placeholder="Tell us about yourself..."
+                                    defaultValue={formDefaults.bio ?? ''}
+                                    className="w-full"
+                                />
                             </div>
+
+                            {/* Profile Load Error */}
+                            {loadError && <Alert variant="error" message={loadError} className="mt-6 animate-[scale-in_0.3s_ease-out]" />}
 
                             {/* Error Message */}
                             {status === 'error' && error && (
@@ -192,10 +303,10 @@ export default function ProfileUpdatePage() {
 
                             <div className="mt-6 flex flex-wrap items-center gap-3">
                                 <FormSubmitButton
-                                    status={status}
+                                    status={loadingProfile ? 'submitting' : status}
                                     labels={{
-                                        idle: 'Save Changes',
-                                        submitting: 'Saving...',
+                                        idle: loadingProfile ? 'Loading...' : 'Save Changes',
+                                        submitting: loadingProfile ? 'Loading...' : 'Saving...',
                                         success: 'Saved!',
                                         error: 'Save Changes',
                                     }}
