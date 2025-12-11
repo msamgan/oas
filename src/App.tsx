@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Footer from './components/Footer'
-import Header from './components/Header'
+import PublicLayout from './components/layouts/PublicLayout'
+import SidebarLayout from './components/layouts/SidebarLayout'
 import { AuthProvider } from './contexts/AuthContext'
 import AboutPage from './pages/AboutPage'
 import ArtDetailsPage from './pages/ArtDetailsPage'
@@ -17,26 +17,31 @@ function App() {
     return (
         <AuthProvider>
             <BrowserRouter>
-                <Header />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/artists" element={<ArtistsPage />} />
-                    <Route path="/artists/:slug" element={<ArtistDetailsPage />} />
-                    <Route path="/art/:slug" element={<ArtDetailsPage />} />
-                    <Route path="/contact" element={<ContactPage />} />
-                    <Route path="/sign-in" element={<SignInPage />} />
+                    {/* Public routes with header/footer */}
+                    <Route element={<PublicLayout />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/artists" element={<ArtistsPage />} />
+                        <Route path="/artists/:slug" element={<ArtistDetailsPage />} />
+                        <Route path="/art/:slug" element={<ArtDetailsPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/sign-in" element={<SignInPage />} />
+                        <Route path="/submit-artist" element={<ArtistSubmissionPage />} />
+                    </Route>
+
+                    {/* Protected routes with sidebar layout */}
                     <Route
-                        path="/dashboard"
                         element={
                             <ProtectedRoute>
-                                <DashboardPage />
+                                <SidebarLayout />
                             </ProtectedRoute>
                         }
-                    />
-                    <Route path="/submit-artist" element={<ArtistSubmissionPage />} />
+                    >
+                        <Route path="/dashboard" element={<DashboardPage />} />
+                        {/* Add more protected routes here */}
+                    </Route>
                 </Routes>
-                <Footer />
             </BrowserRouter>
         </AuthProvider>
     )

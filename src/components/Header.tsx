@@ -38,6 +38,17 @@ function Header() {
                     className={`flex items-center gap-[18px] max-md:absolute max-md:top-full max-md:right-0 max-md:left-0 max-md:flex-col max-md:gap-3 max-md:border-b max-md:border-black/6 max-md:bg-[rgba(255,255,255,0.98)] max-md:p-5 max-md:shadow-lg max-md:backdrop-blur-xl max-md:transition-all max-md:duration-300 max-md:ease-out ${isMenuOpen ? 'max-md:pointer-events-auto max-md:translate-y-0 max-md:opacity-100' : 'max-md:pointer-events-none max-md:-translate-y-full max-md:opacity-0'}`}
                     aria-label="Primary"
                 >
+                    {!loading && isAuthenticated && (
+                        <RouterLink
+                            to="/dashboard"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-text inline-flex items-center gap-2 rounded-md px-3 py-2 font-semibold transition-colors hover:bg-black/5"
+                            aria-label="Dashboard"
+                            title="Dashboard"
+                        >
+                            <Icon name="grid" />
+                        </RouterLink>
+                    )}
                     <RouterLink to="/artists" onClick={() => setIsMenuOpen(false)} className="oas-link oas-link-underline font-semibold">
                         Artists
                     </RouterLink>
